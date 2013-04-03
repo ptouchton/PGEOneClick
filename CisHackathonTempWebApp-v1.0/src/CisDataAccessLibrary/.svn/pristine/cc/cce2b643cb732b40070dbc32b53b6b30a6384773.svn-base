@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2012/04/cis/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd">
+	<xsd:import schemaLocation="../../_2010/_07/PodId.xsd"
+		namespace="http://www.pgn.com/2010/07/cis/xsd">
+	</xsd:import>
+	<xsd:complexType name="MeterDto">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="podId"
+				type="bons0:PodId">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="mfgCode"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="serialNumber"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="configCode"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="sealColor"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

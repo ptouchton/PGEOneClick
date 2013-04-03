@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisPaymentExport1_CisPaymentHttp_Service" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/v1/cis/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:import location="CisPayment.wsdl" namespace="http://www.pgn.com/v1/cis/inf"/>
+    <wsdl:binding name="CisPaymentServiceBinding" type="bons0:CisPayment">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getLastPayment">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getLastPaymentRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLastPaymentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="paymentNotFoundFault">
+        <soap:fault name="paymentNotFoundFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPaymentHistory">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getPaymentHistoryRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPaymentHistoryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="paymentNotFoundFault">
+        <soap:fault name="paymentNotFoundFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CisPaymentService">
+    <wsdl:port binding="bons1:CisPaymentServiceBinding" name="CisPaymentServicePort">
+      <soap:address location="http://localhost:9081/CisPaymentWeb-v1/CisPaymentService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

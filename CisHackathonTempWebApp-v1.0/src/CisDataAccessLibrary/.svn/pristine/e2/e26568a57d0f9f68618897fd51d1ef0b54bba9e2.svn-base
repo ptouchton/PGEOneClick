@@ -1,0 +1,30 @@
+<jaxws:bindings
+	wsdlLocation="file:../wsdl/v1/CisDelinquency.wsdl"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
+	
+	<!-- customize the generated fault class names -->
+	
+	<!-- getDelinquencyRules -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisDelinquency']/wsdl:operation[@name='getDelinquencyRules']/wsdl:fault[@name='recordNotFound']">
+		<jaxws:class name="RecordNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisDelinquency']/wsdl:operation[@name='getDelinquencyRules']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getDelinquencyNotice -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisDelinquency']/wsdl:operation[@name='getDelinquencyNotice']/wsdl:fault[@name='recordNotFound']">
+		<jaxws:class name="RecordNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisDelinquency']/wsdl:operation[@name='getDelinquencyNotice']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getPastDueBuckets -->	
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisDelinquency']/wsdl:operation[@name='getPastDueBuckets']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>		
+</jaxws:bindings>

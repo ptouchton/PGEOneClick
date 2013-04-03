@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons5="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="NameDto.xsd"/>
+	<xsd:include schemaLocation="EmailAddress.xsd"/>
+
+	<xsd:complexType name="CustomerDto">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="name" type="bons5:NameDto">
+				<xsd:annotation>
+          <xsd:documentation>Name of the customer</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="spouseName" type="xsd:string">
+				<xsd:annotation>
+          <xsd:documentation>Spouse name of the customer</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="employer" type="xsd:string">
+				<xsd:annotation>
+          <xsd:documentation>Employer name</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="hostile" type="xsd:string">
+				<xsd:annotation>
+          <xsd:documentation>Hostile code is a enumeration of hostile codes. Possible values are:&#13;
+&#13;
+T - Telephone Threat&#13;
+V - Verbal Abuse/Threat of Harm&#13;
+P - Physical Contact&#13;
+I -  Intimidation/Physical&#13;
+W - Weapon&#13;
+D -  Drugs&#13;
+A -  Animal/Dog&#13;
+ &#13;
+&#13;
+</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="startDate" type="xsd:dateTime">
+				<xsd:annotation>
+          <xsd:documentation>Start date</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="birthDate" type="xsd:dateTime">
+				<xsd:annotation>
+          <xsd:documentation>Birth date</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="payByCheck" type="xsd:boolean">
+				<xsd:annotation>
+          <xsd:documentation>Flag to indicate if the customer can pay by check. If they have  a bad credit history, some customers may not be allowed to pay by check.</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="emailAddress" type="bons5:EmailAddress">
+				<xsd:annotation>
+          <xsd:documentation>The customer's email address.</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

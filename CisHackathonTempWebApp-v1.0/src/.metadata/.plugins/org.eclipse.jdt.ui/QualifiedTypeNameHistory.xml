@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.annotation.Resource"/>
+<fullyQualifiedTypeName name="com.pgn._2010._07.fault.xsd.ServiceFault"/>
+<fullyQualifiedTypeName name="com.pgn.utils.dataaccess.PGEDataAccess"/>
+<fullyQualifiedTypeName name="java.sql.CallableStatement"/>
+<fullyQualifiedTypeName name="javax.sql.DataSource"/>
+<fullyQualifiedTypeName name="com.pgn._2010._07.common.xsd.ServiceResponse"/>
+<fullyQualifiedTypeName name="com.pgn.util.logging.PGELogger"/>
+<fullyQualifiedTypeName name="java.sql.Types"/>
+<fullyQualifiedTypeName name="com.pgn.utils.DateUtils"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="com.pgn.utils.dataaccess.DataAccessException"/>
+<fullyQualifiedTypeName name="com.pgn.v1.cis.dao.CisHackathonTempDao"/>
+</qualifiedTypeNameHistroy>

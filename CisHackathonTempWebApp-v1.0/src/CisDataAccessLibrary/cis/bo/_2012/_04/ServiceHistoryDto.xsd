@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2012/04/cis/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="ServiceHistoryDto">
+		<xsd:annotation>
+      <xsd:documentation>Historical data for a point of service on a premises</xsd:documentation>
+    </xsd:annotation>
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="serviceNumber"
+				type="xsd:int">
+				<xsd:annotation>
+          <xsd:documentation>Unique identifier at premises identifying the service</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="serviceType"
+				type="xsd:string">
+				<xsd:annotation>
+          <xsd:documentation>Type of Service</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="category"
+				type="xsd:string">
+				<xsd:annotation>
+          <xsd:documentation>The service category code.</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="action"
+				type="xsd:string">
+				<xsd:annotation>
+          <xsd:documentation>Code to identify the action performed.</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="actionDate"
+				type="xsd:dateTime">
+				<xsd:annotation>
+          <xsd:documentation>Date the action occurred on the service.</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="reading"
+				type="xsd:double">
+				<xsd:annotation>
+          <xsd:documentation>Reading on the meter for this service category.</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="readingType"
+				type="xsd:string">
+				<xsd:annotation>
+          <xsd:documentation>The reading type code.</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="consumption"
+				type="xsd:double">
+				<xsd:annotation>
+          <xsd:documentation>Consumption between readings.</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="daysOfService"
+				type="xsd:int">
+				<xsd:annotation>
+          <xsd:documentation>Days of service between readings.</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="reasonCode"
+				type="xsd:string">
+				<xsd:annotation>
+          <xsd:documentation>The reason for the reading</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="chargeDate"
+				type="xsd:dateTime">
+				<xsd:annotation>
+          <xsd:documentation>Charge date for this reading record.</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="inventoryCode"
+				type="xsd:string">
+				<xsd:annotation>
+          <xsd:documentation>The meter inventory code</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="multiplier"
+				type="xsd:double">
+				<xsd:annotation>
+          <xsd:documentation>Multiplier used to determine the usage/consumption.</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="rateCode"
+				type="xsd:string">
+				<xsd:annotation>
+          <xsd:documentation>The service rate code.</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="units" type="xsd:double">
+				<xsd:annotation>
+          <xsd:documentation>This is used to determine the billing units for unmetered services</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="meterSerialNumber"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="meterMfgCode"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="reasonDescription"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="actionCode"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="actionType"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="customerCode"
+				type="xsd:int">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

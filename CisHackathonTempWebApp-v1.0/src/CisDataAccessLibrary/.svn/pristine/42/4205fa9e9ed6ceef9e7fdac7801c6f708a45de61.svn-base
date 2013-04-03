@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisDepositService" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns:Port_0="http://www.pgn.com/v1/cis/inf" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://www.pgn.com/v1/cis/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="CisDeposit.wsdl" namespace="http://www.pgn.com/v1/cis/inf"/>
+  <wsdl:binding name="CisDepositServiceBinding"
+  	type="Port_0:CisDeposit">
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="getInstallmentPlan">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="getInstallmentPlanRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getInstallmentPlanResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="hasDepositOwing">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="hasDepositOwingRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="hasDepositOwingResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getDepositBalance">
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v1/cis/wsdl/getDepositBalance" />
+  		<wsdl:input name="getDepositBalanceRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getDepositBalanceResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault use="literal" name="serviceFault" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CisDepositService">
+    <wsdl:port binding="this:CisDepositServiceBinding" name="CisDepositServicePort">
+      <soap:address location="http://localhost:9080/CisDepositWeb-v1/CisDepositService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisBilling" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons2="http://www.pgn.com/2010/07/cis/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/2010/07/fault/xsd">
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/BillingNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/BillingCycleDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AccountNumberDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/BillingCycleDueDayRangesDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/BillCalendarDto.xsd"/>           
+      <xsd:element name="getBillingCycleDueDayRanges">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="beginDate" nillable="true" type="xsd:dateTime">
+              <xsd:annotation>
+                <xsd:documentation>The start date to begin looking at the Calendar table to derive the range</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="numberOfOccurrences" nillable="true" type="xsd:int">
+              <xsd:annotation>
+                <xsd:documentation>The number of periods (e.g. 12) to use to determine the day range</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getBillingCycleDueDayRangesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="billingCycleDueDayRanges" nillable="true" type="bons2:BillingCycleDueDayRangesDto">
+              <xsd:annotation>
+                <xsd:documentation>A list of due day ranges for cycles 01-21</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getBillingCycleDueDayRanges_serviceFault" type="bons1:ServiceFault"/>
+      <xsd:element name="getBillingCalendar">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="billingCycle" nillable="true" type="bons2:BillingCycleDto">
+              <xsd:annotation>
+                <xsd:documentation>The CIS Billing Cycle (e.g. 01, 02)</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+                        <xsd:element name="beginDate" nillable="true" type="xsd:dateTime"/>
+                        <xsd:element name="numberOfOccurrences" nillable="true" type="xsd:int">
+              <xsd:annotation>
+                <xsd:documentation>The number of periods (e.g. 12) to return</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getBillingCalendarResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="billingCalendar" nillable="true" type="bons2:BillCalendarDto">
+              <xsd:annotation>
+                <xsd:documentation>The billing calendar - See BillCalendarDto for more information</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getBillingCalendar_serviceFault1" type="bons1:ServiceFault"/>
+            <xsd:element name="getLastBillDate">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumber" nillable="true" type="bons2:AccountNumberDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getLastBillDateResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="lastBillDate" nillable="true" type="xsd:dateTime"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getLastBillDateFault1_billingNotFound" nillable="true" type="bons1:BillingNotFoundFault"/>
+            <xsd:element name="getLastBillDateFault2_serviceFault" nillable="true" type="bons1:ServiceFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getBillingCycleDueDayRangesRequestMsg">
+    <wsdl:part element="bons0:getBillingCycleDueDayRanges" name="getBillingCycleDueDayRangesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getBillingCycleDueDayRangesResponseMsg">
+    <wsdl:part element="bons0:getBillingCycleDueDayRangesResponse" name="getBillingCycleDueDayRangesResult"/>
+  </wsdl:message>
+    <wsdl:message name="getBillingCycleDueDayRanges_serviceFaultMsg">
+    <wsdl:part element="bons0:getBillingCycleDueDayRanges_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getBillingCalendarRequestMsg">
+    <wsdl:part element="bons0:getBillingCalendar" name="getBillingCalendarParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getBillingCalendarResponseMsg">
+    <wsdl:part element="bons0:getBillingCalendarResponse" name="getBillingCalendarResult"/>
+  </wsdl:message>
+    <wsdl:message name="getBillingCalendar_serviceFault1Msg">
+    <wsdl:part element="bons0:getBillingCalendar_serviceFault1" name="serviceFault1"/>
+  </wsdl:message>
+    <wsdl:message name="getLastBillDateRequestMsg">
+    <wsdl:part element="bons0:getLastBillDate" name="getLastBillDateParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getLastBillDateResponseMsg">
+    <wsdl:part element="bons0:getLastBillDateResponse" name="getLastBillDateResult"/>
+  </wsdl:message>
+    <wsdl:message name="getLastBillDate_billingNotFoundMsg">
+    <wsdl:part element="bons0:getLastBillDateFault1_billingNotFound" name="billingNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getLastBillDate_serviceFaultMsg">
+    <wsdl:part element="bons0:getLastBillDateFault2_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisBilling">
+    <wsdl:operation name="getBillingCycleDueDayRanges">
+      <wsdl:documentation>Get the Due Day range for cycles 01-21 (e.g. cycle 01 may be due between the 5th and 9th of the month)</wsdl:documentation>
+      <wsdl:input message="bons0:getBillingCycleDueDayRangesRequestMsg" name="getBillingCycleDueDayRangesRequest"/>
+      <wsdl:output message="bons0:getBillingCycleDueDayRangesResponseMsg" name="getBillingCycleDueDayRangesResponse"/>
+      <wsdl:fault message="bons0:getBillingCycleDueDayRanges_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="getBillingCalendar">
+      <wsdl:documentation>Get the CIS Billing Calendar for a given Cycle</wsdl:documentation>
+            <wsdl:input message="bons0:getBillingCalendarRequestMsg" name="getBillingCalendarRequest"/>
+            <wsdl:output message="bons0:getBillingCalendarResponseMsg" name="getBillingCalendarResponse"/>
+      <wsdl:fault message="bons0:getBillingCalendar_serviceFault1Msg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getLastBillDate">
+      <wsdl:input message="bons0:getLastBillDateRequestMsg" name="getLastBillDateRequest"/>
+      <wsdl:output message="bons0:getLastBillDateResponseMsg" name="getLastBillDateResponse"/>
+      <wsdl:fault message="bons0:getLastBillDate_billingNotFoundMsg" name="billingNotFound"/>
+      <wsdl:fault message="bons0:getLastBillDate_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

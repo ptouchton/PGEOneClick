@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="Export1_CisDelinquencyHttp_Service" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:Port_0="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/v1/cis/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="CisDelinquency.wsdl" namespace="http://www.pgn.com/v1/cis/inf"/>
+  <wsdl:binding name="CisDelinquencyServiceBinding" type="Port_0:CisDelinquency">
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  	<wsdl:operation name="getDelinquencyRules">
+  		<soap:operation soapAction=""/>
+  		<wsdl:input name="getDelinquencyRulesRequest">
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output name="getDelinquencyRulesResponse">
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal"/>
+  		</wsdl:fault>
+  		<wsdl:fault name="recordNotFound">
+  			<soap:fault name="recordNotFound" use="literal"/>
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getDelinquencyNotice">
+  		<soap:operation soapAction=""/>
+  		<wsdl:input name="getDelinquencyNoticeRequest">
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output name="getDelinquencyNoticeResponse">
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal"/>
+  		</wsdl:fault>
+  		<wsdl:fault name="recordNotFound">
+  			<soap:fault name="recordNotFound" use="literal"/>
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getPastDueBuckets">
+  		<soap:operation soapAction="http://www.pgn.com/v1/cis/wsdl/getPastDueBuckets"/>
+  		<wsdl:input name="getPastDueBucketsRequest">
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output name="getPastDueBucketsResponse">
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal"/>
+  		</wsdl:fault>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CisDelinquencyService">
+    <wsdl:port binding="bons0:CisDelinquencyServiceBinding" name="CisDelinquencyServicePort">
+      <soap:address location="http://localhost:9080/CisDelinquencyRouterWeb/services/CisDelinquencyServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

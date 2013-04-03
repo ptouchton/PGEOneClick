@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="ThomasGuide">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="grid" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Thomas Guide Grid Code</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="page" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Thomas Guide Page Number</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="book" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Thomas Guide Book ID</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+        </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

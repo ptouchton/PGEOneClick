@@ -1,0 +1,48 @@
+<project name="scaBuild" default="buildSCA">
+
+	<property name="zipfile" value="${export.dir}/${application.name}.zip" />
+
+	<target name="buildSCA">
+		<antcall target="_createZip" inheritAll="true"/>
+		<antcall target="_createEAR" inheritAll="true"/>
+		<antcall target="_rmZip" inheritAll="true"/>
+	</target>
+
+	<target name="_createZip" >
+	      <zip 	destfile="${zipfile}"
+              	basedir="${src.dir}" 
+	         	includes="**/*" 
+	         	excludes="**/.svn"
+	         	update="true"
+	      />		
+	</target>
+	
+	<target name="_rmZip" >
+		<delete file="${zipfile}"/>
+	</target>
+	
+	<target name="_createEAR" description="Create EAR of the selected Integration module">
+	      <echo message="Run service deploy for ${application.name}" />
+	      <!-- Run service deploy command to generate an ear file to deploy to a WebSphere Process Server -->
+	      <exec dir="${basedir}" executable="${service.deploy}" output="${log.dir}\${application.name}_serviceDeploy.log" failonerror="false" resultproperty="servicedeploy.rc" >
+	          	<arg line=" ${export.dir}/${application.name}.zip -outputApplication ${export.dir}/${application.name}.ear -noj2eedeploy" />
+	  	 </exec>  
+	
+	     <if>
+	        <and>
+	                <equals arg1="${servicedeploy.rc}" arg2="0" />
+	                <available file="${application.name}.ear" filepath="${export.dir}"/>
+	        </and>
+	       <then>
+	                <echo message="${application.name}.ear was created without error" />
+	                <echo message="${application.name}.ear was created without error ${line.separator}" file="${log.dir}\results.log" append="true" />
+	       </then>
+	       <else>
+	              <echo message="${application.name}.ear has a problem refer to ${log.dir}\${application.name}_serviceDeploy.log for details of the problem " />
+	             <echo message="${application.name}.ear has a problem refer to ${log.dir}\${application.name}_serviceDeploy.log for details of the problem ${line.separator}" file="${log.dir}\results.log" append="true" />
+	       </else>
+	     </if>
+
+	 </target>
+
+</project>

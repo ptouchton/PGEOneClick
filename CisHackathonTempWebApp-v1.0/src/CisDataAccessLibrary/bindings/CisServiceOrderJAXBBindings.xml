@@ -1,0 +1,39 @@
+<jaxws:bindings
+	wsdlLocation="file:../wsdl/v1/CisServiceOrder.wsdl"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
+	
+	<!-- customize the generated fault class names -->
+	
+	<!-- getServiceOrders -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisServiceOrder']/wsdl:operation[@name='getServiceOrders']/wsdl:fault[@name='serviceOrderNotFoundFault']">
+		<jaxws:class name="ServiceOrderNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisServiceOrder']/wsdl:operation[@name='getServiceOrders']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getServiceOrdersByPremise -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisServiceOrder']/wsdl:operation[@name='getServiceOrdersByPremise']/wsdl:fault[@name='serviceOrderNotFoundFault']">
+		<jaxws:class name="ServiceOrderNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisServiceOrder']/wsdl:operation[@name='getServiceOrdersByPremise']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- lookupServiceCategory -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisServiceOrder']/wsdl:operation[@name='lookupServiceCategory']/wsdl:fault[@name='serviceTypeNotFoundFault']">
+		<jaxws:class name="RecordNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisServiceOrder']/wsdl:operation[@name='lookupServiceCategory']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+		
+	<!-- cancelServiceOrderByCategory -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisServiceOrder']/wsdl:operation[@name='cancelServiceOrderByCategory']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+</jaxws:bindings>

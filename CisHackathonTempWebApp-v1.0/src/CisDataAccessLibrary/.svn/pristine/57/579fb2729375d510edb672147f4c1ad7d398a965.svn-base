@@ -1,0 +1,94 @@
+<jaxws:bindings
+	wsdlLocation="file:../wsdl/v1/CisService.wsdl"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
+	
+	<!-- customize the generated fault class names -->
+	
+	<!-- getServices -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='getServices']/wsdl:fault[@name='serviceNotFound']">
+		<jaxws:class name="ServiceNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='getServices']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getServiceHistories -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='getServiceHistories']/wsdl:fault[@name='serviceNotFound']">
+		<jaxws:class name="ServiceNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='getServiceHistories']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getServiceByPodId -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='getServiceByPodId']/wsdl:fault[@name='serviceNotFound']">
+		<jaxws:class name="ServiceNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='getServiceByPodId']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getDisconnectedServices -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='getDisconnectedServices']/wsdl:fault[@name='serviceNotFound']">
+		<jaxws:class name="ServiceNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='getDisconnectedServices']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getCutOutServices -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='getCutOutServices']/wsdl:fault[@name='serviceNotFound']">
+		<jaxws:class name="ServiceNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='getCutOutServices']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getResidentialServices -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='getResidentialServices']/wsdl:fault[@name='serviceNotFound']">
+		<jaxws:class name="ServiceNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='getResidentialServices']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- isNetMeter -->	
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='isNetMeter']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- createService -->	
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='createService']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='createService']/wsdl:fault[@name='validationFault']">
+		<jaxws:class name="ValidationFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- IsTimeOfUse -->	
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='IsTimeOfUse']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getReadingInstructions -->	
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='getReadingInstructions']/wsdl:fault[@name='recordNotFound']">
+		<jaxws:class name="RecordNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='getReadingInstructions']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+
+	<!-- updateService -->	
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='updateService']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+
+	<!-- attachMeterToService -->	
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisService']/wsdl:operation[@name='attachMeterToService']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+
+</jaxws:bindings>

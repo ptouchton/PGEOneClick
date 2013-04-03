@@ -1,0 +1,15 @@
+package com.pgn.v1.cis.wsdl;
+
+import javax.xml.datatype.XMLGregorianCalendar;
+import com.pgn._2010._07.common.xsd.ServiceResponse;
+
+
+@javax.jws.WebService (endpointInterface="com.pgn.v1.cis.wsdl.CisHackathonService", targetNamespace="http://www.pgn.com/v1/cis/wsdl", serviceName="CisHackathonServiceService", portName="CisHackathonServicePort", wsdlLocation="WEB-INF/wsdl/wsdl/v1/CisHackathonServiceService.wsdl")
+public class CisHackathonServiceBindingImpl{
+
+    public ServiceResponse insertOneClickPayment(Integer customerCode, String premiseCode, Float paymentAmount, XMLGregorianCalendar paymentDate) throws InsertOneClickPaymentServiceFaultMsg {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+}

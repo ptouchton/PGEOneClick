@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:simpleType name="ServicePosition">
+        <xsd:annotation>
+      <xsd:documentation>Position of the service: OVERHEAD or UNDERGROUND</xsd:documentation>
+    </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="OVERHEAD"/>
+      <xsd:enumeration value="UNDERGROUND"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

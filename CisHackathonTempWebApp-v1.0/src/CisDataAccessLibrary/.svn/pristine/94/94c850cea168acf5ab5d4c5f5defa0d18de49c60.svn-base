@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2010/12/cis/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd">
+	<xsd:import schemaLocation="../_07/ServiceResponse.xsd"
+		namespace="http://www.pgn.com/2010/07/cis/xsd">
+	</xsd:import>
+	<xsd:complexType name="ServiceResponseArrayDto">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="serviceResponseArray"
+				type="bons0:ServiceResponse" maxOccurs="unbounded">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd" xmlns:bons2="http://www.pgn.com/2010/07/common/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="UserEventType.xsd"/>
+    <xsd:include schemaLocation="SourceIdentifier.xsd"/>
+    <xsd:include schemaLocation="User.xsd"/>
+    <xsd:complexType name="UserEvent">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="userEventType" type="bons2:UserEventType"/>
+      <xsd:element minOccurs="1" name="user" type="bons2:User"/>
+      <xsd:element minOccurs="0" name="eventMessage" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Details about the event. Details should be provided if the userEventType is null.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="1" name="sourceIdentifier" type="bons2:SourceIdentifier">
+        <xsd:annotation>
+          <xsd:documentation>The source system and application name that the user is logged into.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+        </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

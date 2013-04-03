@@ -1,0 +1,41 @@
+<jaxws:bindings
+	wsdlLocation="file:../wsdl/v1/CisCustomerSelectDueDate.wsdl"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
+	
+	<!-- customize the generated fault class names -->
+	
+	<!-- createEnrollment -->	
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomerSelectDueDate']/wsdl:operation[@name='createEnrollment']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+		
+	<!-- getActivatedEnrollments -->	
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomerSelectDueDate']/wsdl:operation[@name='getActivatedEnrollments']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getEnrollments -->	
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomerSelectDueDate']/wsdl:operation[@name='getEnrollments']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- cancelEnrollment -->	
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomerSelectDueDate']/wsdl:operation[@name='cancelEnrollment']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- removeEnrollment -->	
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomerSelectDueDate']/wsdl:operation[@name='removeEnrollment']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- updateEnrollment -->	
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomerSelectDueDate']/wsdl:operation[@name='updateEnrollment']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	
+</jaxws:bindings>

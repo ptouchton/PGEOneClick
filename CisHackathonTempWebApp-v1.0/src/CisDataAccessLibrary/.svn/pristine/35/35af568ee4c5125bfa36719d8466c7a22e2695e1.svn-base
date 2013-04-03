@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:simpleType name="NoteType">
+    <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="HAND_HELD"/>
+            <xsd:enumeration value="POWER_QUALITY"/>
+            <xsd:enumeration value="METER"/>
+            <xsd:enumeration value="PREMISE"/>
+            <xsd:enumeration value="CUSTOMER"/>
+            <xsd:enumeration value="AMI"/>
+            <xsd:enumeration value="ALL"/>
+            <xsd:enumeration value="MOBILE"/>
+            <xsd:enumeration value="WORK_ORDER"/>
+            <xsd:enumeration value="OTHER"/>
+            <xsd:enumeration value="ACCOUNT"/>
+            <xsd:enumeration value="CREDIT"/>
+            <xsd:enumeration value="ENERGY_ASSISTANCE"/>
+            <xsd:enumeration value="BILLING"/>
+            <xsd:enumeration value="MEDICAL_CERTIFICATE"/>
+        </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

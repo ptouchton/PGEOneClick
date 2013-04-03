@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2012/11/cis/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://www.pgn.com/2012/11/cis/xsd">
+	<xsd:include schemaLocation="PremiseServiceDto.xsd"></xsd:include>
+	<xsd:complexType name="PremiseServiceDtos">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="premiseService"
+				type="bons0:PremiseServiceDto" maxOccurs="unbounded">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

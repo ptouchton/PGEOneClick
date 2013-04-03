@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2012/11/cis/xsd" xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../_2010/_07/AddressDto.xsd">
+	</xsd:import>
+	<xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../_2010/_07/ServiceDto.xsd">
+	</xsd:import>
+	<xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../_2010/_07/PremiseCode.xsd">
+	</xsd:import>
+	<xsd:complexType name="PremiseServiceDto">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="premiseCode" type="bons0:PremiseCode">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="service" type="bons0:ServiceDto">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="address" type="bons0:AddressDto">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

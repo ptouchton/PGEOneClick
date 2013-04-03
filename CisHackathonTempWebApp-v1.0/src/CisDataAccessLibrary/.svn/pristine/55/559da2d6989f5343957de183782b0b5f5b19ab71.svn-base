@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisPaymentExtensionService" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/v1/cis/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="CisPaymentExtension.wsdl" namespace="http://www.pgn.com/v1/cis/inf"/>
+  <wsdl:binding name="CisPaymentExtensionServiceBinding" type="this:CisPaymentExtension">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createPaymentExtension">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="createPaymentExtensionRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createPaymentExtensionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updatePaymentExtension">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="updatePaymentExtensionRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updatePaymentExtensionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="recordNotFoundFault">
+        <soap:fault name="recordNotFoundFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getActivePaymentExtension">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getActivePaymentExtensionRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getActivePaymentExtensionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPaymentExtensionPlanCodes">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getPaymentExtensionPlanCodesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPaymentExtensionPlanCodesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConfirmationNumber">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getConfirmationNumberRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConfirmationNumberResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+     <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>      
+    </wsdl:operation>
+    <wsdl:operation name="getPaymentExtensionDates">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getPaymentExtensionDatesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPaymentExtensionDatesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+        <wsdl:operation name="wasExtensionKept">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="wasExtensionKeptRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="wasExtensionKeptResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CisPaymentExtensionService">
+    <wsdl:port binding="bons1:CisPaymentExtensionServiceBinding" name="CisPaymentExtensionServicePort">
+      <soap:address location="http://localhost:9080/TempWeb/sca/CisPaymentExtensionService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

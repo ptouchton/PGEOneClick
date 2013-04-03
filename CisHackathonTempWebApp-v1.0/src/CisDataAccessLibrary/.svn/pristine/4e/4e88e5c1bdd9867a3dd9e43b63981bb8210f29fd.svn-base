@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2012/04/cis/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://www.pgn.com/2012/04/cis/xsd">
+	<xsd:include schemaLocation="ServiceOrderDto.xsd" />
+	<xsd:complexType name="ServiceOrdersDto">
+		<xsd:annotation>
+      <xsd:documentation>BO for CIS service order stored procedure</xsd:documentation>
+    </xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0"
+				name="serviceOrder" type="bons0:ServiceOrderDto">
+				<xsd:annotation>
+          <xsd:documentation>An array of ServiceOrder DTOs</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

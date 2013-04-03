@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisEventService" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:this="http://www.pgn.com/v1/cis/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="CisEvent.wsdl" namespace="http://www.pgn.com/v1/cis/inf"/>
+    <wsdl:binding name="CisEventServiceBinding" type="bons0:CisEvent">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getEvents">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getEventsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEventsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="recordNotFound">
+        <soap:fault name="recordNotFound" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CisEventService">
+    <wsdl:port binding="this:CisEventServiceBinding" name="CisEventServicePort">
+      <soap:address location="http://localhost:9080/Dummy_MediationModuleWeb/sca/CisEventExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

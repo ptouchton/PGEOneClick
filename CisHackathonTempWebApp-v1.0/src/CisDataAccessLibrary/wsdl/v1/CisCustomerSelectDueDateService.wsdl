@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisCustomerSelectDueDateService" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/v1/cis/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="CisCustomerSelectDueDate.wsdl" namespace="http://www.pgn.com/v1/cis/inf"/>
+  <wsdl:binding name="CisCustomerSelectDueDateServiceBinding"
+  	type="bons0:CisCustomerSelectDueDate">
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="createEnrollment">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="createEnrollmentRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="createEnrollmentResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getActivatedEnrollments">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="getActivatedEnrollmentsRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getActivatedEnrollmentsResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getEnrollments">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="getEnrollmentsRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getEnrollmentsResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="cancelEnrollment">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="cancelEnrollmentRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="cancelEnrollmentResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="removeEnrollment">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="removeEnrollmentRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="removeEnrollmentResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="updateEnrollment">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="updateEnrollmentRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="updateEnrollmentResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CisCustomerSelectDueDateService">
+    <wsdl:port binding="bons1:CisCustomerSelectDueDateServiceBinding" name="CisCustomerSelectDueDateServicePort">
+      <soap:address location="http://localhost:9080/CisCustomerSelectDueDateRouterWeb/services/CisCustomerSelectDueDateServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

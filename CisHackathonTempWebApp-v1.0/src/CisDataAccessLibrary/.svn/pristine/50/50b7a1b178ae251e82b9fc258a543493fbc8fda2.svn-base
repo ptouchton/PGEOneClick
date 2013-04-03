@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons3="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="TransformerDto.xsd"/>
+    <xsd:include schemaLocation="PremiseCode.xsd"/>
+    <xsd:complexType name="ServiceDto">
+        <xsd:annotation>
+      <xsd:documentation>A point of service on a premises</xsd:documentation>
+    </xsd:annotation>
+        <xsd:sequence>
+      <xsd:element minOccurs="0" name="serviceNumber" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Unique identifier at premises identifying the service</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="serviceType" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Type of Service</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="colorCode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The meter seal color code.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="dateInstalled" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>Date the service was constructed.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="units" type="xsd:double">
+        <xsd:annotation>
+          <xsd:documentation>This is used to determine the billing units for unmetered services</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="podId" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Point of delivery unique identifier</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="route" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Meter reading route number.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="rateCode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The service rate code.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="status" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Status of the service.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="inventoryCode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The meter inventory code</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="sealNumber" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Meter seal number.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="classCode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The service class code</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="classDescription" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The service class code description</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="custCodeRevert" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Customer code to revert to when the assigned customer moves out, such as a landlord.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="readingSequence" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Sequence meter is read within route.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="keyId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>This is the id on the physical key that is used to unlock a lock to the service (e.g. gate, etc)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="overUnderIndicator" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Indicator of whether service is Overhead or Underground</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="premiseCode" type="bons3:PremiseCode"/>
+            <xsd:element minOccurs="0" name="transformer" type="bons3:TransformerDto"/>
+            <xsd:element minOccurs="0" name="depositCode" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="depositAmount" type="xsd:int"/>
+            <xsd:element minOccurs="0" name="inOutIndicator" type="xsd:string"/>
+        </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

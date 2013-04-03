@@ -1,0 +1,58 @@
+<jaxws:bindings
+	wsdlLocation="file:../wsdl/v1/CisCustomer.wsdl"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
+	
+	<!-- customize the generated fault class names -->
+	
+	<!-- getCustomer -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomer']/wsdl:operation[@name='getCustomer']/wsdl:fault[@name='customerNotFound']">
+		<jaxws:class name="CustomerNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomer']/wsdl:operation[@name='getCustomer']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getServicePhone -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomer']/wsdl:operation[@name='getServicePhone']/wsdl:fault[@name='phoneNotFound']">
+		<jaxws:class name="PhoneNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomer']/wsdl:operation[@name='getServicePhone']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getPhones -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomer']/wsdl:operation[@name='getPhones']/wsdl:fault[@name='accountNotFound']">
+		<jaxws:class name="AccountNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomer']/wsdl:operation[@name='getPhones']/wsdl:fault[@name='phoneNotFound']">
+		<jaxws:class name="PhoneNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomer']/wsdl:operation[@name='getPhones']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getPhonesByCustomer -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomer']/wsdl:operation[@name='getPhonesByCustomer']/wsdl:fault[@name='phoneNotFound']">
+		<jaxws:class name="PhoneNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomer']/wsdl:operation[@name='getPhonesByCustomer']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getCustomerName -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomer']/wsdl:operation[@name='getCustomerName']/wsdl:fault[@name='customerNotFound']">
+		<jaxws:class name="CustomerNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomer']/wsdl:operation[@name='getCustomerName']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getCustomerName -->	
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisCustomer']/wsdl:operation[@name='customerHasBadDebt']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+</jaxws:bindings>

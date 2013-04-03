@@ -1,0 +1,23 @@
+<jaxws:bindings
+	wsdlLocation="file:../wsdl/v1/CisEnergyAssistance.wsdl"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
+	
+	<!-- customize the generated fault class names -->
+	
+	<!-- getPendingCommitments -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisEnergyAssistance']/wsdl:operation[@name='getPendingCommitments']/wsdl:fault[@name='recordNotFound']">
+		<jaxws:class name="RecordNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisEnergyAssistance']/wsdl:operation[@name='getPendingCommitments']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- processEnergyAssist -->	
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisEnergyAssistance']/wsdl:operation[@name='processEnergyAssist']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+		
+</jaxws:bindings>

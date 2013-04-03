@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2012/04/cis/xsd"
+	xmlns:bons1="http://www.pgn.com/2010/07/cis/xsd"
+	xmlns:bons2="http://www.pgn.com/2012/04/cis/xsd"
+	xmlns:bons3="http://www.pgn.com/2010/12/cis/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:include schemaLocation="MeterWorkDto.xsd" />
+	<xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd"
+		schemaLocation="../../_2010/_07/PaymentDto.xsd">
+	</xsd:import>
+	<xsd:import namespace="http://www.pgn.com/2010/12/cis/xsd"
+		schemaLocation="../../_2010/_12/ServiceDto.xsd">
+	</xsd:import>
+
+	<xsd:include schemaLocation="NoteDto.xsd" />
+
+
+
+
+
+
+
+
+	<xsd:complexType name="ServiceOrderCompleteDto">
+		<xsd:annotation>
+			<xsd:documentation>Dcoumentation</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="orderId"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>A unique identifier.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="orderType"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>The work order type provides context for the
+						purpose of the work order from a field service perspective.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="completionDate"
+				type="xsd:dateTime">
+				<xsd:annotation>
+					<xsd:documentation>The datetime this event was triggered.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="actionTaken"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>The action being taken on this work order.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+
+			<xsd:element minOccurs="0" name="service"
+				type="bons3:ServiceDto">
+			</xsd:element>
+
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="note"
+				type="bons2:NoteDto">
+				<xsd:annotation>
+					<xsd:documentation>Notes related to the work order.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+
+			<xsd:element minOccurs="0" name="crewName"
+				type="xsd:string" />
+
+
+			<xsd:element minOccurs="0" name="cantWorkReason"
+				type="xsd:string">
+			</xsd:element>
+
+			<xsd:element minOccurs="0" name="meterWork"
+				type="bons2:MeterWorkDto">
+			</xsd:element>
+
+
+			<xsd:element maxOccurs="unbounded" minOccurs="0"
+				name="payment" type="bons1:PaymentDto">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="tpaDownPayment"
+				type="xsd:boolean">
+			</xsd:element>
+
+
+			<xsd:element minOccurs="0" name="chargeForFieldService"
+				type="xsd:boolean">
+			</xsd:element>
+
+			<xsd:element minOccurs="0" name="actionMessage"
+				type="xsd:string">
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

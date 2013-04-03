@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisDelinquency" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons2="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons3="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons5="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons6="http://www.pgn.com/2010/07/cis/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons1="http://www.pgn.com/v1/cis/inf" xmlns:bons4="http://www.pgn.com/2010/07/fault/xsd">
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/RecordNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PastDueDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/CustomerCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PremiseCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AccountNumberDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/DelinquencyNotice.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/DelinquencyRulesDto.xsd"/>
+                       
+            <xsd:element name="getDelinquencyRules">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="delinquentRuleCode" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getDelinquencyRulesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="delinquencyRules" nillable="true" type="bons0:DelinquencyRulesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getDelinquencyRules_recordNotFound" type="bons4:RecordNotFoundFault"/>
+      <xsd:element name="getDelinquencyRules_serviceFault" type="bons4:ServiceFault"/>
+            <xsd:element name="getDelinquencyNotice">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumber" nillable="true" type="bons3:AccountNumberDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getDelinquencyNoticeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="delinquencyNotice" nillable="true" type="bons0:DelinquencyNoticeDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getDelinquencyNotice_recordNotFound" type="bons4:RecordNotFoundFault"/>
+            <xsd:element name="getDelinquencyNotice_serviceFault" type="bons4:ServiceFault"/>
+            <xsd:element name="getPastDueBuckets">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons5:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons6:PremiseCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getPastDueBucketsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="pastDue" nillable="true" type="bons0:PastDueDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getPastDueBuckets_serviceFault" type="bons4:ServiceFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getDelinquencyRulesRequestMsg">
+    <wsdl:part element="bons0:getDelinquencyRules" name="getDelinquencyRulesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getDelinquencyRulesResponseMsg">
+    <wsdl:part element="bons0:getDelinquencyRulesResponse" name="getDelinquencyRulesResult"/>
+  </wsdl:message>
+    <wsdl:message name="getDelinquencyRules_recordNotFoundMsg">
+    <wsdl:part element="bons0:getDelinquencyRules_recordNotFound" name="recordNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getDelinquencyRules_serviceFaultMsg">
+    <wsdl:part element="bons0:getDelinquencyRules_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getDelinquencyNoticeRequestMsg">
+    <wsdl:part element="bons0:getDelinquencyNotice" name="getDelinquencyNoticeParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getDelinquencyNoticeResponseMsg">
+    <wsdl:part element="bons0:getDelinquencyNoticeResponse" name="getDelinquencyNoticeResult"/>
+  </wsdl:message>
+    <wsdl:message name="getDelinquencyNotice_recordNotFoundMsg">
+    <wsdl:part element="bons0:getDelinquencyNotice_recordNotFound" name="recordNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getDelinquencyNotice_serviceFaultMsg">
+    <wsdl:part element="bons0:getDelinquencyNotice_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getPastDueBucketsRequestMsg">
+    <wsdl:part element="bons0:getPastDueBuckets" name="getPastDueBucketsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getPastDueBucketsResponseMsg">
+    <wsdl:part element="bons0:getPastDueBucketsResponse" name="getPastDueBucketsResult"/>
+  </wsdl:message>
+    <wsdl:message name="getPastDueBuckets_serviceFaultMsg">
+    <wsdl:part element="bons0:getPastDueBuckets_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisDelinquency">
+    <wsdl:operation name="getDelinquencyRules">
+      <wsdl:documentation>Returns the delinquent rules for a given delinquency code, such as minimum cutout amount that a field disconnect service order must be reduced below in order to cancel a DNP type service order.   </wsdl:documentation>
+      <wsdl:input message="bons0:getDelinquencyRulesRequestMsg" name="getDelinquencyRulesRequest"/>
+      <wsdl:output message="bons0:getDelinquencyRulesResponseMsg" name="getDelinquencyRulesResponse"/>
+      <wsdl:fault message="bons0:getDelinquencyRules_recordNotFoundMsg" name="recordNotFound"/>
+      <wsdl:fault message="bons0:getDelinquencyRules_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getDelinquencyNotice">
+      <wsdl:documentation>Returns delinquency notice information for the account.</wsdl:documentation>
+      <wsdl:input message="bons0:getDelinquencyNoticeRequestMsg" name="getDelinquencyNoticeRequest"/>
+      <wsdl:output message="bons0:getDelinquencyNoticeResponseMsg" name="getDelinquencyNoticeResponse"/>
+      <wsdl:fault message="bons0:getDelinquencyNotice_recordNotFoundMsg" name="recordNotFound"/>
+      <wsdl:fault message="bons0:getDelinquencyNotice_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getPastDueBuckets">
+      <wsdl:input message="bons0:getPastDueBucketsRequestMsg" name="getPastDueBucketsRequest"/>
+      <wsdl:output message="bons0:getPastDueBucketsResponseMsg" name="getPastDueBucketsResponse"/>
+      <wsdl:fault message="bons0:getPastDueBuckets_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

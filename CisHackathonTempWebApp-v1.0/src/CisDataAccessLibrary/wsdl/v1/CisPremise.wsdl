@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisPremise" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons2="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons3="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons4="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons5="http://www.pgn.com/2010/07/fault/xsd" xmlns:bons6="http://www.pgn.com/2012/11/cis/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    		<xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf">
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/StringArray.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2012/11/cis/xsd" schemaLocation="../../cis/bo/_2012/_11/PremiseServiceDtos.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/CustomerCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AddressDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ValidationFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/PremiseNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PremiseDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PremiseCode.xsd"/>            
+            <xsd:element name="getPremiseInfo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="premiseCode" nillable="true" type="bons1:PremiseCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPremiseInfoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="premise" nillable="true" type="bons1:PremiseDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPremiseInfo_premiseNotFound" type="bons5:PremiseNotFoundFault"/>
+      <xsd:element name="getPremiseInfo_serviceFault" type="bons5:ServiceFault"/>
+            <xsd:element name="createPremise">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="premise" nillable="true" type="bons1:PremiseDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="createPremiseResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+                        <xsd:element name="premiseCode" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="createPremise_validationFault" type="bons5:ValidationFault"/>
+            <xsd:element name="createPremise_serviceFault" type="bons5:ServiceFault"/>
+            <xsd:element name="getAllPremisesByAddress">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Address" nillable="true" type="bons1:AddressDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getAllPremisesByAddressResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="premiseCode" nillable="true" type="bons1:StringArray"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getPremiseByAddressFault1_serviceFault" nillable="true" type="bons5:ServiceFault"/>
+            <xsd:element name="getDefaultCustomerPremises">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons1:CustomerCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getDefaultCustomerPremisesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="premises" nillable="true" type="bons6:PremiseServiceDtos"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getDefaultCustomerPremisesFault1_serviceFault" nillable="true" type="bons5:ServiceFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getPremiseInfoRequestMsg">
+    <wsdl:part element="bons0:getPremiseInfo" name="getPremiseInfoParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getPremiseInfoResponseMsg">
+    <wsdl:part element="bons0:getPremiseInfoResponse" name="getPremiseInfoResult"/>
+  </wsdl:message>
+    <wsdl:message name="getPremiseInfo_premiseNotFoundMsg">
+    <wsdl:part element="bons0:getPremiseInfo_premiseNotFound" name="premiseNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getPremiseInfo_serviceFaultMsg">
+    <wsdl:part element="bons0:getPremiseInfo_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="createPremiseRequestMsg">
+    <wsdl:part element="bons0:createPremise" name="createPremiseParameters"/>
+  </wsdl:message>
+    <wsdl:message name="createPremiseResponseMsg">
+    <wsdl:part element="bons0:createPremiseResponse" name="createPremiseResult"/>
+  </wsdl:message>
+    <wsdl:message name="createPremise_validationFaultMsg">
+    <wsdl:part element="bons0:createPremise_validationFault" name="validationFault"/>
+  </wsdl:message>
+    <wsdl:message name="createPremise_serviceFaultMsg">
+    <wsdl:part element="bons0:createPremise_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getAllPremisesByAddressRequestMsg">
+    <wsdl:part element="bons0:getAllPremisesByAddress" name="getAllPremisesByAddressParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getAllPremisesByAddressResponseMsg">
+    <wsdl:part element="bons0:getAllPremisesByAddressResponse" name="getAllPremisesByAddressResult"/>
+  </wsdl:message>
+    <wsdl:message name="getAllPremisesByAddress_serviceFaultMsg">
+    <wsdl:part element="bons0:getPremiseByAddressFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getDefaultCustomerPremisesRequestMsg">
+    <wsdl:part element="bons0:getDefaultCustomerPremises" name="getDefaultCustomerPremisesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getDefaultCustomerPremisesResponseMsg">
+    <wsdl:part element="bons0:getDefaultCustomerPremisesResponse" name="getDefaultCustomerPremisesResult"/>
+  </wsdl:message>
+    <wsdl:message name="getDefaultCustomerPremises_serviceFaultMsg">
+    <wsdl:part element="bons0:getDefaultCustomerPremisesFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisPremise">
+    <wsdl:operation name="getPremiseInfo">
+      <wsdl:input message="bons0:getPremiseInfoRequestMsg" name="getPremiseInfoRequest"/>
+      <wsdl:output message="bons0:getPremiseInfoResponseMsg" name="getPremiseInfoResponse"/>
+      <wsdl:fault message="bons0:getPremiseInfo_premiseNotFoundMsg" name="premiseNotFound"/>
+      <wsdl:fault message="bons0:getPremiseInfo_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="createPremise">
+      <wsdl:input message="bons0:createPremiseRequestMsg" name="createPremiseRequest"/>
+            <wsdl:output message="bons0:createPremiseResponseMsg" name="createPremiseResponse"/>
+            <wsdl:fault message="bons0:createPremise_serviceFaultMsg" name="serviceFault"/>
+            <wsdl:fault message="bons0:createPremise_validationFaultMsg" name="validationFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getAllPremisesByAddress">
+      <wsdl:input message="bons0:getAllPremisesByAddressRequestMsg" name="getAllPremisesByAddressRequest"/>
+      <wsdl:output message="bons0:getAllPremisesByAddressResponseMsg" name="getAllPremisesByAddressResponse"/>
+      <wsdl:fault message="bons0:getAllPremisesByAddress_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getDefaultCustomerPremises">
+      <wsdl:input message="bons0:getDefaultCustomerPremisesRequestMsg" name="getDefaultCustomerPremisesRequest"/>
+      <wsdl:output message="bons0:getDefaultCustomerPremisesResponseMsg" name="getDefaultCustomerPremisesResponse"/>
+      <wsdl:fault message="bons0:getDefaultCustomerPremises_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

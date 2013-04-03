@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisPaymentInterface" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons4="http://www.pgn.com/2010/07/cis/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:Q1="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons2="http://www.pgn.com/2010/07/fault/xsd" xmlns:bons3="http://www.pgn.com/2010/07/cis/xsd">
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/PaymentNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/CustomerCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PremiseCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PaymentsDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PaymentDto.xsd"/>                       
+            <xsd:element name="getLastPayment">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons1:CustomerCode">
+              <xsd:annotation>
+                <xsd:documentation>The Customer Code</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="premiseCode" nillable="true" type="bons4:PremiseCode">
+              <xsd:annotation>
+                <xsd:documentation>The Premise Code</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getLastPaymentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="lastPayment" nillable="true" type="bons3:PaymentDto">
+              <xsd:annotation>
+                <xsd:documentation>See documentation for the PaymentDto</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getLastPayment_paymentNotFoundFault" type="bons2:PaymentNotFoundFault"/>
+      <xsd:element name="getLastPayment_serviceFault" type="bons2:ServiceFault"/>
+      <xsd:element name="getPaymentHistory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons1:CustomerCode">
+              <xsd:annotation>
+                <xsd:documentation>The Customer Code</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="premiseCode" nillable="true" type="bons4:PremiseCode">
+              <xsd:annotation>
+                <xsd:documentation>The Premise Code</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+                        <xsd:element minOccurs="0" name="fromDate" nillable="false" type="xsd:dateTime">
+              <xsd:annotation>
+                <xsd:documentation>The date from which you want the payment history to start at</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+                        <xsd:element minOccurs="0" name="toDate" nillable="false" type="xsd:dateTime"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPaymentHistoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="paymentHistory" nillable="true" type="Q1:PaymentsDto">
+              <xsd:annotation>
+                <xsd:documentation>The PaymentsDto contain an array of PaymentDto, each PaymentDto representing a payment or reversal.&#13;
+See the PaymentsDto and PaymentDto for further documentation</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPaymentHistory_paymentNotFoundFault" type="bons2:PaymentNotFoundFault"/>
+      <xsd:element name="getPaymentHistory_serviceFault" type="bons2:ServiceFault"/>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getLastPaymentRequestMsg">
+    <wsdl:part element="bons0:getLastPayment" name="getLastPaymentParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getLastPaymentResponseMsg">
+    <wsdl:part element="bons0:getLastPaymentResponse" name="getLastPaymentResult"/>
+  </wsdl:message>
+    <wsdl:message name="getLastPayment_paymentNotFoundFaultMsg">
+    <wsdl:part element="bons0:getLastPayment_paymentNotFoundFault" name="paymentNotFoundFault"/>
+  </wsdl:message>
+    <wsdl:message name="getLastPayment_serviceFaultMsg">
+    <wsdl:part element="bons0:getLastPayment_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getPaymentHistoryRequestMsg">
+    <wsdl:part element="bons0:getPaymentHistory" name="getPaymentHistoryParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getPaymentHistoryResponseMsg">
+    <wsdl:part element="bons0:getPaymentHistoryResponse" name="getPaymentHistoryResult"/>
+  </wsdl:message>
+    <wsdl:message name="getPaymentHistory_paymentNotFoundFaultMsg">
+    <wsdl:part element="bons0:getPaymentHistory_paymentNotFoundFault" name="paymentNotFoundFault"/>
+  </wsdl:message>
+    <wsdl:message name="getPaymentHistory_serviceFaultMsg">
+    <wsdl:part element="bons0:getPaymentHistory_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisPayment">
+    <wsdl:documentation>This interface has not been validated yet.&#13;
+This interface will be used to retrieve payment-related data from CIS.</wsdl:documentation>
+    <wsdl:operation name="getLastPayment">
+      <wsdl:documentation>The getLastPayment operation will return information about the last payment made for a given customer/premise code</wsdl:documentation>
+      <wsdl:input message="bons0:getLastPaymentRequestMsg" name="getLastPaymentRequest"/>
+      <wsdl:output message="bons0:getLastPaymentResponseMsg" name="getLastPaymentResponse"/>
+      <wsdl:fault message="bons0:getLastPayment_paymentNotFoundFaultMsg" name="paymentNotFoundFault">
+        <wsdl:documentation>A Last Payment was not found</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault message="bons0:getLastPayment_serviceFaultMsg" name="serviceFault">
+        <wsdl:documentation>Any unexpected faults (data exceptions, runtime exceptions) get wrapped into this ServiceFault</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPaymentHistory">
+      <wsdl:documentation>The getPaymentHistory will return an array of payments, returns and reversals</wsdl:documentation>
+            <wsdl:input message="bons0:getPaymentHistoryRequestMsg" name="getPaymentHistoryRequest"/>
+            <wsdl:output message="bons0:getPaymentHistoryResponseMsg" name="getPaymentHistoryResponse"/>
+      <wsdl:fault message="bons0:getPaymentHistory_paymentNotFoundFaultMsg" name="paymentNotFoundFault">
+        <wsdl:documentation>No payments were found for the customer, premise and fromDate provided.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault message="bons0:getPaymentHistory_serviceFaultMsg" name="serviceFault">
+        <wsdl:documentation>Any unexpected faults (data exceptions, runtime exceptions) get wrapped into this ServiceFault</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

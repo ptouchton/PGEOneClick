@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisCustomerSelectDueDate" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons2="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons3="http://www.pgn.com/2010/07/cis/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    		<xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons4="http://www.pgn.com/2010/07/fault/xsd" xmlns:bons6="http://www.pgn.com/2010/07/cis/xsd">
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/CsddExceptionsDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/CsddEnrollmentDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AccountNumberDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ServiceResponse.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/CsddEnrollmentsDto.xsd"/>
+           
+            <xsd:element name="createEnrollment">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumber" nillable="true" type="bons6:AccountNumberDto"/>
+            <xsd:element name="enrollment" nillable="true" type="bons6:CsddEnrollmentDto"/>
+                        <xsd:element name="exceptions" nillable="true" type="bons6:CsddExceptionsDto"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createEnrollmentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceResponse" nillable="true" type="bons2:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createEnrollment_serviceFault" type="bons4:ServiceFault"/>
+            <xsd:element name="createEnrollment_serviceFaultElement" nillable="true" type="bons4:ServiceFault"/>
+            <xsd:element name="getActivatedEnrollments">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumber" nillable="true" type="bons1:AccountNumberDto"/>
+            <xsd:element name="fromDate" nillable="true" type="xsd:dateTime"/>
+            <xsd:element name="toDate" nillable="true" type="xsd:dateTime"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getActivatedEnrollmentsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="enrollments" nillable="true" type="bons6:CsddEnrollmentsDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getActivatedEnrollments_serviceFault" type="bons4:ServiceFault"/>
+            <xsd:element name="getEnrollments">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumber" nillable="true" type="bons1:AccountNumberDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getEnrollmentsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="enrollments" nillable="true" type="bons6:CsddEnrollmentsDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getEnrollments_serviceFault" type="bons4:ServiceFault"/>
+            <xsd:element name="cancelEnrollment">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="enrollmentId" nillable="true" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="cancelEnrollmentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceResponse" nillable="true" type="bons2:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="cancelEnrollment_serviceFault1" type="bons4:ServiceFault"/>
+            <xsd:element name="removeEnrollment">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="enrollmentId" nillable="true" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="removeEnrollmentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceResponse" nillable="true" type="bons2:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="removeEnrollment_serviceFault1" type="bons4:ServiceFault"/>
+            <xsd:element name="updateEnrollment">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="enrollment" nillable="true" type="bons6:CsddEnrollmentDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="updateEnrollmentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceResponse" nillable="true" type="bons2:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="updateEnrollment_serviceFault" type="bons4:ServiceFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="createEnrollmentRequestMsg">
+    <wsdl:part element="bons0:createEnrollment" name="createEnrollmentParameters"/>
+  </wsdl:message>
+    <wsdl:message name="createEnrollmentResponseMsg">
+    <wsdl:part element="bons0:createEnrollmentResponse" name="createEnrollmentResult"/>
+  </wsdl:message>
+    <wsdl:message name="createEnrollment_serviceFaultMsg">
+    <wsdl:part element="bons0:createEnrollment_serviceFaultElement" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getActivatedEnrollmentsRequestMsg">
+    <wsdl:part element="bons0:getActivatedEnrollments" name="getActivatedEnrollmentsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getActivatedEnrollmentsResponseMsg">
+    <wsdl:part element="bons0:getActivatedEnrollmentsResponse" name="getActivatedEnrollmentsResult"/>
+  </wsdl:message>
+    <wsdl:message name="getActivatedEnrollments_serviceFaultMsg">
+    <wsdl:part element="bons0:getActivatedEnrollments_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getEnrollmentsRequestMsg">
+    <wsdl:part element="bons0:getEnrollments" name="getEnrollmentsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getEnrollmentsResponseMsg">
+    <wsdl:part element="bons0:getEnrollmentsResponse" name="getEnrollmentsResult"/>
+  </wsdl:message>
+    <wsdl:message name="getEnrollments_serviceFaultMsg">
+    <wsdl:part element="bons0:getEnrollments_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="cancelEnrollmentRequestMsg">
+    <wsdl:part element="bons0:cancelEnrollment" name="cancelEnrollmentParameters"/>
+  </wsdl:message>
+    <wsdl:message name="cancelEnrollmentResponseMsg">
+    <wsdl:part element="bons0:cancelEnrollmentResponse" name="cancelEnrollmentResult"/>
+  </wsdl:message>
+    <wsdl:message name="cancelEnrollment_serviceFault1Msg">
+    <wsdl:part element="bons0:cancelEnrollment_serviceFault1" name="serviceFault1"/>
+  </wsdl:message>
+    <wsdl:message name="removeEnrollmentRequestMsg">
+    <wsdl:part element="bons0:removeEnrollment" name="removeEnrollmentParameters"/>
+  </wsdl:message>
+    <wsdl:message name="removeEnrollmentResponseMsg">
+    <wsdl:part element="bons0:removeEnrollmentResponse" name="removeEnrollmentResult"/>
+  </wsdl:message>
+    <wsdl:message name="removeEnrollment_serviceFault1Msg">
+    <wsdl:part element="bons0:removeEnrollment_serviceFault1" name="serviceFault1"/>
+  </wsdl:message>
+    <wsdl:message name="updateEnrollmentRequestMsg">
+    <wsdl:part element="bons0:updateEnrollment" name="updateEnrollmentParameters"/>
+  </wsdl:message>
+    <wsdl:message name="updateEnrollmentResponseMsg">
+    <wsdl:part element="bons0:updateEnrollmentResponse" name="updateEnrollmentResult"/>
+  </wsdl:message>
+    <wsdl:message name="updateEnrollment_serviceFaultMsg">
+    <wsdl:part element="bons0:updateEnrollment_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisCustomerSelectDueDate">
+    <wsdl:documentation>Creation and maintenance of Customer Select Due Date enrollment records.</wsdl:documentation>
+    <wsdl:operation name="createEnrollment">
+      <wsdl:documentation>Enroll a CIS accout to use customer-selected due date</wsdl:documentation>
+            <wsdl:input message="bons0:createEnrollmentRequestMsg" name="createEnrollmentRequest"/>
+            <wsdl:output message="bons0:createEnrollmentResponseMsg" name="createEnrollmentResponse"/>
+      <wsdl:fault message="bons0:createEnrollment_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getActivatedEnrollments">
+      <wsdl:input message="bons0:getActivatedEnrollmentsRequestMsg" name="getActivatedEnrollmentsRequest"/>
+      <wsdl:output message="bons0:getActivatedEnrollmentsResponseMsg" name="getActivatedEnrollmentsResponse"/>
+      <wsdl:fault message="bons0:getActivatedEnrollments_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getEnrollments">
+      <wsdl:input message="bons0:getEnrollmentsRequestMsg" name="getEnrollmentsRequest"/>
+      <wsdl:output message="bons0:getEnrollmentsResponseMsg" name="getEnrollmentsResponse"/>
+      <wsdl:fault message="bons0:getEnrollments_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="cancelEnrollment">
+      <wsdl:input message="bons0:cancelEnrollmentRequestMsg" name="cancelEnrollmentRequest"/>
+      <wsdl:output message="bons0:cancelEnrollmentResponseMsg" name="cancelEnrollmentResponse"/>
+      <wsdl:fault message="bons0:cancelEnrollment_serviceFault1Msg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="removeEnrollment">
+      <wsdl:input message="bons0:removeEnrollmentRequestMsg" name="removeEnrollmentRequest"/>
+      <wsdl:output message="bons0:removeEnrollmentResponseMsg" name="removeEnrollmentResponse"/>
+      <wsdl:fault message="bons0:removeEnrollment_serviceFault1Msg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="updateEnrollment">
+      <wsdl:documentation>Update Pending Enrollments </wsdl:documentation>
+      <wsdl:input message="bons0:updateEnrollmentRequestMsg" name="updateEnrollmentRequest"/>
+      <wsdl:output message="bons0:updateEnrollmentResponseMsg" name="updateEnrollmentResponse"/>
+      <wsdl:fault message="bons0:updateEnrollment_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

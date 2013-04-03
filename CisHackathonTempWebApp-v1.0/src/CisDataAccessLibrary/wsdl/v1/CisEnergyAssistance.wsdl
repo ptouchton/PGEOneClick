@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisEnergyAssistance" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons2="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons3="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons5="http://www.pgn.com/2010/07/fault/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons4="http://www.pgn.com/v1/cis/inf">
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AccountNumbersDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/SourceIdentifierDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ServiceResponse.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/RecordNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AgencyCommitmentsResponseDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AccountNumberDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AgencyCommitmentsDto.xsd"/>
+                       
+      <xsd:element name="getPendingCommitments">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accoutNumber" nillable="true" type="bons1:AccountNumberDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPendingCommitmentsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="agencyCommitments" nillable="true" type="bons2:AgencyCommitmentsDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPendingCommitments_recordNotFound" type="bons5:RecordNotFoundFault"/>
+      <xsd:element name="getPendingCommitments_serviceFault" type="bons5:ServiceFault"/>
+            <xsd:element name="processEnergyAssist">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" name="accountNumber" nillable="true" type="bons0:AccountNumberDto"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="commitments" nillable="true" type="bons0:AgencyCommitmentsDto"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="sourceIdentifier" nillable="true" type="bons0:SourceIdentifierDto"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="processEnergyAssistResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons0:AgencyCommitmentsResponseDto"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="processEnergyAssist_serviceFault" type="bons5:ServiceFault"/>
+            <xsd:element name="cancelCommitments">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" name="accountNumber" nillable="true" type="bons0:AccountNumberDto"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="commitments" nillable="true" type="bons0:AgencyCommitmentsDto"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="sourceIdentifier" nillable="true" type="bons0:SourceIdentifierDto"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="cancelCommitmentsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceResponse" nillable="true" type="bons0:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="cancelCommitmentsFault1_serviceFault" nillable="true" type="bons5:ServiceFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getPendingCommitmentsRequestMsg">
+    <wsdl:part element="bons0:getPendingCommitments" name="getPendingCommitmentsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getPendingCommitmentsResponseMsg">
+    <wsdl:part element="bons0:getPendingCommitmentsResponse" name="getPendingCommitmentsResult"/>
+  </wsdl:message>
+    <wsdl:message name="getPendingCommitments_recordNotFoundMsg">
+    <wsdl:part element="bons0:getPendingCommitments_recordNotFound" name="recordNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getPendingCommitments_serviceFaultMsg">
+    <wsdl:part element="bons0:getPendingCommitments_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="processEnergyAssistRequestMsg">
+    <wsdl:part element="bons0:processEnergyAssist" name="processEnergyAssistParameters"/>
+  </wsdl:message>
+    <wsdl:message name="processEnergyAssistResponseMsg">
+    <wsdl:part element="bons0:processEnergyAssistResponse" name="processEnergyAssistResult"/>
+  </wsdl:message>
+    <wsdl:message name="processEnergyAssist_serviceFaultMsg">
+    <wsdl:part element="bons0:processEnergyAssist_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="cancelCommitmentsRequestMsg">
+    <wsdl:part element="bons0:cancelCommitments" name="cancelCommitmentsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="cancelCommitmentsResponseMsg">
+    <wsdl:part element="bons0:cancelCommitmentsResponse" name="cancelCommitmentsResult"/>
+  </wsdl:message>
+    <wsdl:message name="cancelCommitments_serviceFaultMsg">
+    <wsdl:part element="bons0:cancelCommitmentsFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisEnergyAssistance">
+    <wsdl:operation name="getPendingCommitments">
+      <wsdl:documentation>Returns all unexpired energy assistance commitment records for the CIS account.</wsdl:documentation>
+      <wsdl:input message="bons0:getPendingCommitmentsRequestMsg" name="getPendingCommitmentsRequest"/>
+      <wsdl:output message="bons0:getPendingCommitmentsResponseMsg" name="getPendingCommitmentsResponse"/>
+      <wsdl:fault message="bons0:getPendingCommitments_recordNotFoundMsg" name="recordNotFound"/>
+      <wsdl:fault message="bons0:getPendingCommitments_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="processEnergyAssist">
+      <wsdl:documentation>Makes energy assistance commitments in CIS.</wsdl:documentation>
+            <wsdl:input message="bons0:processEnergyAssistRequestMsg" name="processEnergyAssistRequest"/>
+            <wsdl:output message="bons0:processEnergyAssistResponseMsg" name="processEnergyAssistResponse"/>
+            <wsdl:fault message="bons0:processEnergyAssist_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="cancelCommitments">
+            <wsdl:input message="bons0:cancelCommitmentsRequestMsg" name="cancelCommitmentsRequest"/>
+            <wsdl:output message="bons0:cancelCommitmentsResponseMsg" name="cancelCommitmentsResponse"/>
+      <wsdl:fault message="bons0:cancelCommitments_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2012/04/cis/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:complexType name="ServiceOrderStatusDto">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="orderId"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Unique Identifier</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element minOccurs="0" name="status"
+				type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>The event that has triggered this message:
+						COMPLETE, ONSITE, CANCEL, ORDER_MODIFY, PENDING, REASSIGN&#13;
+						&#13;
+						In the remote connects world, the values can also be: &#13;
+						REMOTE_DISCONNECT and REMOTE_RECONNECT in case of a response from
+						MDC to a remote disconnect or reconnect request. &#13;
+						and &#13;
+						REMOTE_MSG_ACK for the technical msg accepted by the MDC&#13;
+						&#13; </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="eventDate"
+				type="xsd:dateTime">
+				<xsd:annotation>
+					<xsd:documentation>The datetime this event was triggered.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+
+
+
+
+
+
+
+
+
+
+
+			<xsd:element minOccurs="0" name="crewName"
+				type="xsd:string" />
+			<xsd:element minOccurs="0" name="actionMessage"
+				type="xsd:string">
+			</xsd:element>
+
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

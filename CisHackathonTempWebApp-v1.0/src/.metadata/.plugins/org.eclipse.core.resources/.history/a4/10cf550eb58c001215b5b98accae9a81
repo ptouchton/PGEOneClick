@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CSvcHackathonServiceService" targetNamespace="http:/www.pgn.com/v1/hackathontemp/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:bons0="http:/www.pgn.com/v1/hackathontemp/wsdl">
+  <wsdl:import location="CSvcHackathonService.wsdl" namespace="http:/www.pgn.com/v1/hackathontemp/wsdl"/>
+  <wsdl:binding name="CSvcHackathonServiceExport1_CSvcHackathonServiceHttpBinding" type="this:CSvcHackathonService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="insertOneClickPayment">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="insertOneClickPaymentRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="insertOneClickPaymentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CSvcHackathonServiceExport1_CSvcHackathonServiceHttpService">
+    <wsdl:port binding="this:CSvcHackathonServiceExport1_CSvcHackathonServiceHttpBinding" name="CSvcHackathonServiceService_CSvcHackathonServiceHttpPort">
+      <soap:address location="http://localhost:9080/CSvcHackathonServiceServiceWeb/sca/CSvcHackathonServiceService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

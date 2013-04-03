@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisStartService_CisStartServiceHttp_Service" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns:bons0="http://www.pgn.com/v1/cis/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:this="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="CisStartService.wsdl" namespace="http://www.pgn.com/v1/cis/inf"/>
+  <wsdl:binding name="CisStartServiceBinding"
+  	type="this:CisStartService">
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="createCustomer">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="createCustomerRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="createCustomerResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="createAccount">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="createAccountRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="createAccountResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="submitStartService">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="submitStartServiceRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="submitStartServiceResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CisStartServiceService">
+    <wsdl:port binding="bons0:CisStartServiceBinding" name="CisStartServicePort">
+      <soap:address location="http://localhost:9081/CisStartServiceWeb-v1/CisStartServiceService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd" xmlns:bons3="http://www.pgn.com/2010/07/common/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="Phones.xsd"/>
+    <xsd:include schemaLocation="Name.xsd"/>
+    <xsd:include schemaLocation="Company.xsd"/>
+    <xsd:complexType name="User">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="userId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The user or login ID.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="name" type="bons3:Name">
+        <xsd:annotation>
+          <xsd:documentation>The person's name associated with the user ID.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="company" type="bons3:Company">
+        <xsd:annotation>
+          <xsd:documentation>The company that the person with the user ID represents.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="phones" type="bons3:Phones">
+        <xsd:annotation>
+          <xsd:documentation>The person's contact phone numbers.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,92 @@
+<jaxws:bindings
+	wsdlLocation="file:../wsdl/v1/CisAccount.wsdl"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
+	
+	<!-- customize the generated fault class names -->
+	
+	<!-- getAccountInfo -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getAccountInfo']/wsdl:fault[@name='accountNotFound']">
+		<jaxws:class name="AccountNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getAccountInfo']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getAccountNumbersByPhone -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getAccountNumbersByPhone']/wsdl:fault[@name='accountNotFound']">
+		<jaxws:class name="AccountNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getAccountNumbersByPhone']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getAccountNumberByPodId -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getAccountNumberByPodId']/wsdl:fault[@name='accountNotFound']">
+		<jaxws:class name="AccountNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getAccountNumberByPodId']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getDeposit -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getDeposit']/wsdl:fault[@name='accountNotFound']">
+		<jaxws:class name="AccountNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getDeposit']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getPastDueBalance -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getPastDueBalance']/wsdl:fault[@name='accountNotFound']">
+		<jaxws:class name="AccountNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getPastDueBalance']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getCurrentBalanceDue -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getCurrentBalanceDue']/wsdl:fault[@name='accountNotFound']">
+		<jaxws:class name="AccountNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getCurrentBalanceDue']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getAccountBalance -->	
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getAccountBalance']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- isActiveTpa -->	
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='isActiveTpa']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getMultiBalance -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getMultiBalance']/wsdl:fault[@name='accountNotFound']">
+		<jaxws:class name="AccountNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getMultiBalance']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getBillingPlan -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getBillingPlan']/wsdl:fault[@name='recordNotFoundFault']">
+		<jaxws:class name="RecordNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getBillingPlan']/wsdl:fault[@name='accountNotFoundFault']">
+		<jaxws:class name="AccountNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='getBillingPlan']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- accountHasDepositOwing -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAccount']/wsdl:operation[@name='accountHasDepositOwing']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+</jaxws:bindings>

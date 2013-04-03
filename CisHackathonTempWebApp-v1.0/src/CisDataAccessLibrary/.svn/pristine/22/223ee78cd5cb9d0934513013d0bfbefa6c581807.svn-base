@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CISAccountSearch" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://CISLibrary/CISAccountSearch" xmlns:bons2="http://www.pgn.com/2010/07/cis/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/2010/07/fault/xsd">
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/AccountNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AccountSearch.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AccountSearchResultList.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AccountSearchResultList.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AccountSearch.xsd"/>
+      <xsd:element name="accountSearch">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="searchRequest" nillable="true" type="bons2:AccountSearch"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="accountSearchResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="searchResponse" nillable="true" type="bons2:AccountSearchResultList"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="AccountSearch_serviceFault" type="bons1:ServiceFault"/>
+            <xsd:element name="accountSearchFault2_accountNotFound" nillable="true" type="bons1:AccountNotFoundFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="accountSearchRequestMsg">
+    <wsdl:part element="tns:accountSearch" name="accountSearchParameters"/>
+  </wsdl:message>
+    <wsdl:message name="accountSearchResponseMsg">
+    <wsdl:part element="tns:accountSearchResponse" name="accountSearchResult"/>
+  </wsdl:message>
+    <wsdl:message name="accountSearch_serviceFaultMsg">
+    <wsdl:part element="tns:AccountSearch_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="accountSearch_accountNotFoundMsg">
+    <wsdl:part element="tns:accountSearchFault2_accountNotFound" name="accountNotFound"/>
+  </wsdl:message>
+    <wsdl:portType name="CisAccountSearch">
+    <wsdl:operation name="accountSearch">
+      <wsdl:input message="tns:accountSearchRequestMsg" name="accountSearchRequest"/>
+      <wsdl:output message="tns:accountSearchResponseMsg" name="accountSearchResponse"/>
+            <wsdl:fault message="tns:accountSearch_serviceFaultMsg" name="serviceFault"/>
+            <wsdl:fault message="tns:accountSearch_accountNotFoundMsg" name="accountNotFound"/>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

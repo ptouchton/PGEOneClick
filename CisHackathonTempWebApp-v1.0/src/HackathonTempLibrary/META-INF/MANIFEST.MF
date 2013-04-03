@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+ServiceLibrary: true
+Class-Path: PGEFaultLibrary.jar 
+ PGECommonLibrary.jar
+Created-By: 1.5.0 (IBM Corporation)
+

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="getMailingAddress" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://address.wsdl.cis.pgn.com" xmlns:bons2="http://www.pgn.com/2010/07/fault/xsd" xmlns:bons3="http://www.pgn.com/2010/07/cis/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons1="http://www.pgn.com/v1/cis/inf">
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AddressesDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/AddressNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AddressDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/CustomerCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PremiseCode.xsd"/>
+            
+             <xsd:element name="getMailingAddressByDate">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons0:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons0:PremiseCode"/>
+                        <xsd:element name="effectiveDate" nillable="true" type="xsd:dateTime"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getMailingAddressByDateResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="address" nillable="true" type="bons0:AddressDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getMailingAddressByDate_addressNotFound" type="bons2:AddressNotFoundFault"/>
+      <xsd:element name="getMailingAddressByDate_serviceFault" type="bons2:ServiceFault"/>
+      <xsd:element name="getPremiseAddress">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="premiseCode" nillable="true" type="bons0:PremiseCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPremiseAddressResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="address" nillable="true" type="bons0:AddressDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPremiseAddress_serviceFault" type="bons2:ServiceFault"/>
+            <xsd:element name="getPremiseAddress_addressNotFound" type="bons2:AddressNotFoundFault"/>
+            <xsd:element name="getMailingAddress">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons0:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons0:PremiseCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getMailingAddressResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="address" nillable="true" type="bons0:AddressDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getMailingAddress_addressNotFound" type="bons2:AddressNotFoundFault"/>
+            <xsd:element name="getMailingAddress_serviceFault" type="bons2:ServiceFault"/>
+            <xsd:element name="getMailingAndServiceAddresses">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="xsd:string"/>
+            <xsd:element name="premiseCode" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getMailingAndServiceAddressesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="addresses" nillable="true" type="bons0:AddressesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getMailingAndServiceAddresses_serviceFault" nillable="true" type="bons2:ServiceFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getMailingAddressByDateRequestMsg">
+    <wsdl:part element="tns:getMailingAddressByDate" name="getMailingAddressByDateParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getMailingAddressByDateResponseMsg">
+    <wsdl:part element="tns:getMailingAddressByDateResponse" name="getMailingAddressByDateResult"/>
+  </wsdl:message>
+    <wsdl:message name="getMailingAddressByDate_addressNotFoundMsg">
+    <wsdl:part element="tns:getMailingAddressByDate_addressNotFound" name="addressNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getMailingAddressByDate_serviceFaultMsg">
+    <wsdl:part element="tns:getMailingAddressByDate_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getPremiseAddressRequestMsg">
+    <wsdl:part element="tns:getPremiseAddress" name="getPremiseAddressParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getPremiseAddressResponseMsg">
+    <wsdl:part element="tns:getPremiseAddressResponse" name="getPremiseAddressResult"/>
+  </wsdl:message>
+    <wsdl:message name="getPremiseAddress_serviceFaultMsg">
+    <wsdl:part element="tns:getPremiseAddress_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getPremiseAddress_addressNotFoundMsg">
+    <wsdl:part element="tns:getPremiseAddress_addressNotFound" name="addressNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getMailingAddressRequestMsg">
+    <wsdl:part element="tns:getMailingAddress" name="getMailingAddressParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getMailingAddressResponseMsg">
+    <wsdl:part element="tns:getMailingAddressResponse" name="getMailingAddressResult"/>
+  </wsdl:message>
+    <wsdl:message name="getMailingAddress_addressNotFoundMsg">
+    <wsdl:part element="tns:getMailingAddress_addressNotFound" name="addressNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getMailingAddress_serviceFaultMsg">
+    <wsdl:part element="tns:getMailingAddress_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getMailingAndServiceAddressesRequestMsg">
+    <wsdl:part element="tns:getMailingAndServiceAddresses" name="getMailingAndServiceAddressesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getMailingAndServiceAddressesResponseMsg">
+    <wsdl:part element="tns:getMailingAndServiceAddressesResponse" name="getMailingAndServiceAddressesResult"/>
+  </wsdl:message>
+    <wsdl:message name="getMailingAndServiceAddresses_serviceFaultMsg">
+    <wsdl:part element="tns:getMailingAndServiceAddresses_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisAddress">
+        <wsdl:operation name="getPremiseAddress">
+      <wsdl:input message="tns:getPremiseAddressRequestMsg" name="getPremiseAddressRequest"/>
+      <wsdl:output message="tns:getPremiseAddressResponseMsg" name="getPremiseAddressResponse"/>
+            <wsdl:fault message="tns:getPremiseAddress_addressNotFoundMsg" name="addressNotFound"/>
+            <wsdl:fault message="tns:getPremiseAddress_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getMailingAddressByDate">
+            <wsdl:input message="tns:getMailingAddressByDateRequestMsg" name="getMailingAddressByDateRequest"/>
+            <wsdl:output message="tns:getMailingAddressByDateResponseMsg" name="getMailingAddressByDateResponse"/>
+      <wsdl:fault message="tns:getMailingAddressByDate_addressNotFoundMsg" name="addressNotFound"/>
+      <wsdl:fault message="tns:getMailingAddressByDate_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getMailingAddress">
+      <wsdl:input message="tns:getMailingAddressRequestMsg" name="getMailingAddressRequest"/>
+      <wsdl:output message="tns:getMailingAddressResponseMsg" name="getMailingAddressResponse"/>
+      <wsdl:fault message="tns:getMailingAddress_addressNotFoundMsg" name="addressNotFound"/>
+      <wsdl:fault message="tns:getMailingAddress_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getMailingAndServiceAddresses">
+      <wsdl:input message="tns:getMailingAndServiceAddressesRequestMsg" name="getMailingAndServiceAddressesRequest"/>
+      <wsdl:output message="tns:getMailingAndServiceAddressesResponseMsg" name="getMailingAndServiceAddressesResponse"/>
+      <wsdl:fault message="tns:getMailingAndServiceAddresses_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

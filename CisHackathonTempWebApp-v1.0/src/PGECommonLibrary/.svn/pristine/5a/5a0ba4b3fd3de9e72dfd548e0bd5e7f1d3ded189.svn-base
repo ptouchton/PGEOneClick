@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd" xmlns:bons0="http://www.pgn.com/2010/07/common/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="Address.xsd"/>
+    <xsd:complexType name="Addresses">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="addresses" type="bons0:Address"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

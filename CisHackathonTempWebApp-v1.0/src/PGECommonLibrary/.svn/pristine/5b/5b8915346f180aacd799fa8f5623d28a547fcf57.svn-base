@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="SurveyMap">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="township" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Township survey code</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="range" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Range survey code</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="section" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Section survey code</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="qtrSection" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Quarter section survey code</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="qtrQtrSection" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Quarter quarter section survey code</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

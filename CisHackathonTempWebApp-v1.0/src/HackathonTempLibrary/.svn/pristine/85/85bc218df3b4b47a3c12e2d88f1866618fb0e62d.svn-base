@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CSvcHackathonService" targetNamespace="http:/www.pgn.com/v1/hackathontemp/wsdl" xmlns:bons1="http://www.pgn.com/2010/07/common/xsd" xmlns:bons2="http://www.pgn.com/2010/07/fault/xsd" xmlns:tns="http:/www.pgn.com/v1/hackathontemp/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http:/www.pgn.com/v1/hackathontemp/wsdl">
+      <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+      <xsd:import namespace="http://www.pgn.com/2010/07/common/xsd" schemaLocation="../../bo/_2010/_07/ServiceResponse.xsd"/>
+      <xsd:import namespace="http://www.pgn.com/2010/07/common/xsd" schemaLocation="../../bo/_2010/_07/PremiseCode.xsd"/>
+      <xsd:import namespace="http://www.pgn.com/2010/07/common/xsd" schemaLocation="../../bo/_2010/_07/CustomerCode.xsd"/>
+      <xsd:element name="insertOneClickPayment">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons1:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons1:PremiseCode"/>
+            <xsd:element name="paymentAmount" nillable="true" type="xsd:float"/>
+            <xsd:element name="paymentDate" nillable="true" type="xsd:dateTime"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="insertOneClickPaymentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceResponse" nillable="true" type="bons1:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="insertOneClickPaymentFault1_serviceFault" nillable="true" type="bons2:ServiceFault"/>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="insertOneClickPaymentRequestMsg">
+    <wsdl:part element="tns:insertOneClickPayment" name="insertOneClickPaymentParameters"/>
+  </wsdl:message>
+    <wsdl:message name="insertOneClickPaymentResponseMsg">
+    <wsdl:part element="tns:insertOneClickPaymentResponse" name="insertOneClickPaymentResult"/>
+  </wsdl:message>
+    <wsdl:message name="insertOneClickPayment_serviceFaultMsg">
+    <wsdl:part element="tns:insertOneClickPaymentFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CSvcHackathonService">
+    <wsdl:operation name="insertOneClickPayment">
+      <wsdl:input message="tns:insertOneClickPaymentRequestMsg" name="insertOneClickPaymentRequest"/>
+      <wsdl:output message="tns:insertOneClickPaymentResponseMsg" name="insertOneClickPaymentResponse"/>
+      <wsdl:fault message="tns:insertOneClickPayment_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

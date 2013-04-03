@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd"
+	xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:include schemaLocation="SourceIdentifierDto.xsd" />
+	<xsd:complexType name="PaymentExtensionDto">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="paymentExtensionId"
+				type="xsd:string" />
+			<xsd:element minOccurs="0" name="createDate"
+				type="xsd:dateTime">
+				<xsd:annotation>
+          <xsd:documentation>The date the payment extension was created.</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="dueDatePromised"
+				type="xsd:dateTime">
+				<xsd:annotation>
+          <xsd:documentation>Due Date the customer promised to pay by.</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="amountPromised"
+				type="xsd:double">
+				<xsd:annotation>
+          <xsd:documentation>The amount the customer promised to pay.</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="balanceToPay"
+				type="xsd:double">
+				<xsd:annotation>
+          <xsd:documentation>Balance remaining that the customer has to pay from the amount the customer promised. For example, if the customer promised to pay 100$ and has paid only 25$ so far the balance remaining will be 75$&#13;
+&#13;
+While creating a Payment Extension, this field need not be filled, it will be filled the same as the amount promised.&#13;
+&#13;
+While querying for a payment extension, it will deduct the payments and return the balance amount to pay.&#13;
+&#13;
+</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="paymentMode"
+				type="xsd:string">
+				<xsd:annotation>
+          <xsd:documentation>Mode of payment like community office, etc</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="status" type="xsd:string" />
+			<xsd:element minOccurs="0" name="source"
+				type="bons0:SourceIdentifierDto">
+				<xsd:annotation>
+          <xsd:documentation>source information like the "PORTAL / "WEB" , Enumber of the CSR, etc&#13;
+</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="pastDueTier"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="planId" type="xsd:int">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="confirmationNumber"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

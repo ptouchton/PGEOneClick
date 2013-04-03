@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2012/04/cis/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="LoanSummaryDto">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="isActiveTpa"
+				type="xsd:boolean">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="tpaMonthlyInstallment"
+				type="xsd:double">
+				<xsd:annotation/>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="tpaPastDueAmount"
+				type="xsd:double">
+				<xsd:annotation/>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="tpaBalance"
+				type="xsd:double">
+				<xsd:annotation/>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

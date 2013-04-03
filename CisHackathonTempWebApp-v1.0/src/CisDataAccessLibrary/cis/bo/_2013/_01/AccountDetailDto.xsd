@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2013/01/cis/xsd"
+	xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:import schemaLocation="../../_2010/_07/PremiseCode.xsd"
+		namespace="http://www.pgn.com/2010/07/cis/xsd">
+	</xsd:import>
+	<xsd:import schemaLocation="../../_2010/_07/CustomerCode.xsd"
+		namespace="http://www.pgn.com/2010/07/cis/xsd">
+	</xsd:import>
+	<xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd"
+		schemaLocation="../../_2010/_07/PhonesDto.xsd">
+	</xsd:import>
+	<xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd"
+		schemaLocation="../../_2010/_07/PremiseDto.xsd">
+	</xsd:import>
+	<xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd"
+		schemaLocation="../../_2010/_07/CustomerDto.xsd">
+	</xsd:import>
+	<xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd"
+		schemaLocation="../../_2010/_07/AccountDto.xsd">
+	</xsd:import>
+	<xsd:complexType name="AccountDetailDto">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="customerCode"
+				type="bons0:CustomerCode">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="premiseCode"
+				type="bons0:PremiseCode">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="account"
+				type="bons0:AccountDto">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="customer"
+				type="bons0:CustomerDto">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="premise"
+				type="bons0:PremiseDto">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="phones"
+				type="bons0:PhonesDto">
+			</xsd:element>
+
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="PastDueDto">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="pastDue" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="over30Days" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="over60Days" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="over90Days" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="over120Days" type="xsd:double"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

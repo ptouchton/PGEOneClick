@@ -1,0 +1,34 @@
+<jaxws:bindings
+	wsdlLocation="file:../wsdl/v1/CisAddress.wsdl"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
+	
+	<!-- customize the generated fault class names -->
+	
+	<!-- getPremiseAddress -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAddress']/wsdl:operation[@name='getPremiseAddress']/wsdl:fault[@name='addressNotFound']">
+		<jaxws:class name="AddressNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAddress']/wsdl:operation[@name='getPremiseAddress']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+			
+	<!-- getMailingAddressByDate -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAddress']/wsdl:operation[@name='getMailingAddressByDate']/wsdl:fault[@name='addressNotFound']">
+		<jaxws:class name="AddressNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAddress']/wsdl:operation[@name='getMailingAddressByDate']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getMailingAddress -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAddress']/wsdl:operation[@name='getMailingAddress']/wsdl:fault[@name='addressNotFound']">
+		<jaxws:class name="AddressNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisAddress']/wsdl:operation[@name='getMailingAddress']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+</jaxws:bindings>

@@ -1,0 +1,56 @@
+# This properties file is used to build a deployable
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Application Configuration
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# #####################################
+# Appplication Name and Version
+# #####################################
+# This name will be used as the name of the ear that is generated.
+# i.e. {application.name}.ear
+# The version will be used as the build tag and propogated to manifest files
+
+application.name=CisHackathonTempWebApp-v1.0
+
+Implementation-Version=1.0.GLOBALREV.BUILDNUM
+
+# Source directory that will be measured for coverage and code quality
+src.stats=CisHackathonTempWebApp-v1.0
+# #####################################
+# Deployment Configuration
+# #####################################
+# This section defines the type of deployables that are part of the build, so
+# that the correct script is called to generate any needed code.
+# The deployable types are, 'webService', 'scaModule', 'jar'
+# The default is 'false'
+
+deployable.webService 	= false
+deployable.scaModule 	= false
+deployable.jar		= false
+
+# #####################################
+# Component Configuration
+# #####################################
+# This section defines the components that make up the deployable
+
+component+CisDataAccessLibrary+svn = https://pgesvn/svn/WebSphereProgram/sources/WID/CisDataAccessLibrary/trunk
+component+PGEFaultLibrary+svn = https://pgesvn/svn/WebSphereProgram/sources/WID/PGEFaultLibrary/trunk
+component+PGECommonLibrary+svn = https://pgesvn/svn/WebSphereProgram/sources/WID/PGECommonLibrary/trunk
+component+HackathonTempLibrary+svn = https://pgesvn/svn/WebSphereProgram/sources/WID/HackathonTempLibrary/trunk
+component+CisHackathonTempWeb-v1+svn = https://pgesvn/svn/WebSphereProgram/sources/WID/CisHackathonTempWeb-v1/trunk
+component+CisHackathonTempWebApp-v1.0+svn = https://pgesvn/svn/WebSphereProgram/sources/WID/CisHackathonTempWebApp-v1.0/trunk
+
+
+# ####################################
+# Autmoated Testing
+# ####################################
+#junit.{name}.path
+#soapui.{name}.path
+
+
+# ####################################
+# SONAR configuration 
+# ####################################
+# uncomment the line below and add specific patterns for your project
+# sonar.exclusions=**/inf/*,**/xsd/*,**/bo/*,**/ObjectFactory.java,**/*FaultMsg.java,**/wsdl/*Response.java,/**/com/pgn/_2012/*,**/com/pgn/_2011/*,**/com/pgn/_2010/*
+

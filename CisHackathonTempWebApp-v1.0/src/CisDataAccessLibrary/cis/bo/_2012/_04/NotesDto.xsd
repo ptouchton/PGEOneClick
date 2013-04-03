@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2012/04/cis/xsd" xmlns:bons3="http://www.pgn.com/2012/04/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="NoteDto.xsd"/>
+    <xsd:complexType name="NotesDto">
+        <xsd:annotation>
+      <xsd:documentation>Array of notes</xsd:documentation>
+    </xsd:annotation>
+        <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="notes" type="bons3:NoteDto"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

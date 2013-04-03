@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd" xmlns:bons0="http://www.pgn.com/2010/07/common/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="GpsCoordinates">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="latitude">
+                <xsd:annotation>
+          <xsd:documentation>GPS latitude coordinate</xsd:documentation>
+        </xsd:annotation>
+                <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minExclusive value="-90"/>
+            <xsd:maxExclusive value="90"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="longitude">
+                <xsd:annotation>
+          <xsd:documentation>GPS longitude coordinate</xsd:documentation>
+        </xsd:annotation>
+                <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minExclusive value="-180"/>
+            <xsd:maxExclusive value="180"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

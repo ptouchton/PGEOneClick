@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons2="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="AddressDto.xsd"/>
+	<xsd:include schemaLocation="NameDto.xsd"/>
+	<xsd:include schemaLocation="AccountNumberDto.xsd"/>
+	<xsd:complexType name="AccountSearchResult">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="accountNumber" type="bons2:AccountNumberDto"/>
+			<xsd:element minOccurs="0" name="customerName" type="bons2:NameDto"/>
+			<xsd:element minOccurs="0" name="serviceAddress" type="bons2:AddressDto"/>
+			<xsd:element minOccurs="0" name="accountStatus" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd" xmlns:bons0="http://www.pgn.com/2010/07/common/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="RegisterReading.xsd"/>
+    <xsd:include schemaLocation="RegisterReadings.xsd"/>
+    <xsd:include schemaLocation="PeakType.xsd"/>
+    <xsd:include schemaLocation="EnergyUom.xsd"/>
+    <xsd:complexType name="Register">
+    <xsd:sequence>
+            <xsd:element minOccurs="0" name="peakType" type="bons0:PeakType"/>
+            <xsd:element minOccurs="0" name="unitOfMeasure" type="bons0:EnergyUom"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="readings" type="bons0:RegisterReadings"/>
+        </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

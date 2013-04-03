@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="OregonStatePlane">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="xPosition" type="xsd:double">
+        <xsd:annotation>
+          <xsd:documentation>State Plane Projection X Coordinate</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="yPosition" type="xsd:double">
+        <xsd:annotation>
+          <xsd:documentation>State Plane Projection Y Coordinate</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

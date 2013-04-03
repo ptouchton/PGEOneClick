@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisAccountExport1_CisAccountHttp_Service" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:Port_0="http://www.pgn.com/v1/cis/wsdl" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="CisAccount.wsdl" namespace="http://www.pgn.com/v1/cis/inf"/>
+  <wsdl:binding name="CisAccountServiceBinding"
+  	type="bons0:CisAccount">
+
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="getAccountInfo">
+
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v1/cis/wsdl/getAccountInfo" />
+  		<wsdl:input name="getAccountInfoRequest">
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getAccountInfoResponse">
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="accountNotFound">
+
+  			<soap:fault use="literal" name="accountNotFound" />
+  		</wsdl:fault>
+  		<wsdl:fault name="serviceFault">
+
+  			<soap:fault use="literal" name="serviceFault" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getAccountNumbersByPhone">
+
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v1/cis/wsdl/getAccountNumbersByPhone" />
+  		<wsdl:input name="getAccountNumbersByPhoneRequest">
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getAccountNumbersByPhoneResponse">
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="accountNotFound">
+
+  			<soap:fault use="literal" name="accountNotFound" />
+  		</wsdl:fault>
+  		<wsdl:fault name="serviceFault">
+
+  			<soap:fault use="literal" name="serviceFault" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getAccountNumberByPodId">
+
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v1/cis/wsdl/getAccountNumberByPodId" />
+  		<wsdl:input name="getAccountNumberByPodIdRequest">
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getAccountNumberByPodIdResponse">
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="accountNotFound">
+
+  			<soap:fault use="literal" name="accountNotFound" />
+  		</wsdl:fault>
+  		<wsdl:fault name="serviceFault">
+
+  			<soap:fault use="literal" name="serviceFault" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getDeposit">
+
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v1/cis/wsdl/getDeposit" />
+  		<wsdl:input name="getDepositRequest">
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getDepositResponse">
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="accountNotFound">
+
+  			<soap:fault use="literal" name="accountNotFound" />
+  		</wsdl:fault>
+  		<wsdl:fault name="serviceFault">
+
+  			<soap:fault use="literal" name="serviceFault" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getPastDueBalance">
+
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v1/cis/wsdl/getPastDueBalance" />
+  		<wsdl:input name="getPastDueBalanceRequest">
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getPastDueBalanceResponse">
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="accountNotFound">
+
+  			<soap:fault use="literal" name="accountNotFound" />
+  		</wsdl:fault>
+  		<wsdl:fault name="serviceFault">
+
+  			<soap:fault use="literal" name="serviceFault" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getCurrentBalanceDue">
+
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v1/cis/wsdl/getCurrentBalanceDue" />
+  		<wsdl:input name="getCurrentBalanceDueRequest">
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getCurrentBalanceDueResponse">
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="accountNotFound">
+
+  			<soap:fault use="literal" name="accountNotFound" />
+  		</wsdl:fault>
+  		<wsdl:fault name="serviceFault">
+
+  			<soap:fault use="literal" name="serviceFault" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getAccountBalance">
+
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v1/cis/wsdl/getAccountBalance" />
+  		<wsdl:input name="getAccountBalanceRequest">
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getAccountBalanceResponse">
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+
+  			<soap:fault use="literal" name="serviceFault" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="isActiveTpa">
+
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v1/cis/wsdl/isActiveTpa" />
+  		<wsdl:input name="isActiveTpaRequest">
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="isActiveTpaResponse">
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+
+  			<soap:fault use="literal" name="serviceFault" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getMultiBalance">
+
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v1/cis/wsdl/getMultiBalance" />
+  		<wsdl:input name="getMultiBalanceRequest">
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getMultiBalanceResponse">
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="accountNotFound">
+
+  			<soap:fault use="literal" name="accountNotFound" />
+  		</wsdl:fault>
+  		<wsdl:fault name="serviceFault">
+
+  			<soap:fault use="literal" name="serviceFault" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getBillingPlan">
+
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v1/cis/wsdl/getBillingPlan" />
+  		<wsdl:input name="getBillingPlanRequest">
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getBillingPlanResponse">
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="accountNotFoundFault">
+
+  			<soap:fault use="literal" name="accountNotFoundFault" />
+  		</wsdl:fault>
+  		<wsdl:fault name="serviceFault">
+
+  			<soap:fault use="literal" name="serviceFault" />
+  		</wsdl:fault>
+  		<wsdl:fault name="recordNotFoundFault">
+
+  			<soap:fault use="literal" name="recordNotFoundFault" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="accountHasDepositOwing">
+
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v1/cis/wsdl/accountHasDepositOwing" />
+  		<wsdl:input name="accountHasDepositOwingRequest">
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="accountHasDepositOwingResponse">
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+
+  			<soap:fault use="literal" name="serviceFault" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getUnappliedPaymentTotalAmount">
+
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v1/cis/wsdl/getUnappliedPaymentTotalAmount" />
+  		<wsdl:input name="getUnappliedPaymentTotalAmountRequest">
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getUnappliedPaymentTotalAmountResponse">
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+
+  			<soap:fault use="literal" name="serviceFault" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getAccountNumbersByCustomer">
+
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v1/cis/wsdl/getAccountNumbersByCustomer" />
+  		<wsdl:input name="getAccountNumbersByCustomerRequest">
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getAccountNumbersByCustomerResponse">
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+
+  			<soap:fault use="literal" name="serviceFault" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CisAccountService">
+    <wsdl:port binding="Port_0:CisAccountServiceBinding" name="CisAccountServicePort">
+      <soap:address location="http://localhost:9081/CisAccountWeb-v1/CisAccountService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

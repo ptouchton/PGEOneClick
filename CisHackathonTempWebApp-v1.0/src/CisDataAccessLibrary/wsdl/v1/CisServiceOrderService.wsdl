@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisServiceOrderExport1_CisServiceOrderHttp_Service" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/v1/cis/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:import location="CisServiceOrder.wsdl" namespace="http://www.pgn.com/v1/cis/inf"/>
+    <wsdl:binding name="CisServiceOrderBinding" type="bons0:CisServiceOrder">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getServiceOrders">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getServiceOrdersRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getServiceOrdersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceOrderNotFoundFault">
+        <soap:fault name="serviceOrderNotFoundFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceOrdersByPremise">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getServiceOrdersByPremiseRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getServiceOrdersByPremiseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceOrderNotFoundFault">
+        <soap:fault name="serviceOrderNotFoundFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="lookupServiceCategory">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="lookupServiceCategoryRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="lookupServiceCategoryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceTypeNotFoundFault">
+        <soap:fault name="serviceTypeNotFoundFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="cancelServiceOrderByCategory">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="cancelServiceOrderByCategoryRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="cancelServiceOrderByCategoryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="cancelServiceOrdersByOrderId">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="cancelServiceOrdersByOrderIdRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="cancelServiceOrdersByOrderIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceOrdersByService">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getServiceOrdersByServiceRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getServiceOrdersByServiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceOrderById">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getServiceOrderByIdRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getServiceOrderByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CisServiceOrderService">
+    <wsdl:port binding="bons1:CisServiceOrderBinding" name="CisServiceOrderPort">
+      <soap:address location="http://localhost:9081/CisServiceOrderWeb-v1/CisServiceOrderService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="PhoneDto">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="phoneType" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="areaCode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="prefix" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="suffix" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="extension" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="orderIndicator" type="xsd:int"/>
+            <xsd:element minOccurs="0" name="international" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="unlisted" type="xsd:boolean"/>
+            <xsd:element minOccurs="0" name="primary" type="xsd:boolean"/>
+        </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

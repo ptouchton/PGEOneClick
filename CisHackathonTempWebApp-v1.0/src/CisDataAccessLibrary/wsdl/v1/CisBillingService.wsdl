@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisBillingExport1_CisBillingHttp_Service" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:Port_0="http://www.pgn.com/v1/cis/wsdl" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="CisBilling.wsdl" namespace="http://www.pgn.com/v1/cis/inf"/>
+  <wsdl:binding name="CisBillingServiceBinding" type="bons0:CisBilling">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getBillingCycleDueDayRanges">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getBillingCycleDueDayRangesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBillingCycleDueDayRangesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getBillingCalendar">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getBillingCalendarRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBillingCalendarResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getLastBillDate">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getLastBillDateRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLastBillDateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="billingNotFound">
+        <soap:fault name="billingNotFound" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CisBillingService">
+    <wsdl:port binding="Port_0:CisBillingServiceBinding" name="CisBillingServicePort">
+      <soap:address location="http://localhost:9081/CisBillingWeb-v1/CisBillingService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

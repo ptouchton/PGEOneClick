@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisCalendar" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/2010/07/fault/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf">
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:element name="getDateByBusinessDays">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" name="startDate" nillable="false" type="xsd:dateTime"/>
+            <xsd:element minOccurs="1" name="businessDayOffset" nillable="false" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getDateByBusinessDaysResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="businessDate" nillable="true" type="xsd:dateTime"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="isBusinessDay">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" name="calendarDate" nillable="false" type="xsd:dateTime"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="isBusinessDayResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="isBusinessDay" nillable="true" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getDateByBusinessDaysFault1_serviceFault" nillable="true" type="bons1:ServiceFault"/>
+            <xsd:element name="isBusinessDayFault1_serviceFault" nillable="true" type="bons1:ServiceFault"/>
+            <xsd:element name="getBusinessDays">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" name="startDate" nillable="false" type="xsd:dateTime"/>
+            <xsd:element minOccurs="1" name="endDate" nillable="false" type="xsd:dateTime"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getBusinessDaysResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="businessDays" nillable="true" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getBusinessDaysFault1_serviceFault" nillable="true" type="bons1:ServiceFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getDateByBusinessDaysRequestMsg">
+    <wsdl:part element="tns:getDateByBusinessDays" name="getDateByBusinessDaysParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getDateByBusinessDaysResponseMsg">
+    <wsdl:part element="tns:getDateByBusinessDaysResponse" name="getDateByBusinessDaysResult"/>
+  </wsdl:message>
+    <wsdl:message name="isBusinessDayRequestMsg">
+    <wsdl:part element="tns:isBusinessDay" name="isBusinessDayParameters"/>
+  </wsdl:message>
+    <wsdl:message name="isBusinessDayResponseMsg">
+    <wsdl:part element="tns:isBusinessDayResponse" name="isBusinessDayResult"/>
+  </wsdl:message>
+    <wsdl:message name="getDateByBusinessDays_serviceFaultMsg">
+    <wsdl:part element="tns:getDateByBusinessDaysFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="isBusinessDay_serviceFaultMsg">
+    <wsdl:part element="tns:isBusinessDayFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getBusinessDaysRequestMsg">
+    <wsdl:part element="tns:getBusinessDays" name="getBusinessDaysParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getBusinessDaysResponseMsg">
+    <wsdl:part element="tns:getBusinessDaysResponse" name="getBusinessDaysResult"/>
+  </wsdl:message>
+    <wsdl:message name="getBusinessDays_serviceFaultMsg">
+    <wsdl:part element="tns:getBusinessDaysFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisCalendar">
+        <wsdl:operation name="getBusinessDays">
+      <wsdl:input message="tns:getBusinessDaysRequestMsg" name="getBusinessDaysRequest"/>
+      <wsdl:output message="tns:getBusinessDaysResponseMsg" name="getBusinessDaysResponse"/>
+      <wsdl:fault message="tns:getBusinessDays_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getDateByBusinessDays">
+      <wsdl:input message="tns:getDateByBusinessDaysRequestMsg" name="getDateByBusinessDaysRequest"/>
+      <wsdl:output message="tns:getDateByBusinessDaysResponseMsg" name="getDateByBusinessDaysResponse"/>
+            <wsdl:fault message="tns:getDateByBusinessDays_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="isBusinessDay">
+      <wsdl:input message="tns:isBusinessDayRequestMsg" name="isBusinessDayRequest"/>
+      <wsdl:output message="tns:isBusinessDayResponseMsg" name="isBusinessDayResponse"/>
+            <wsdl:fault message="tns:isBusinessDay_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

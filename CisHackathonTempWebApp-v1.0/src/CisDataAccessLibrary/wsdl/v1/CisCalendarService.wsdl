@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisCalendarService_CisCalendarHttp_Service" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns:Port_0="http://www.pgn.com/v1/cis/inf" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://www.pgn.com/v1/cis/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="CisCalendar.wsdl" namespace="http://www.pgn.com/v1/cis/inf"/>
+  <wsdl:binding name="CisCalendarServiceBinding" type="Port_0:CisCalendar">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getBusinessDays">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getBusinessDaysRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBusinessDaysResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+  	  <wsdl:fault name="serviceFault">
+  		<soap:fault name="serviceFault" use="literal" />
+	  </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDateByBusinessDays">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getDateByBusinessDaysRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDateByBusinessDaysResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+  	  <wsdl:fault name="serviceFault">
+  		<soap:fault name="serviceFault" use="literal" />
+	  </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isBusinessDay">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="isBusinessDayRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="isBusinessDayResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+  	  <wsdl:fault name="serviceFault">
+  		<soap:fault name="serviceFault" use="literal" />
+	  </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CisCalendarService">
+    <wsdl:port binding="this:CisCalendarServiceBinding" name="CisCalendarServicePort">
+      <soap:address location="http://localhost:9080/CisCalendarWeb-v1/CisCalendarService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

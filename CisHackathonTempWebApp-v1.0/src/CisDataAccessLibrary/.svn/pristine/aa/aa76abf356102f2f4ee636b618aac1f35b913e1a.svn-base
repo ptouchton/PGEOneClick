@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="AddressDto.xsd"/>
+  <xsd:complexType name="PremiseDto">
+   <xsd:sequence>
+      <xsd:element minOccurs="0" name="serviceArea" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="dwellingCode" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="countyCode" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="nationCode" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="townCode" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="billLocation" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="owner" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="route" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="serviceAddress" type="bons0:AddressDto"/>
+            <xsd:element minOccurs="0" name="inOutCity">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:length value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="alternateLocation" type="xsd:string"/>
+        </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

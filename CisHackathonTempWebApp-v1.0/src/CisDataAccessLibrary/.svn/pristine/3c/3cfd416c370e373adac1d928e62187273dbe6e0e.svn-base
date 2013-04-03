@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisConsumption" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons4="http://www.pgn.com/2010/07/cis/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons2="http://www.pgn.com/v1/cis/inf" xmlns:bons3="http://www.pgn.com/2010/07/fault/xsd">
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/HistoryNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="platform:/resource/PGEFaultLibrary/bo/_2010/_07/PremiseNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ConsumptionHistoryDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PremiseDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PremiseCode.xsd"/>            
+            
+            <xsd:element name="getConsumptionHistory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="premiseCode" nillable="true" type="bons1:PremiseCode"/>
+                        <xsd:element name="serviceNumber" nillable="true" type="xsd:int"/>
+                        <xsd:element name="begDate" nillable="true" type="xsd:dateTime"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getConsumptionHistoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="consumptionHistory" nillable="true" type="bons0:ConsumptionHistoryDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getConsumptionHistory_historyNotFound" type="bons3:HistoryNotFoundFault"/>
+      <xsd:element name="getConsumptionHistory_serviceFault" type="bons3:ServiceFault"/>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getConsumptionHistoryRequestMsg">
+    <wsdl:part element="bons0:getConsumptionHistory" name="getConsumptionHistoryParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getConsumptionHistoryResponseMsg">
+    <wsdl:part element="bons0:getConsumptionHistoryResponse" name="getConsumptionHistoryResult"/>
+  </wsdl:message>
+    <wsdl:message name="getConsumptionHistory_historyNotFoundMsg">
+    <wsdl:part element="bons0:getConsumptionHistory_historyNotFound" name="historyNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getConsumptionHistory_serviceFaultMsg">
+    <wsdl:part element="bons0:getConsumptionHistory_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisConsumption">
+    <wsdl:operation name="getConsumptionHistory">
+            <wsdl:input message="bons0:getConsumptionHistoryRequestMsg" name="getConsumptionHistoryRequest"/>
+            <wsdl:output message="bons0:getConsumptionHistoryResponseMsg" name="getConsumptionHistoryResponse"/>
+      <wsdl:fault message="bons0:getConsumptionHistory_historyNotFoundMsg" name="historyNotFound"/>
+      <wsdl:fault message="bons0:getConsumptionHistory_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

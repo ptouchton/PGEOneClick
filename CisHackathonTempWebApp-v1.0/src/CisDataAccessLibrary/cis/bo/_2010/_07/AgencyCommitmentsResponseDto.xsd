@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="ServiceResponse.xsd"/>
+    <xsd:complexType name="AgencyCommitmentsResponseDto">
+    <xsd:complexContent>
+      <xsd:extension base="bons0:ServiceResponse">
+                <xsd:sequence>
+          <xsd:element minOccurs="0" name="discSOCancelCount" type="xsd:int">
+            <xsd:annotation>
+              <xsd:documentation>count of cancelled disconnect service orders</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+            </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

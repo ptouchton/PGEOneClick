@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisEvent" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://CisDataAccessLibrary/wsdl/v1/CisEvent" xmlns:bons2="http://www.pgn.com/2010/07/fault/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons4="http://www.pgn.com/2011/07/cis/xsd">
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/EventNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2011/07/cis/xsd" schemaLocation="../../cis/bo/_2011/_07/EventsDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+      <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/RecordNotFoundFault.xsd"/>
+      <xsd:element name="getEvents">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="eventType" nillable="true" type="xsd:string">
+              <xsd:annotation>
+                <xsd:documentation>CIS group type</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="startDate" nillable="true" type="xsd:dateTime"/>
+            <xsd:element name="endDate" nillable="true" type="xsd:dateTime"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getEventsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="events" nillable="true" type="bons4:EventsDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getEventsFault1_recordNotFound" nillable="true" type="bons2:EventNotFoundFault"/>
+      <xsd:element name="getEventsFault2_serviceFault" nillable="true" type="bons2:ServiceFault"/>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getEventsRequestMsg">
+    <wsdl:part element="tns:getEvents" name="getEventsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getEventsResponseMsg">
+    <wsdl:part element="tns:getEventsResponse" name="getEventsResult"/>
+  </wsdl:message>
+    <wsdl:message name="getEvents_recordNotFoundMsg">
+    <wsdl:part element="tns:getEventsFault1_recordNotFound" name="recordNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getEvents_serviceFaultMsg">
+    <wsdl:part element="tns:getEventsFault2_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisEvent">
+    <wsdl:operation name="getEvents">
+      <wsdl:input message="tns:getEventsRequestMsg" name="getEventsRequest"/>
+      <wsdl:output message="tns:getEventsResponseMsg" name="getEventsResponse"/>
+      <wsdl:fault message="tns:getEvents_recordNotFoundMsg" name="recordNotFound"/>
+      <wsdl:fault message="tns:getEvents_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

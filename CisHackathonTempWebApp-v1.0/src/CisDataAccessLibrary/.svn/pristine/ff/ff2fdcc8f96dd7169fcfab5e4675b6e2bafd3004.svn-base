@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisServiceOrderService" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons3="http://www.pgn.com/2010/07/fault/xsd" xmlns:bons4="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons5="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons6="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons7="http://www.pgn.com/2010/12/cis/xsd" xmlns:bons8="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons9="http://www.pgn.com/2012/04/cis/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons2="http://www.pgn.com/v1/cis/inf">
+            <xsd:import namespace="http://www.pgn.com/2012/04/cis/xsd" schemaLocation="../../cis/bo/_2012/_04/ServiceOrdersDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/12/cis/xsd" schemaLocation="../../cis/bo/_2010/_12/ServiceResponseArrayDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/12/cis/xsd" schemaLocation="../../cis/bo/_2010/_12/IntArrayDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceOrderNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/RecordNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ServiceOrdersDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/StringArray.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/CustomerCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PremiseCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ServiceResponse.xsd"/>          
+            <xsd:element name="getServiceOrders">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons0:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons0:PremiseCode"/>
+            <xsd:element name="serviceOrderCategory" nillable="true" type="xsd:string">
+              <xsd:annotation>
+                <xsd:documentation>ALL, MVIN, MVOT, DISC, ...</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getServiceOrdersResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceOrders" nillable="true" type="bons0:ServiceOrdersDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getServiceOrders_serviceOrderNotFoundFault" type="bons3:ServiceOrderNotFoundFault"/>
+      <xsd:element name="getServiceOrders_serviceFault" type="bons3:ServiceFault"/>
+            <xsd:element name="getServiceOrdersByPremise">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="premiseCode" nillable="true" type="bons0:PremiseCode"/>
+            <xsd:element name="serviceOrderCategory" nillable="true" type="xsd:string">
+              <xsd:annotation>
+                <xsd:documentation>ALL, MVIN, MVOT, DISC, ...</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getServiceOrdersByPremiseResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceOrders" nillable="true" type="bons0:ServiceOrdersDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getServiceOrdersByPremise_serviceOrderNotFoundFault" type="bons3:ServiceOrderNotFoundFault"/>
+            <xsd:element name="getServiceOrdersByPremise_serviceFault" type="bons3:ServiceFault"/>
+            <xsd:element name="lookupServiceCategory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="orderType" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="lookupServiceCategoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="orderCategories" nillable="true" type="bons0:StringArray"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="lookupServiceCategory_serviceTypeNotFoundFaultS" type="bons3:RecordNotFoundFault"/>
+            <xsd:element name="lookupServiceCategory_serviceFault" type="bons3:ServiceFault"/>
+            <xsd:element name="cancelServiceOrderByCategory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons0:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons0:PremiseCode"/>
+            <xsd:element name="serviceOrderCategory" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="cancelFrom" nillable="true" type="xsd:dateTime"/>
+            <xsd:element minOccurs="0" name="cancelTo" nillable="true" type="xsd:dateTime"/>
+                        <xsd:element name="noteText" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="cancelServiceOrderByCategoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceResponse" nillable="true" type="bons0:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="cancelServiceOrderByCategory_serviceFault" type="bons3:ServiceFault"/>
+            <xsd:element name="cancelServiceOrdersByOrderId">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="orderId" nillable="true" type="bons7:IntArrayDto"/>
+            <xsd:element name="noteText" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="cancelServiceOrdersByOrderIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceResponseArray" nillable="true" type="bons7:ServiceResponseArrayDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="cancelServiceOrdersByOrderIdFault_serviceFault" nillable="true" type="bons3:ServiceFault"/>
+            <xsd:element name="getServiceOrdersByService">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="premiseCode" nillable="true" type="bons0:PremiseCode"/>
+            <xsd:element name="serviceNumber" nillable="true" type="xsd:int"/>
+            <xsd:element name="fromDate" nillable="true" type="xsd:dateTime"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getServiceOrdersByServiceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceOrders" nillable="true" type="bons9:ServiceOrdersDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getServiceOrdersByService_serviceFault" nillable="true" type="bons3:ServiceFault"/>
+            <xsd:element name="getServiceOrderById">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="orderId" nillable="true" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getServiceOrderByIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceOrder" nillable="true" type="bons9:ServiceOrderDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getServiceOrderById_serviceFault" nillable="true" type="bons3:ServiceFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getServiceOrdersRequestMsg">
+    <wsdl:part element="bons0:getServiceOrders" name="getServiceOrdersParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceOrdersResponseMsg">
+    <wsdl:part element="bons0:getServiceOrdersResponse" name="getServiceOrdersResult"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceOrders_serviceOrderNotFoundFaultMsg">
+    <wsdl:part element="bons0:getServiceOrders_serviceOrderNotFoundFault" name="serviceOrderNotFoundFault"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceOrders_serviceFaultMsg">
+    <wsdl:part element="bons0:getServiceOrders_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceOrdersByPremiseRequestMsg">
+    <wsdl:part element="bons0:getServiceOrdersByPremise" name="getServiceOrdersByPremiseParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceOrdersByPremiseResponseMsg">
+    <wsdl:part element="bons0:getServiceOrdersByPremiseResponse" name="getServiceOrdersByPremiseResult"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceOrdersByPremise_serviceOrderNotFoundFaultMsg">
+    <wsdl:part element="bons0:getServiceOrdersByPremise_serviceOrderNotFoundFault" name="serviceOrderNotFoundFault"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceOrdersByPremise_serviceFaultMsg">
+    <wsdl:part element="bons0:getServiceOrdersByPremise_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="lookupServiceCategoryRequestMsg">
+    <wsdl:part element="bons0:lookupServiceCategory" name="lookupServiceCategoryParameters"/>
+  </wsdl:message>
+    <wsdl:message name="lookupServiceCategoryResponseMsg">
+    <wsdl:part element="bons0:lookupServiceCategoryResponse" name="lookupServiceCategoryResult"/>
+  </wsdl:message>
+    <wsdl:message name="lookupServiceCategory_serviceTypeNotFoundFaultSMsg">
+    <wsdl:part element="bons0:lookupServiceCategory_serviceTypeNotFoundFaultS" name="serviceTypeNotFoundFaultS"/>
+  </wsdl:message>
+    <wsdl:message name="lookupServiceCategory_serviceFaultMsg">
+    <wsdl:part element="bons0:lookupServiceCategory_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="cancelServiceOrderByCategoryRequestMsg">
+    <wsdl:part element="bons0:cancelServiceOrderByCategory" name="cancelServiceOrderByCategoryParameters"/>
+  </wsdl:message>
+    <wsdl:message name="cancelServiceOrderByCategoryResponseMsg">
+    <wsdl:part element="bons0:cancelServiceOrderByCategoryResponse" name="cancelServiceOrderByCategoryResult"/>
+  </wsdl:message>
+    <wsdl:message name="cancelServiceOrderByCategory_serviceFaultMsg">
+    <wsdl:part element="bons0:cancelServiceOrderByCategory_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="cancelServiceOrdersByOrderIdRequestMsg">
+    <wsdl:part element="bons0:cancelServiceOrdersByOrderId" name="cancelServiceOrdersByOrderIdParameters"/>
+  </wsdl:message>
+    <wsdl:message name="cancelServiceOrdersByOrderIdResponseMsg">
+    <wsdl:part element="bons0:cancelServiceOrdersByOrderIdResponse" name="cancelServiceOrdersByOrderIdResult"/>
+  </wsdl:message>
+    <wsdl:message name="cancelServiceOrdersByOrderId_serviceFaultMsg">
+    <wsdl:part element="bons0:cancelServiceOrdersByOrderIdFault_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceOrdersByServiceRequestMsg">
+    <wsdl:part element="bons0:getServiceOrdersByService" name="getServiceOrdersByServiceParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceOrdersByServiceResponseMsg">
+    <wsdl:part element="bons0:getServiceOrdersByServiceResponse" name="getServiceOrdersByServiceResult"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceOrdersByService_serviceFault">
+    <wsdl:part element="bons0:getServiceOrdersByService_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceOrderByIdRequestMsg">
+    <wsdl:part element="bons0:getServiceOrderById" name="getServiceOrderByIdParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceOrderByIdResponseMsg">
+    <wsdl:part element="bons0:getServiceOrderByIdResponse" name="getServiceOrderByIdResult"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceOrderById_serviceFault">
+    <wsdl:part element="bons0:getServiceOrderById_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisServiceOrder">
+    <wsdl:operation name="getServiceOrders">
+      <wsdl:input message="bons0:getServiceOrdersRequestMsg" name="getServiceOrdersRequest"/>
+      <wsdl:output message="bons0:getServiceOrdersResponseMsg" name="getServiceOrdersResponse"/>
+      <wsdl:fault message="bons0:getServiceOrders_serviceOrderNotFoundFaultMsg" name="serviceOrderNotFoundFault"/>
+      <wsdl:fault message="bons0:getServiceOrders_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getServiceOrdersByPremise">
+      <wsdl:input message="bons0:getServiceOrdersByPremiseRequestMsg" name="getServiceOrdersByPremiseRequest"/>
+      <wsdl:output message="bons0:getServiceOrdersByPremiseResponseMsg" name="getServiceOrdersByPremiseResponse"/>
+      <wsdl:fault message="bons0:getServiceOrdersByPremise_serviceOrderNotFoundFaultMsg" name="serviceOrderNotFoundFault"/>
+      <wsdl:fault message="bons0:getServiceOrdersByPremise_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="lookupServiceCategory">
+      <wsdl:input message="bons0:lookupServiceCategoryRequestMsg" name="lookupServiceCategoryRequest"/>
+      <wsdl:output message="bons0:lookupServiceCategoryResponseMsg" name="lookupServiceCategoryResponse"/>
+      <wsdl:fault message="bons0:lookupServiceCategory_serviceTypeNotFoundFaultSMsg" name="serviceTypeNotFoundFault"/>
+      <wsdl:fault message="bons0:lookupServiceCategory_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="cancelServiceOrderByCategory">
+            <wsdl:input message="bons0:cancelServiceOrderByCategoryRequestMsg" name="cancelServiceOrderByCategoryRequest"/>
+            <wsdl:output message="bons0:cancelServiceOrderByCategoryResponseMsg" name="cancelServiceOrderByCategoryResponse"/>
+      <wsdl:fault message="bons0:cancelServiceOrderByCategory_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="cancelServiceOrdersByOrderId">
+      <wsdl:input message="bons0:cancelServiceOrdersByOrderIdRequestMsg" name="cancelServiceOrdersByOrderIdRequest"/>
+      <wsdl:output message="bons0:cancelServiceOrdersByOrderIdResponseMsg" name="cancelServiceOrdersByOrderIdResponse"/>
+      <wsdl:fault message="bons0:cancelServiceOrdersByOrderId_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getServiceOrdersByService">
+      <wsdl:input message="bons0:getServiceOrdersByServiceRequestMsg" name="getServiceOrdersByServiceRequest"/>
+      <wsdl:output message="bons0:getServiceOrdersByServiceResponseMsg" name="getServiceOrdersByServiceResponse"/>
+      <wsdl:fault message="bons0:getServiceOrdersByService_serviceFault" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getServiceOrderById">
+      <wsdl:input message="bons0:getServiceOrderByIdRequestMsg" name="getServiceOrderByIdRequest"/>
+      <wsdl:output message="bons0:getServiceOrderByIdResponseMsg" name="getServiceOrderByIdResponse"/>
+      <wsdl:fault message="bons0:getServiceOrderById_serviceFault" name="serviceFault"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

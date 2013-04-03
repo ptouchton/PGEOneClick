@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisStopServiceService" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/v1/cis/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:import location="CisStopService.wsdl" namespace="http://www.pgn.com/v1/cis/inf"/>
+    <wsdl:binding name="CisStopServiceBinding"
+    	type="bons0:CisStopService">
+    	<soap:binding style="document"
+    		transport="http://schemas.xmlsoap.org/soap/http" />
+    	<wsdl:operation name="createStopServiceOrder">
+    		<soap:operation soapAction="" />
+    		<wsdl:input name="createStopServiceOrderRequest">
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output name="createStopServiceOrderResponse">
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    		<wsdl:fault name="serviceFault">
+    			<soap:fault name="serviceFault" use="literal" />
+    		</wsdl:fault>
+    	</wsdl:operation>
+    	<wsdl:operation name="updateStopServiceOrder">
+    		<soap:operation soapAction="" />
+    		<wsdl:input name="updateStopServiceOrderRequest">
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output name="updateStopServiceOrderResponse">
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    		<wsdl:fault name="serviceFault">
+    			<soap:fault name="serviceFault" use="literal" />
+    		</wsdl:fault>
+    	</wsdl:operation>
+    	<wsdl:operation name="cancelServiceOrder">
+    		<soap:operation soapAction="" />
+    		<wsdl:input name="cancelServiceOrderRequest">
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output name="cancelServiceOrderResponse">
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    		<wsdl:fault name="serviceFault">
+    			<soap:fault name="serviceFault" use="literal" />
+    		</wsdl:fault>
+    	</wsdl:operation>
+    	<wsdl:operation name="updateCloseAuthorization">
+    		<soap:operation
+    			soapAction="http://www.pgn.com/v1/cis/wsdl/updateCloseAuthorization" />
+    		<wsdl:input name="updateCloseAuthorizationRequest">
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output name="updateCloseAuthorizationResponse">
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    		<wsdl:fault name="serviceFault">
+    			<soap:fault use="literal" name="serviceFault" />
+    		</wsdl:fault>
+    	</wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CisStopServiceService">
+    <wsdl:port binding="bons1:CisStopServiceBinding" name="CisStopServicePort">
+      <soap:address location="http://localhost:9081/CisStopWeb-v1/CisStopServiceService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

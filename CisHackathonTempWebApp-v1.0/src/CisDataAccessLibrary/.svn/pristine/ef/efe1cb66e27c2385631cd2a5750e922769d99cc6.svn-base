@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisNoteExport1_CisNoteHttp_Service" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/v1/cis/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:import location="CisNote.wsdl" namespace="http://www.pgn.com/v1/cis/inf"/>
+    <wsdl:binding name="CisNoteServiceBinding" type="bons0:CisNote">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createNotes">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="createNotesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createNotesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createNotesByPremise">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="createNotesByPremiseRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createNotesByPremiseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getNotes">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getNotesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNotesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="notesNotFound">
+        <soap:fault name="notesNotFound" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getNotesByPremise">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getNotesByPremiseRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNotesByPremiseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="notesNotFound">
+        <soap:fault name="notesNotFound" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTodaysNotes">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getTodaysNotesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTodaysNotesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="notesNotFound">
+        <soap:fault name="notesNotFound" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CisNoteService">
+    <wsdl:port binding="bons1:CisNoteServiceBinding" name="CisNoteServicePort">
+      <soap:address location="http://localhost:9081/CisNoteWeb-v1/CisNoteService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

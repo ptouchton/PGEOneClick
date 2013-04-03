@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisCustomerExport1_CisCustomerHttp_Service" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/v1/cis/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="CisCustomer.wsdl" namespace="http://www.pgn.com/v1/cis/inf"/>
+    <wsdl:binding name="CisCustomerServiceBinding" type="bons0:CisCustomer">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getCustomer">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getCustomerRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCustomerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="customerNotFound">
+        <soap:fault name="customerNotFound" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getServicePhone">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getServicePhoneRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getServicePhoneResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="phoneNotFound">
+        <soap:fault name="phoneNotFound" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPhones">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getPhonesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPhonesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="accountNotFound">
+        <soap:fault name="accountNotFound" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="phoneNotFound">
+        <soap:fault name="phoneNotFound" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPhonesByCustomer">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getPhonesByCustomerRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPhonesByCustomerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="phoneNotFound">
+        <soap:fault name="phoneNotFound" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerName">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getCustomerNameRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCustomerNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="customerNotFound">
+        <soap:fault name="customerNotFound" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="customerHasBadDebt">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="customerHasBadDebtRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="customerHasBadDebtResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>      
+    </wsdl:operation>
+    <wsdl:operation name="getDefaultCusomer">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getDefaultCusomerRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDefaultCusomerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="customerNotFound">
+        <soap:fault name="customerNotFound" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findDefaultCustomersByName">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="findDefaultCustomersByNameRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findDefaultCustomersByNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="customerNotFound">
+        <soap:fault name="customerNotFound" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findDefaultCustomersByPartialCode">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="findDefaultCustomersByPartialCodeRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findDefaultCustomersByPartialCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="customerNotFound">
+        <soap:fault name="customerNotFound" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findDefaultCustomersByCodeAndName">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="findDefaultCustomersByCodeAndNameRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findDefaultCustomersByCodeAndNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="customerNotFound">
+        <soap:fault name="customerNotFound" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CisCustomerService">
+    <wsdl:port binding="bons1:CisCustomerServiceBinding" name="CisCustomerServicePort">
+      <soap:address location="http://localhost:9081/CisBillingWeb-v1/CisBillingService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

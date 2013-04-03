@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="com.ibm.wbit.ui.DataTypeSelectionDialog">
+		<item value="389" key="width"/>
+		<item value="607" key="height"/>
+		<item value="606" key="x"/>
+		<item value="176" key="y"/>
+	</section>
+</section>

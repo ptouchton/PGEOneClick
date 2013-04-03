@@ -1,0 +1,18 @@
+<jaxws:bindings
+	wsdlLocation="file:../wsdl/v1/CisConsumption.wsdl"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
+	
+	<!-- customize the generated fault class names -->
+	
+	<!-- getConsumptionHistory -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisConsumption']/wsdl:operation[@name='getConsumptionHistory']/wsdl:fault[@name='historyNotFound']">
+		<jaxws:class name="HistoryNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisConsumption']/wsdl:operation[@name='getConsumptionHistory']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+			
+</jaxws:bindings>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisStartService" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://CisDataAccessLibrary/wsdl/v1/inf/CisStartService" xmlns:bons1="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons2="http://www.pgn.com/2010/07/fault/xsd" xmlns:bons3="http://www.pgn.com/2012/02/cis/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/v1/cis/inf">
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ServiceOrderRequestDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AccountNumberDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2012/02/cis/xsd" schemaLocation="../../cis/bo/_2012/_02/ServiceOrderNumber.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/CustomerCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ServiceResponse.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/CustomerDto.xsd"/>
+      <xsd:element name="createCustomer">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customer" nillable="true" type="bons1:CustomerDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createCustomerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="custCode" nillable="true" type="bons1:CustomerCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createCustomerFault1_serviceFault" nillable="true" type="bons2:ServiceFault"/>
+      <xsd:element name="createAccount">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumber" nillable="true" type="bons1:AccountNumberDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createAccountResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceResponse" nillable="true" type="bons1:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createAccountFault1_serviceFault" nillable="true" type="bons2:ServiceFault"/>
+      <xsd:element name="submitStartService">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceOrder" nillable="true" type="bons1:ServiceOrderRequestDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="submitStartServiceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceOrderNumber" nillable="true" type="bons3:ServiceOrderNumber"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="submitStartServiceFault1_serviceFault" nillable="true" type="bons2:ServiceFault"/>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="createCustomerRequestMsg">
+    <wsdl:part element="tns:createCustomer" name="createCustomerParameters"/>
+  </wsdl:message>
+    <wsdl:message name="createCustomerResponseMsg">
+    <wsdl:part element="tns:createCustomerResponse" name="createCustomerResult"/>
+  </wsdl:message>
+    <wsdl:message name="createCustomer_serviceFaultMsg">
+    <wsdl:part element="tns:createCustomerFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="createAccountRequestMsg">
+    <wsdl:part element="tns:createAccount" name="createAccountParameters"/>
+  </wsdl:message>
+    <wsdl:message name="createAccountResponseMsg">
+    <wsdl:part element="tns:createAccountResponse" name="createAccountResult"/>
+  </wsdl:message>
+    <wsdl:message name="createAccount_serviceFaultMsg">
+    <wsdl:part element="tns:createAccountFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="submitStartServiceRequestMsg">
+    <wsdl:part element="tns:submitStartService" name="submitStartServiceParameters"/>
+  </wsdl:message>
+    <wsdl:message name="submitStartServiceResponseMsg">
+    <wsdl:part element="tns:submitStartServiceResponse" name="submitStartServiceResult"/>
+  </wsdl:message>
+    <wsdl:message name="submitStartService_serviceFaultMsg">
+    <wsdl:part element="tns:submitStartServiceFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisStartService">
+    <wsdl:operation name="createCustomer">
+      <wsdl:input message="tns:createCustomerRequestMsg" name="createCustomerRequest"/>
+      <wsdl:output message="tns:createCustomerResponseMsg" name="createCustomerResponse"/>
+      <wsdl:fault message="tns:createCustomer_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="createAccount">
+      <wsdl:input message="tns:createAccountRequestMsg" name="createAccountRequest"/>
+      <wsdl:output message="tns:createAccountResponseMsg" name="createAccountResponse"/>
+      <wsdl:fault message="tns:createAccount_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="submitStartService">
+      <wsdl:input message="tns:submitStartServiceRequestMsg" name="submitStartServiceRequest"/>
+      <wsdl:output message="tns:submitStartServiceResponseMsg" name="submitStartServiceResponse"/>
+      <wsdl:fault message="tns:submitStartService_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

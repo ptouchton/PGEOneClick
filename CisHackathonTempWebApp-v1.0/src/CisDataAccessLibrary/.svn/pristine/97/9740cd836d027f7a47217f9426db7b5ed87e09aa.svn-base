@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="ReadingInstructionDto">
+        <xsd:annotation>
+      <xsd:documentation>Meter Reading instructions Data Access Object</xsd:documentation>
+    </xsd:annotation>
+        <xsd:sequence>
+      <xsd:element minOccurs="0" name="sequenceNumber" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Sequence number for the reading instructions</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="code" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>code for the meter reading instruction.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="description" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>description for the meter reading instructions</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

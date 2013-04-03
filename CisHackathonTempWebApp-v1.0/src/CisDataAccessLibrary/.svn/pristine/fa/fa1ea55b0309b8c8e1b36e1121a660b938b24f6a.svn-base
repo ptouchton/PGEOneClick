@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisDeposit" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons2="http://www.pgn.com/2011/07/cis/xsd" xmlns:bons3="http://www.pgn.com/2010/07/fault/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf">
+            <xsd:import namespace="http://www.pgn.com/2011/07/cis/xsd" schemaLocation="../../cis/bo/_2011/_07/InstallmentsDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+      <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AccountNumberDto.xsd"/>
+      <xsd:element name="hasDepositOwing">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" name="accountNumber" nillable="false" type="bons1:AccountNumberDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hasDepositOwingResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" name="depositExists" nillable="false" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hasDepositOwingFault1_serviceFault" nillable="true" type="bons3:ServiceFault"/>
+            <xsd:element name="getInstallmentPlan">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumber" nillable="true" type="bons1:AccountNumberDto"/>
+            <xsd:element name="depositStatus" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getInstallmentPlanResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="installmentPlan" nillable="true" type="bons2:InstallmentsDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getInstallmentPlanFault1_serviceFault" nillable="true" type="bons3:ServiceFault"/>
+            <xsd:element name="getDepositBalance">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumber" nillable="true" type="bons1:AccountNumberDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getDepositBalanceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="depositBalance" nillable="true" type="xsd:float"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getDepositBalanceFault1_serviceFault" nillable="true" type="bons3:ServiceFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="hasDepositOwingRequestMsg">
+    <wsdl:part element="tns:hasDepositOwing" name="hasDepositOwingParameters"/>
+  </wsdl:message>
+    <wsdl:message name="hasDepositOwingResponseMsg">
+    <wsdl:part element="tns:hasDepositOwingResponse" name="hasDepositOwingResult"/>
+  </wsdl:message>
+    <wsdl:message name="hasDepositOwing_serviceFaultMsg">
+    <wsdl:part element="tns:hasDepositOwingFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getInstallmentPlanRequestMsg">
+    <wsdl:part element="tns:getInstallmentPlan" name="getInstallmentPlanParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getInstallmentPlanResponseMsg">
+    <wsdl:part element="tns:getInstallmentPlanResponse" name="getInstallmentPlanResult"/>
+  </wsdl:message>
+    <wsdl:message name="getInstallmentPlan_serviceFaultMsg">
+    <wsdl:part element="tns:getInstallmentPlanFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getDepositBalanceRequestMsg">
+    <wsdl:part element="tns:getDepositBalance" name="getDepositBalanceParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getDepositBalanceResponseMsg">
+    <wsdl:part element="tns:getDepositBalanceResponse" name="getDepositBalanceResult"/>
+  </wsdl:message>
+    <wsdl:message name="getDepositBalance_serviceFaultMsg">
+    <wsdl:part element="tns:getDepositBalanceFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisDeposit">
+        <wsdl:operation name="getInstallmentPlan">
+      <wsdl:input message="tns:getInstallmentPlanRequestMsg" name="getInstallmentPlanRequest"/>
+      <wsdl:output message="tns:getInstallmentPlanResponseMsg" name="getInstallmentPlanResponse"/>
+      <wsdl:fault message="tns:getInstallmentPlan_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="hasDepositOwing">
+      <wsdl:input message="tns:hasDepositOwingRequestMsg" name="hasDepositOwingRequest"/>
+      <wsdl:output message="tns:hasDepositOwingResponseMsg" name="hasDepositOwingResponse"/>
+      <wsdl:fault message="tns:hasDepositOwing_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getDepositBalance">
+      <wsdl:documentation>From the StoredProc Description:
+
+Purpose    : Return the deposit balance for the provided account.</wsdl:documentation>
+      <wsdl:input message="tns:getDepositBalanceRequestMsg" name="getDepositBalanceRequest"/>
+      <wsdl:output message="tns:getDepositBalanceResponseMsg" name="getDepositBalanceResponse"/>
+      <wsdl:fault message="tns:getDepositBalance_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

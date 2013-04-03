@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:complexType name="Address">
+        <xsd:annotation>
+      <xsd:documentation>Address Object is used to communicate to/from CIS or systems that require detailed address attributes.  In addition, unparsed or formatted address data may be provided or obtained.</xsd:documentation>
+    </xsd:annotation>
+        <xsd:sequence>
+      <xsd:element minOccurs="0" name="addressType" type="xsd:string">
+        <xsd:annotation>
+          
+        <xsd:documentation>Address type identifier.&#13;
+Suggested CIS Values: MAIL, PREMISE</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="streetPrefix" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Prefix directional of a street.  (e.g., “N” for north and “S” for south).</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="streetNumber" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>An address number, referring to the location on a street.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="streetName" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>A street name.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="streetType" type="xsd:string">
+        <xsd:annotation>
+          
+        <xsd:documentation>Abbreviated USPS approved street locators (e.g., AVE, ST, PKWY).</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="streetSuffix" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Postfix directional of a street.  (e.g., “N” for north and “S” for south)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="directionPost" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="unitType" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>A qualifier describing a unit number.  (e.g., APT, SUITE, BLDG).</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="unitNumber" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Identifier describing to location within a multi-unit dwelling or complex.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="city" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>City, town or locality.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="stateOrProvince" type="xsd:string">
+        <xsd:annotation>
+          
+        <xsd:documentation>State or Providence code</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="postalCode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>zip, zip+4, Postal code</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="countryCode" type="xsd:string">
+        <xsd:annotation>
+          
+        <xsd:documentation>Country Code</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="addressLine1" type="xsd:string">
+        <xsd:annotation>
+          
+        
+        <xsd:documentation>Formatted address line 1.  Returned by CIS to reflect customer bill.  Used for unparsable address input on the inbound to CIS.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="addressLine2" type="xsd:string">
+        <xsd:annotation>
+          
+        
+        <xsd:documentation>Formatted address line 2.  Returned by CIS to reflect customer bill.  Used for unparsable address input on the inbound to CIS.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="addressLine3" type="xsd:string">
+        <xsd:annotation>
+          
+        
+        <xsd:documentation>Formatted address line 3.  Returned by CIS to reflect customer bill.  Used for unparsable address input on the inbound to CIS.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="addressLine4" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Formatted address line 4.  Returned by CIS to reflect customer bill.  Used for unparsable address input on the inbound to CIS.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="attentionLine" type="xsd:string"/>
+        </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

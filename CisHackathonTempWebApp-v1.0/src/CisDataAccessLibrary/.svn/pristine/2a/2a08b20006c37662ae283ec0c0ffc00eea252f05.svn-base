@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2013/01/cis/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd">
+	<xsd:import schemaLocation="../../_2010/_07/CustomerCode.xsd"
+		namespace="http://www.pgn.com/2010/07/cis/xsd">
+	</xsd:import>
+	<xsd:complexType name="MoveHistoryDto">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="customerCode"
+				type="bons0:CustomerCode">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="moveInDate"
+				type="xsd:dateTime">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="moveOutDate"
+				type="xsd:dateTime">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2012/04/common/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bons1="http://www.pgn.com/2012/04/common/xsd">
+	<xsd:include schemaLocation="Note.xsd"></xsd:include>
+	<xsd:complexType name="Notes">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="notes"
+				type="bons1:Note">
+				<xsd:annotation>
+					<xsd:documentation>An array of notes for the account
+						number.&#13; </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

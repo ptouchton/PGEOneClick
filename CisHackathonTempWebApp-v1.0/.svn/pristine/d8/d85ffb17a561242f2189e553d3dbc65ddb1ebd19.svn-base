@@ -1,0 +1,756 @@
+<project name="BuildScripts" default="buildApp" basedir=".">
+
+	<import file="${basedir}/build/includes/common.xml" />
+	<!-- ================================================================== -->
+	<!-- Properties                                                         -->
+	<!-- ================================================================== -->
+
+	<!-- bring in the build properties file -->
+	<property file="${build.config}" />
+	<property environment="buildenv" />
+
+	<!-- Build Directories -->
+	<property name="build.dir"			value="${buildenv.BUILD_DIR}" />
+	<property name="export.dir" 		value="${basedir}/export" />
+	<property name="svn.dir"			value="${basedir}/src" />
+	<property name="src.dir"			value="${basedir}/src" />
+	<property name="log.dir" 			value="${basedir}/log" />
+	<property name="lib.dir"			value="${buildenv.WID_LIB_DIR}" />
+	<property name="workspace.dir"    	value="${basedir}/src" />
+	<property name="includes.dir"		value="${basedir}/build/includes" />
+	<property name="junit.dir"			value="${basedir}/unittests/junit" />
+	<property name="testResults.dir"		value="${basedir}/testresults"/>
+	<property name="jUnitTestResults.dir"		value="${testResults.dir}/junit" />
+	<property name="soapui.dir" 			value="${buildenv.SOAPUI_DIR}" />
+	<property name="cobertura.dir"		value="/opt/cobertura" />
+
+	<property name="ant.runner"		value="cmdline" />
+
+	<!-- paths to the deploy scripts -->
+	<property name="service.deploy" 	value="${buildenv.SERVICEDEPLOY}" />
+	<property name="ejb.deploy" 		value="${buildenv.EJBDEPLOY}" />
+	<property name="ws.deploy"			value="${buildenv.WSDEPLOY}" /> 
+
+	<!-- headless build properties -->
+	<property name="studio.dir"			value="${buildenv.STUDIO_DIR}" />
+
+	<!-- predefined classpaths -->
+	<path id="cobertura.classpath">
+		<fileset dir="${cobertura.dir}">
+			<include name="cobertura.jar"/>
+			<include name="lib/**/*.jar" />
+		</fileset>
+	</path>
+
+	<typedef resource="org/apache/ant/svn/antlib.xml" classpath="${basedir}/build/lib/ant-svn-0.1-SNAPSHOT.jar" /> 
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpath="${basedir}/build/lib/ant-contrib-0.6.jar" />
+	<taskdef resource="tasks.properties" classpathref="cobertura.classpath" />
+
+	<!-- ================================================================== -->
+	<!-- TARGET: developer init                                                       -->                                
+	<!-- ================================================================== -->
+	<target name="init" description="Creates the build dir and its subdirectories." >
+		<mkdir dir="${export.dir}" />
+		<mkdir dir="${src.dir}" />
+		<mkdir dir="${log.dir}" />
+		<mkdir dir="${lib.dir}" />
+	</target>	
+
+
+	<!-- ================================================================== -->
+	<!-- TARGET: clean                                                      -->                                
+	<!-- ================================================================== -->
+	<!-- If an application name is present it removes the svn dir for that  -->
+	<!-- application, otherwise it removes the toplevel svn directory.      -->
+	<target name="clean" depends="_getPropertyFile" description="Removes the svn, src, and workspace directories under the build dir." >
+		<ant target="_clean" inheritAll="true">
+			<property name="build.config" value="${config.file}" />
+		</ant>
+	</target>
+
+	<target name="_clean" >
+		<if>
+			<isset property="application.name" />
+			<then>
+				<delete file="${export.dir}/${application.name}" />
+			</then>
+		</if>
+	</target>
+
+	<!-- ================================================================== -->
+	<!-- TARGET: buildApp                                                   -->                                
+	<!-- ================================================================== -->
+	<target name="buildApp" depends="_getPropertyFile" description="Builds the application and creates an ear in the export dir.  [default target]" >
+		<ant target="build" inheritAll="true">
+			<property name="build.config" value="${config.file}" />
+		</ant>
+	</target>		
+
+	<!-- ================================================================== -->
+	<!-- TARGET: buildAppDependencies                                       -->                                
+	<!-- ================================================================== -->
+	<target name="buildDependencies" depends="_getPropertyFile" description="Builds the application's dependencies and creates an ear in the export dir." >
+		<ant target="buildDependencyApps" inheritAll="true">
+			<property name="build.config" value="${config.file}" />
+		</ant>
+	</target>		
+
+
+	<!-- ================================================================== -->
+	<!-- TARGET: build                                                      -->                                
+	<!-- ================================================================== -->
+	<target name="build">
+		<if>
+			<and>
+				<isset property="deployable.jar" />
+				<equals arg1="${deployable.jar}" arg2="true" casesensitive="false"/>
+			</and>
+			<then>
+				<antcall target="_buildJars" inheritAll="true"/>
+			</then>
+			<else>
+				<antcall target="_build" inheritAll="true"/>
+			</else>		
+		</if>
+	</target>
+
+	<target name="buildWorkSpace">
+		<if>
+			<and>
+				<isset property="deployable.jar" />
+				<equals arg1="${deployable.jar}" arg2="true" casesensitive="false"/>
+			</and>
+			<then>
+				<antcall target="_buildJars" inheritAll="true"/>
+			</then>
+			<else>
+				<antcall target="_build" inheritAll="true"/>
+			</else>		
+		</if>
+	</target>
+	<target name="_buildJars" depends="_getComponentsList">
+		<antcall target="init" inheritAll="true"/>
+		<antcall target="normalizePath" inheritAll="true"/>
+    <if>
+		<os family="unix"/>
+			<then>
+			   <echo message="${mut_component.list}" />
+				<java 	classname="org.eclipse.core.launcher.Main"
+				classpath="/IBM/WID7/plugins/org.eclipse.equinox.launcher_1.0.101.R34x_v20081125.jar" 
+				fork="true"		
+				failonerror="true"
+				>
+						<jvmarg value="-Dcomponent.list=${mut_component.list}"/>
+						<jvmarg value="-Dear.projectname=${application.name}"/>
+						<jvmarg value="-Dear.location=${export.dir}/"/>
+						<jvmarg value="-Dsrc.dir=${src.dir}/"/>
+					<arg line="-application com.ibm.wbit.comptest.ant.RunAntWid -data ${svn.dir} -buildfile ${includes.dir}/headless_build.xml -os linux -ws gtk doJarBuild " />
+				</java>	
+			</then>
+			<else>
+				<java 	classname="org.eclipse.core.launcher.Main"
+				classpath="C:\IBM\WID7\plugins\org.eclipse.equinox.launcher_1.0.101.R34x_v20081125.jar" 
+				fork="true"		
+				failonerror="true"
+				>
+						<jvmarg value="-Dcomponent.list=${mut_component.list}"/>
+						<jvmarg value="-Dear.projectname=${application.name}"/>
+						<jvmarg value="-Dear.location=${export.dir}/"/>
+						<jvmarg value="-Dsrc.dir=${src.dir}/"/>
+					<arg line="-application com.ibm.wbit.comptest.ant.RunAntWid -data ${svn.dir} -buildfile ${includes.dir}/headless_build.xml doJarBuild" />
+				</java>
+			</else>
+		</if>	
+		
+	
+	</target>
+
+
+	<!-- ================================================================== -->
+	<!-- TARGET: build                                                      -->                                
+	<!-- ================================================================== -->
+	<target name="_build" depends="_getComponentsList">
+		<echo message="=========================================" />
+		<echo message="BEGIN building ${application.name}" />
+		<echo message="=========================================" />
+		<if>
+			<available file="${application.name}.ear" filepath="${export.dir}"/>
+			<then>
+				<echo message="[SKIPPING] ${export.dir}/${application.name}.ear already exists." />
+			</then>
+			<else>
+				<antcall target="init" inheritAll="true"/>
+				<antcall target="normalizePath" inheritAll="true"/>
+				<antcall target="getJars" inheritAll="true"/>
+				<antcall target="createEAR" inheritAll="true"/>
+				<antcall target="generateCode" inheritAll="true"/>
+			</else>
+		</if>
+		<echo message="=========================================" />
+		<echo message="DONE building ${application.name} !" />
+		<echo message="=========================================" />
+		<!-- check to see if we need to build the dependencies as well -->
+		<if>
+			<and>
+				<isset property="build.dependencies" />
+				<equals arg1="${build.dependencies}" arg2="y" casesensitive="false"/>
+			</and>
+			<then>
+				<antcall target="buildDependencyApps" inheritAll="true"/>
+			</then>
+		</if>
+	</target>
+
+	<!-- ================================================================== -->
+	<!-- TARGET: buildDepencyApps                                           -->                                
+	<!-- ================================================================== -->
+	<target name="buildDependencyApps" depends="_getDependencyList">
+		<if>
+			<not>
+				<isset property="dependency.list"/>
+			</not>
+			<then>
+				<echo message="No Dependencies found."/>
+			</then>
+			<else>
+				<echo message="=========================================" />
+				<echo message="BEGIN building dependencies for ${application.name}" />
+				<echo message="=========================================" />
+				<foreach 	list="${dependency.list}"
+				delimiter=","
+				target="_buildDependency"
+				param="dependentName" />
+				<echo message="=========================================" />
+				<echo message="DONE building dependencies for ${application.name}" />
+				<echo message="=========================================" />		
+			</else>
+		</if>
+	</target>
+
+	<target name="_buildDependency" depends="_getPropertyFile">
+		<ant target="build" inheritAll="true">
+			<property name="build.config" value="${config.file}" />
+		</ant>
+	</target>
+
+	<target name="_getPropertyFile">
+		<if>
+			<isset property="dependentName" />
+			<then>
+				<!-- The target is being called from within a build loop and the -->
+				<!-- the property file is retrieved from the build properties.   -->
+				<propertycopy name="properties.file" from="dependency.${dependentName}.path" />
+			</then>
+			<else>
+				<!-- The target is being called from one of the top level targets -->
+				<!-- and the property file is passed in through the command line. -->
+				<property name="properties.file" value="${buildConfig}" />
+			</else>
+		</if>
+		<if>
+			<and>
+				<matches string="${properties.file}" pattern="http://.+"/>
+				<http url="${properties.file}" />
+			</and>
+			<then>
+				<!-- extract the name of the file from the url -->
+				<propertyregex  property="properties.file.name"
+				input="${properties.file}"
+				regexp="component\.([^\.]*)\.svn"
+				select="\1"
+				casesensitive="false"
+				override="true"
+				/>
+				
+				<mkdir dir="${build.dir}" />
+				<get src="${properties.file}" dest="${build.dir}/${properties.file.name}"/>
+				<property name="config.file" value="${build.dir}/${properties.file.name}" />
+			</then>
+			<else>
+				<property name="config.file" value="${properties.file}" />
+			</else>
+		</if>	
+	</target>
+
+	<target name="_getDependencyList">
+		<propertyselector 	property="dependency.list" delimiter=","
+		match="dependency\.([^\.]*)\.path"
+		select="\1"
+		casesensitive="false"
+		override="true"
+		/>
+	</target>
+
+	<!-- ================================================================== -->
+	<!-- Workspace Creation Section																							                                                      -->                                
+	<!-- ================================================================== -->
+	<target name="createWorkSpace" depends="_getPropertyFile" description="Builds the workspace with Junit tests within the workspace.  [default target]" >
+		<ant target="_WorkSpace" inheritAll="true">
+			<property name="build.config" value="${config.file}" />
+			<property name="workspace.type" value="create" />
+		</ant>
+	</target>
+
+	<target name="createCIWorkSpace" depends="_getPropertyFile" description="Builds the workspace without Junit tests within the workspace.  [default target]" >
+		<ant target="_WorkSpace" inheritAll="true">
+			<property name="build.config" value="${config.file}" />
+			<property name="workspace.type" value="createCI" />
+		</ant>
+	</target>
+
+	<target name="_WorkSpace"  depends="_getComponentsList">
+		<echo message="=========================================" />
+		<echo message="BEGIN creating workspace for ${application.name} at ${svn.dir}" />
+		<echo message="=========================================" />
+		<antcall target="init" inheritAll="true"/>
+		<antcall target="normalizePath" inheritAll="true" />
+		<antcall target="getJars" inheritAll="true" />
+		<echo message="${workspace.type}" />
+		<if>
+			<and>
+				<isset property="build.dependencies" />
+				<equals arg1="${build.dependencies}" arg2="y" casesensitive="false"/>
+			</and>
+			<then>
+				<antcall target="buildDependencyApps" inheritAll="true"/>
+			</then>
+		</if>
+		<if>
+			<and>
+				<isset property="workspace.type" />
+				<equals arg1="${workspace.type}"  arg2="build" casesensitive="false"/>
+			</and>
+			<then>
+				<antcall target="createEAR" inheritAll="true"/>
+				<antcall target="generateCode" inheritAll="true"/>
+			</then>
+			<elseif>
+				<and>
+					<isset property="workspace.type" />
+					<equals arg1="${workspace.type}"   arg2="create" casesensitive="false"/>
+				</and>
+				<then>
+					<antcall target="moveJunits" inheritAll="true"/>
+					<antcall target="_createWorkSpace" inheritAll="true"/>
+				</then>
+			</elseif>	
+			<elseif>
+				<and>
+					<isset property="workspace.type" />
+					<equals arg1="${workspace.type}"   arg2="createCI" casesensitive="false"/>
+				</and>
+				<then>
+					<antcall target="_createWorkSpace" inheritAll="true"/>
+				</then>
+			</elseif>
+		</if>
+	</target>
+
+	<target name="_createWorkSpace" depends="_getComponentsList">	
+		<if>
+		<os family="unix"/>
+			<then>
+			   <echo message="${mut_component.list}" />
+				<java 	classname="org.eclipse.core.launcher.Main"
+				classpath="/IBM/WID7/plugins/org.eclipse.equinox.launcher_1.0.101.R34x_v20081125.jar" 
+				fork="true"		
+				failonerror="true"
+				>
+					<jvmarg value="-Dcomponent.list=${mut_component.list}"/>
+					<jvmarg value="-Dear.projectname=${application.name}"/>
+					<jvmarg value="-Dear.location=${export.dir}/"/>
+					<arg line="-application com.ibm.wbit.comptest.ant.RunAntWid -data ${svn.dir} -buildfile ${includes.dir}/headless_build.xml -os linux -ws gtk importAllProjects " />
+				</java>	
+			</then>
+			<else>
+				<java 	classname="org.eclipse.core.launcher.Main"
+				classpath="C:\IBM\WID7\plugins\org.eclipse.equinox.launcher_1.0.101.R34x_v20081125.jar" 
+				fork="true"		
+				failonerror="true"
+				>
+					<jvmarg value="-Dcomponent.list=${mut_component.list}"/>
+					<jvmarg value="-Dear.projectname=${application.name}"/>
+					<jvmarg value="-Dear.location=${export.dir}/"/>
+					<arg line="-application com.ibm.wbit.comptest.ant.RunAntWid -data ${svn.dir} -buildfile ${includes.dir}/headless_build.xml importAllProjects" />
+				</java>
+			</else>
+		</if>	
+	</target>
+
+	<!-- ================================================================== -->
+	<!-- Deployment  Section																											                                                      -->                                
+	<!-- ================================================================== -->
+
+	<target name="undeployEar" >
+		<echo message="=========================================" />
+		<echo message="Undeploying ${application.name}" />
+		<echo message="=========================================" />
+		<for param="deployablefile">
+			<path>
+				<fileset dir="${export.dir}" includes="*.ear"/>
+			</path>
+			<sequential>
+				<basename property="appname" file="@{deployablefile}" suffix=".ear"/>
+				<echo message="${appname}" />
+				<if>
+					<os family="unix"/>
+					<then>
+						<exec executable="/bin/bash" dir="${basedir}">
+							<arg value="-c" />
+							<arg value="${studio.dir}/runtimes/bi_v6/bin/wsadmin.sh  -c 'set appManager [$AdminControl queryNames type=ApplicationManager,*]; $AdminControl invoke $appManager stopApplication ${appname} '"/>
+						</exec>
+						<exec executable="/bin/bash" dir="${basedir}">
+							<arg value="-c" />
+							<arg value="${studio.dir}/runtimes/bi_v6/bin/wsadmin.sh  -c '$AdminApp uninstall ${appname}'"/>
+						</exec>
+					</then>
+					<else>
+						<exec dir="${basedir}" executable="cmd.exe">
+							<arg value="-c" />
+							<arg value="${studio.dir}\runtimes\bi_v6\bin\wsadmin.bat  -c 'set appManager [$AdminControl queryNames type=ApplicationManager,*]; $AdminControl invoke $appManager stopApplication ${appname} '"/>
+						</exec>
+							<exec dir="${basedir}" executable="cmd.exe">
+							<arg value="-c" />
+							<arg value="${studio.dir}\runtimes\bi_v6\bin\wsadmin.bat  -c '$AdminApp uninstall ${appname}'"/>
+						</exec>
+					</else>
+				</if>
+			</sequential>
+		</for>
+	</target>
+
+	<target name="deployEar" >
+		<echo message="=========================================" />
+		<echo message="Deploying ${application.name}" />
+		<echo message="=========================================" />
+		<for param="deployablefile">
+			<path>
+				<fileset dir="${export.dir}" includes="*.ear"/>
+			</path>
+			<sequential>
+				<basename property="appname" file="@{deployablefile}" suffix=".ear"/>
+				<echo message="${appname}" />
+				<if>
+					<os family="unix"/>
+					<then>
+						<exec executable="/bin/bash" dir="${basedir}">
+							<arg value="-c" />
+							<arg value="${studio.dir}/runtimes/bi_v6/bin/wsadmin.sh   -c '$AdminApp install @{deployablefile}'"/>
+						</exec>
+						<exec executable="/bin/bash" dir="${basedir}">
+							<arg value="-c" />
+							<arg value="${studio.dir}/runtimes/bi_v6/bin/wsadmin.sh   -c 'set appManager [$AdminControl queryNames type=ApplicationManager,*]; $AdminControl invoke $appManager startApplication ${appname} '"/>
+						</exec>
+					</then>
+					<else>
+						<exec dir="${basedir}" executable="${studio.dir}\runtimes\bi_v6\bin\wsadmin.bat   ">
+							<arg value="-c" />
+							<arg value="'$AdminApp install @{deployablefile}'"/>
+						</exec>
+							<exec dir="${basedir}" executable="${studio.dir}\runtimes\bi_v6\bin\wsadmin.bat  ">
+							<arg value="-c" />
+							<arg value="'set appManager [$AdminControl queryNames type=ApplicationManager,*]; $AdminControl invoke $appManager startApplication ${appname} '"/>
+						</exec>
+					</else>
+				</if>
+			</sequential>
+		</for>
+	</target>
+
+
+	<target name="deployJar" >
+		<echo message="=========================================" />
+		<echo message="Deploying ${application.name}" />
+		<echo message="=========================================" />
+		<copy overwrite="true" file="${export.dir}/${application.name}.jar" tofile="${studio.dir}/runtimes/bi_v6/lib/ext/${application.name}.jar"/>
+	</target>
+
+
+	<!-- ================================================================== -->
+	<!-- Test SoapUI Section																							                                                      -->                                
+	<!-- ================================================================== -->
+
+
+	<target name="runSoapUI">
+		<delete dir="${basedir}/testresults/soapui" failonerror="false"/>
+		<propertyselector property="soapuinames.list" delimiter=","
+			match="soapui\.([^\.]*)\.path"
+			select="\1"
+			casesensitive="false"
+			override="true"
+			/>
+		<if>
+			<isset property="soapuinames.list"/>		
+		<then>
+			<foreach list="${soapuinames.list}"
+			 delimiter=","
+			 target="_runSoapUITests"
+			 param="soapUIfile" />
+		</then>
+		</if>
+	</target>	
+
+	<target name="_runSoapUITests">
+		<propertycopy property="soapui.testsuite.path" from="soapui.${soapUIfile}.path" />
+
+		<mkdir dir="${basedir}/testresults/soapui/${soapUIfile}"/>
+		<mkdir dir="${basedir}/testresults/soapui/${soapUIfile}/summary"/>
+		<mkdir dir="${basedir}/testresults/soapui/${soapUIfile}/details"/>
+		<echo message="${soapui.dir}/bin/testrunner.sh -f${testResults.dir}/soapui/${soapUIfile}  ${soapui.testsuite.path}"/>
+
+		<exec executable="${soapui.dir}/bin/testrunner.sh" dir="${basedir}" failonerror="false" resultproperty="soapui.result" osfamily="unix">
+			<arg value="-r" />
+			<arg value="-j" />
+ 			<arg value="-f${testResults.dir}/soapui/${soapUIfile}" />
+			<arg value="${soapui.testsuite.path}"/>
+		</exec>
+		<exec executable="${soapui.dir}/bin/testrunner.sh" dir="${basedir}" failonerror="false" resultproperty="soapui.result" osfamily="windows">
+			<arg value="-r" />
+			<arg value="-j" />
+ 			<arg value="-f${testResults.dir}/soapui/${soapUIfile}" />
+			<arg value="${soapui.testsuite.path}"/>
+		</exec>
+		<junitreport todir="${basedir}/testresults/soapui/${soapUIfile}/summary">
+			<fileset dir="${basedir}/testresults/soapui/${soapUIfile}/details">
+				<include name="TEST-*.xml"/>
+			</fileset>
+			<report format="frames" todir="${basedir}/testresults/soapui/${soapUIfile}/report"/>
+		</junitreport>
+		<fail message="SoapUI tests have errors or failures">
+			<condition>
+				<not><equals arg1="${soapui.result}" arg2="0"/></not>
+			</condition>
+		</fail>
+		
+	</target>			
+
+	<!-- ================================================================== -->
+	<!-- Move Junit Section																							                                                      -->                                
+	<!-- ================================================================== -->
+	<target name="_moveJunit">
+		<copy todir="${src.dir}/${unitTest}" failonerror="false">
+			<fileset dir="${junit.dir}/${unitTest}"/>
+		</copy>
+	</target>
+	<target name="moveJunits" depends="_getJunitList">
+		<echo message="unit tests: ${junit.list}"/>	
+		<if>
+			<isset property="junit.list"/>		
+		<then>
+			<!-- move the junit test projects into src because projectImport doesn't work otherwise-->
+	
+			<foreach list="${junit.list}"
+				delimiter=","
+				target="_moveJunit"
+				param="unitTest" />	
+		</then>
+		</if>
+		
+	</target>
+
+	<!-- ================================================================== -->
+	<!-- Test Junit Section																							                                                      -->                                
+	<!-- ================================================================== -->
+	<target name="runJunit" depends="_getJunitList,instrument">
+		<echo message="unit tests: ${junit.list}"/>
+		<if>
+			<isset property="junit.list"/>		
+		<then>
+			<!-- clean out the unit testresults dirs-->
+			<delete dir="${jUnitTestResults.dir}" />
+			
+			<mkdir dir="${jUnitTestResults.dir}" />
+			<mkdir dir="${jUnitTestResults.dir}/xml" />
+			
+	
+			<foreach list="${junit.list}"
+				delimiter=","
+				target="_runJunitSuite"
+				param="unitTest" />	
+		</then>
+		</if>
+		<antcall target="coverage-report" inheritAll="true" />
+	</target>
+
+	<target name="_runJunitSuite" >
+		<echo message="Running Test: ${unitTest}"/>
+		<propertycopy name="unitTest.path" from="junit.${unitTest}.path" />
+		
+		<junit fork="yes" printsummary="yes" haltonfailure="no" errorproperty="junit.errors">
+			<!-- Specify file for cobertura to put output -->
+			<sysproperty key="net.sourceforge.cobertura.datafile" file="${basedir}/cobertura.ser" />
+			<!-- prefer instrumented classes for calculating test coverage -->
+			<classpath location="instrumented" />
+			<classpath>
+				<dirset dir="${src.dir}">
+					<include name="**/classes"/>
+					<include name="**/bin"/>
+				</dirset>
+				<fileset dir="${src.dir}/${unitTest}/lib">
+					<include name="**/*.jar"/>
+				</fileset>
+				<fileset dir="${export.dir}">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${lib.dir}">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="${studio.dir}/runtimes/bi_v7/runtimes">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>
+			<classpath refid="cobertura.classpath" />
+
+			<formatter type="xml"/>
+			<batchtest todir="${jUnitTestResults.dir}/xml">
+				<fileset dir="${src.dir}/${unitTest.path}">
+					<include name="**/*Test.java" />
+					<include name="**/Test*.java" />
+				</fileset>
+				<formatter type="xml"/>
+			</batchtest>
+		</junit>
+  		<junitreport todir="${jUnitTestResults.dir}">
+         		<fileset dir="${jUnitTestResults.dir}/xml">
+         			<include name="TEST-*.xml"/>
+           		</fileset>
+         		<report format="frames" todir="${jUnitTestResults.dir}/html"/>
+       		</junitreport>
+		<fail if="junit.errors" message="jUnit tests have errors or failures" />
+  	</target>
+
+	<target name="runTests" depends="_getPropertyFile">
+		<echo message="=========================================" />
+		<echo message="BEGIN testing ${application.name}" />
+		<echo message="=========================================" />
+		<antcall target="runSoapUI" inheritAll="true"/>
+		<antcall target="runJunit" inheritAll="true" />
+		<junitreport todir="${basedir}/testresults">
+			<fileset dir="${basedir}/testresults">
+				<include name="**/TEST-*.xml"/>
+			</fileset>
+			<report todir="${basedir}/testresults/html"
+			format="frames" />
+		</junitreport>
+		<echo message="=========================================" />
+		<echo message="For combined Test Results see" />
+		<echo message="file://${basedir}/testresults/html/index.html" />
+		<echo message="=========================================" />
+	</target>
+
+	<!-- Set up classes that will measure test coverage -->
+	<target name="instrument">
+		<!-- Process apps and jars do not have a WebContent/WEB-INF/classes folder under project folder -->
+		<if>
+			<available file="${basedir}/src/${src.stats}/WebContent/WEB-INF/classes" type="dir" />
+		<then>
+			<property name="class.stats.path" value="${basedir}/src/${src.stats}/WebContent/WEB-INF/classes" />
+		</then>
+		<else>
+			<property name="class.stats.path" value="${basedir}/src/${src.stats}" />
+		</else>
+		</if>
+		<cobertura-instrument todir="instrumented">
+			<fileset dir="${class.stats.path}">
+				<include name="**/*.class" />
+				<exclude name="**/*Test.class" />
+				<exclude name="**/inf/*" />
+				<exclude name="**/xsd/*" />
+				<exclude name="**/bo/*" />
+			</fileset>
+		</cobertura-instrument>
+	</target>
+
+	<target name="coverage-report">
+		<!-- Process apps and jars do not have a src folder under project folder -->
+		<if>
+			<available file="${basedir}/src/${src.stats}/src" type="dir" />
+		<then>
+			<property name="src.stats.path" value="${basedir}/src/${src.stats}/src" />
+		</then>
+		<else>
+			<property name="src.stats.path" value="${basedir}/src/${src.stats}" />
+		</else>
+		</if>
+		<!-- perform report -->
+		<if>
+			<available file="${src.stats.path}" type="dir" />
+		<then>
+			<cobertura-report destdir="${testResults.dir}" format="xml">
+				<fileset dir="${src.stats.path}">
+					<include name="**/*.java"/>
+					<exclude name="**/inf/*" />
+					<exclude name="**/xsd/*" />
+					<exclude name="**/bo/*" />
+				</fileset>
+			</cobertura-report>
+			<cobertura-report destdir="${testResults.dir}/cobertura-html" format="html">
+				<fileset dir="${src.stats.path}">
+					<include name="**/*.java"/>
+					<exclude name="**/inf/*" />
+					<exclude name="**/xsd/*" />
+					<exclude name="**/bo/*" />
+				</fileset>
+			</cobertura-report>
+		</then>
+		</if>
+	</target>
+
+	<target name="stats">
+		<taskdef name="javancss" classname="javancss.JavancssAntTask" />
+		<loadproperties srcFile="${buildConfig}"/>
+		<!-- Process apps and jars do not have a src folder under project folder -->
+		<if>
+			<available file="${basedir}/src/${src.stats}/src" type="dir" />
+		<then>
+			<property name="src.stats.path" value="${basedir}/src/${src.stats}/src" />
+		</then>
+		<else>
+			<property name="src.stats.path" value="${basedir}/src/${src.stats}" />
+		</else>
+		</if>
+		<!-- Generate stats -->
+		<if>
+			<available file="${src.stats.path}" type="dir" />
+		<then>
+			<echo message="Calculating stats with JNCSS on ${src.stats.path}"/>
+			<javancss srcdir="${src.stats.path}"
+				abortOnFail="false"
+				includes="**/*.java"
+				excludes="**/inf/*,**/xsd/*,**/bo/*"
+				generateReport="true"
+				outputfile="${testResults.dir}/javancss_metrics.xml"
+				format="xml"
+				ccnPerFuncMax="10"
+				ncssPerFuncMax="30"/>
+		</then>
+		</if>
+	</target>
+
+	<target name="sonar">
+		<loadproperties srcFile="${buildConfig}"/>
+		<!-- Process apps and jars do not have a src folder under project folder -->
+		<if>
+			<available file="${basedir}/src/${src.stats}/src" type="dir" />
+		<then>
+			<property name="src.stats.path" value="${basedir}/src/${src.stats}/src" />
+			<property name="bin.stats.path" value="${basedir}/src/${src.stats}/WebContent/WEB-INF/classes" />
+		</then>
+		<else>
+			<property name="src.stats.path" value="${basedir}/src/${src.stats}" />
+			<property name="bin.stats.path" value="${basedir}/src/${src.stats}" />
+		</else>
+		</if>
+		<!-- Send project metrics to sonar server -->
+		<property name="sonar.projectName" value="${application.name}" />
+		<property name="sonar.sources" value="${src.stats.path}" />
+		<property name="sonar.binaries" value="${bin.stats.path}" />
+		<property name="sonar.tests" value="unittests/junit" />
+		<property name="sonar.dynamicAnalysis" value="reuseReports" />
+		<property name="sonar.cobertura.reportPath" value="testresults/coverage.xml" />
+                <property name="sonar.surefire.reportsPath" value="testresults/junit/xml" />
+                <property name="sonar.exclusions" value="**/inf/*,**/xsd/*,**/bo/*,**/ObjectFactory.java,**/*FaultMsg.java,**/wsdl/*Response.java,/**/com/pgn/_2012/*,**/com/pgn/_2011/*,**/com/pgn/_2010/*" />
+
+		<sonar:sonar key="com.pgn:${application.name}" version="${label}" xmlns:sonar="antlib:org.sonar.ant"/>
+	</target>
+</project>

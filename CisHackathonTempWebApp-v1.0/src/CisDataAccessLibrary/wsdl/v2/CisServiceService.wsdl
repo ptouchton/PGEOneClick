@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisServiceExport1_CisServiceHttp_Service" targetNamespace="http://www.pgn.com/v2/cis/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:Port_0="http://www.pgn.com/v2/cis/wsdl" xmlns:bons0="http://www.pgn.com/v2/cis/inf" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="CisService.wsdl" namespace="http://www.pgn.com/v2/cis/inf"/>
+  <wsdl:binding name="CisServiceBinding" type="bons0:CisService">
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="getServices">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="getServicesRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getServicesResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceNotFound">
+  			<soap:fault name="serviceNotFound" use="literal" />
+  		</wsdl:fault>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getServiceHistories">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="getServiceHistoriesRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getServiceHistoriesResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceNotFound">
+  			<soap:fault name="serviceNotFound" use="literal" />
+  		</wsdl:fault>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getServiceByPodId">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="getServiceByPodIdRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getServiceByPodIdResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceNotFound">
+  			<soap:fault name="serviceNotFound" use="literal" />
+  		</wsdl:fault>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getDisconnectedServices">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="getDisconnectedServicesRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getDisconnectedServicesResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceNotFound">
+  			<soap:fault name="serviceNotFound" use="literal" />
+  		</wsdl:fault>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getCutOutServices">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="getCutOutServicesRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getCutOutServicesResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceNotFound">
+  			<soap:fault name="serviceNotFound" use="literal" />
+  		</wsdl:fault>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getResidentialServices">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="getResidentialServicesRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getResidentialServicesResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceNotFound">
+  			<soap:fault name="serviceNotFound" use="literal" />
+  		</wsdl:fault>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="isNetMeter">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="isNetMeterRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="isNetMeterResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="createService">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="createServiceRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="createServiceResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  		<wsdl:fault name="validationFault">
+  			<soap:fault name="validationFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="IsTimeOfUse">
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v2/cis/wsdl/IsTimeOfUse" />
+  		<wsdl:input name="IsTimeOfUseRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="IsTimeOfUseResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getReadingInstructions">
+  		<soap:operation soapAction="" />
+  		<wsdl:input name="getReadingInstructionsRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getReadingInstructionsResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  		<wsdl:fault name="recordNotFound">
+  			<soap:fault name="recordNotFound" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="updateService">
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v2/cis/wsdl/updateService" />
+  		<wsdl:input name="updateServiceRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="updateServiceResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="attachMeterToService">
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v2/cis/wsdl/attachMeterToService" />
+  		<wsdl:input name="attachMeterToServiceRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="attachMeterToServiceResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault name="serviceFault" use="literal" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="hasPendingRenewableEnrollment">
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v1/cis/wsdl/hasPendingRenewableEnrollment" />
+  		<wsdl:input name="hasPendingRenewableEnrollmentRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="hasPendingRenewableEnrollmentResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault use="literal" name="serviceFault" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  	<wsdl:operation name="getPremiseService">
+  		<soap:operation
+  			soapAction="http://www.pgn.com/v2/cis/wsdl/getPremiseService" />
+  		<wsdl:input name="getPremiseServiceRequest">
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output name="getPremiseServiceResponse">
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  		<wsdl:fault name="serviceNotFound">
+  			<soap:fault use="literal" name="serviceNotFound" />
+  		</wsdl:fault>
+  		<wsdl:fault name="serviceFault">
+  			<soap:fault use="literal" name="serviceFault" />
+  		</wsdl:fault>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CisServiceService">
+    <wsdl:port binding="Port_0:CisServiceBinding" name="CisServicePort">
+      <soap:address location="http://localhost:9080/CisServiceWeb-v2/CisServiceService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

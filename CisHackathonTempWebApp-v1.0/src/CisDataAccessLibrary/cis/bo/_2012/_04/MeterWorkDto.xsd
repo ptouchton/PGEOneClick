@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2012/04/cis/xsd"
+	xmlns:bons0="http://www.pgn.com/2012/04/cis/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:include schemaLocation="RegisterReadingDto.xsd"></xsd:include>
+	<xsd:include schemaLocation="MeterDto.xsd" />
+	<xsd:complexType name="MeterWorkDto">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="meter"
+				type="bons0:MeterDto">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="registerReading"
+				type="bons0:RegisterReadingDto" maxOccurs="unbounded">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="readDate"
+				type="xsd:dateTime">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="meterExchanged"
+				type="xsd:boolean">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="mxReason"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="mxInMeter"
+				type="bons0:MeterDto">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

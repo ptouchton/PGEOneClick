@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons1="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons2="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons5="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons6="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="SourceIdentifierDto.xsd"/>
+    <xsd:include schemaLocation="PhonesDto.xsd"/>
+    <xsd:include schemaLocation="AddressesDto.xsd"/>
+    <xsd:include schemaLocation="PremiseCode.xsd"/>
+    <xsd:include schemaLocation="CustomerCode.xsd"/>
+    <xsd:complexType name="ServiceOrderRequestDto">
+        <xsd:annotation>
+      <xsd:documentation>DTO representing a ServiceOrderRequest</xsd:documentation>
+    </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="customerCode" type="bons5:CustomerCode">
+        <xsd:annotation>
+          <xsd:documentation>Customer associated with the ServiceOrder</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="premiseCode" type="bons6:PremiseCode">
+        <xsd:annotation>
+          <xsd:documentation>Premises associated with the ServiceOrder</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="source" type="bons0:SourceIdentifierDto">
+        <xsd:annotation>
+          
+        <xsd:documentation>The source system of the ServiceOrderRequest. W or P</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="activityDate" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>Date that this ServiceOrder is being requested</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="requestedDate" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>Requested date that the ServiceOrder should be executed</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="moveInIndicator" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Move-In Default Indicator</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="addresses" type="bons2:AddressesDto">
+        <xsd:annotation>
+          <xsd:documentation>Forwarding address of customer after ServiceOrder is executed</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="phones" type="bons1:PhonesDto">
+        <xsd:annotation>
+          <xsd:documentation>Phone number of customer after ServiceOrder is executed</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+        </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

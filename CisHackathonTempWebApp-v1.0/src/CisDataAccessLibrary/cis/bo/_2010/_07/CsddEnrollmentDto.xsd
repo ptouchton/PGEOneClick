@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons1="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="BillingCycleDto.xsd"/>
+    <xsd:complexType name="CsddEnrollmentDto">
+        <xsd:annotation>
+      <xsd:documentation>Enrollment data for Customer Selected Due Date</xsd:documentation>
+    </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="enrollmentId" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>CSDD enrollment record's unique identifier, aka, Sequence Number in CIS</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="1" name="statusInd" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Enrollment status indicator, "P" for Pending, "A" for Active, etc.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="1" name="contactName">
+        <xsd:annotation>
+          <xsd:documentation>Caller Contact Name</xsd:documentation>
+        </xsd:annotation>
+                <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="92"/>
+            <xsd:minLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+            </xsd:element>
+            <xsd:element minOccurs="1" name="dayOfDueDate" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Due Date (Day of Month 1 to 31)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="1" name="billingCycle" type="bons0:BillingCycleDto"/>
+            <xsd:element minOccurs="0" name="note">
+        <xsd:annotation>
+          <xsd:documentation>Notes</xsd:documentation>
+        </xsd:annotation>
+                <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="468"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+            </xsd:element>
+            <xsd:element minOccurs="1" name="requestDate" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>Enrollment Requested Date</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="1" name="requestUserId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Enrollment Requesting User</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="activatedDate" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>Enrollment Activated Date</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="activatedUserId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Enrollment Activating User</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+        </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

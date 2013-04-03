@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/12/cis/xsd" xmlns:bons0="http://www.pgn.com/2010/12/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="ServiceDto.xsd"/>
+    <xsd:complexType name="ServicesDto">
+        <xsd:annotation>
+      <xsd:documentation>The points of service on a premises</xsd:documentation>
+    </xsd:annotation>
+        <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="service" type="bons0:ServiceDto">
+        <xsd:annotation>
+          <xsd:documentation>The points of service on a premises</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

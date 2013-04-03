@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CSvcDataAccessService" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://account.wsdl.cis.pgn.com" xmlns:bons2="http://www.pgn.com/2010/07/fault/xsd" xmlns:bons3="http://www.pgn.com/2010/07/cis/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/2010/07/cis/xsd">
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/SourceIdentifierDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PhoneDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/RecordNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/AccountNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ServiceResponse.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AccountDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/CustomerCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PremiseCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AccountNumberDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AccountNumbersDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AccountBillingDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PodId.xsd"/>            
+             <xsd:element name="getAccountInfo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumber" nillable="true" type="bons3:AccountNumberDto"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getAccountInfoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="account" nillable="true" type="bons3:AccountDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getAccountInfo_accountNotFound" type="bons2:AccountNotFoundFault"/>
+      <xsd:element name="getAccountInfo_serviceFault" type="bons2:ServiceFault"/>
+            <xsd:element name="getAccountNumbersByPhone">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="phoneNumber" nillable="true" type="bons:PhoneDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getAccountNumbersByPhoneResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumbers" nillable="true" type="bons3:AccountNumbersDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getAccountNumbersByPhone_accountNotFound" type="bons2:AccountNotFoundFault"/>
+            <xsd:element name="getAccountNumberByPodId">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="podId" nillable="true" type="bons3:PodId"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getAccountNumberByPodIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumber" nillable="true" type="bons3:AccountNumberDto"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getAccountNumberByPodId_accountNotFound" type="bons2:AccountNotFoundFault"/>
+            <xsd:element name="getAccountNumbersByPhone_serviceFault" type="bons2:ServiceFault"/>
+            <xsd:element name="getAccountNumberByPodId_serviceFault" type="bons2:ServiceFault"/>
+            <xsd:element name="getDeposit">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons3:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons3:PremiseCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getDepositResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="deposit" nillable="true" type="xsd:double"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getDeposit_accountNotFound" type="bons2:AccountNotFoundFault"/>
+            <xsd:element name="getDeposit_serviceFault" type="bons2:ServiceFault"/>
+            <xsd:element name="getPastDueBalance">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumber" nillable="true" type="bons3:AccountNumberDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getPastDueBalanceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="pastDueAmount" nillable="true" type="xsd:double"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getPastDueBalance_accountNotFound" type="bons2:AccountNotFoundFault"/>
+            <xsd:element name="getPastDueBalance_serviceFault" type="bons2:ServiceFault"/>
+            <xsd:element name="getCurrentBalanceDue">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumber" nillable="true" type="bons3:AccountNumberDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getCurrentBalanceDueResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="currentBalanceDue" nillable="true" type="xsd:double"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getCurrentBalanceDue_accountNotFound" type="bons2:AccountNotFoundFault"/>
+            <xsd:element name="getCurrentBalanceDue_serviceFault" type="bons2:ServiceFault"/>
+            <xsd:element name="getAccountBalance">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumber" nillable="true" type="bons3:AccountNumberDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getAccountBalanceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="totalAccountBalance" nillable="true" type="xsd:double"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getAccountBalance_serviceFault" type="bons2:ServiceFault"/>
+            <xsd:element name="isActiveTpa">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumber" nillable="true" type="bons3:AccountNumberDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="isActiveTpaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="tpaExists" nillable="true" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="isActiveTpa_serviceFault" type="bons2:ServiceFault"/>
+            <xsd:element name="getMultiBalance">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumber" nillable="true" type="bons3:AccountNumberDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getMultiBalanceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="multiBalance" nillable="true" type="bons3:AccountBillingDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getMultiBalance_accountNotFound1" type="bons2:AccountNotFoundFault"/>
+            <xsd:element name="getMultiBalance_serviceFault" type="bons2:ServiceFault"/>
+            <xsd:element name="getBillingPlan">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons3:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons3:PremiseCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getBillingPlanResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="billingPlan" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getBillingPlan_recordNotFoundFault" type="bons2:RecordNotFoundFault"/>
+            <xsd:element name="getBillingPlan_accountNotFoundFault" type="bons2:AccountNotFoundFault"/>
+            <xsd:element name="getBillingPlan_serviceFault" type="bons2:ServiceFault"/>
+            <xsd:element name="accountHasDepositOwing">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons:CustomerCode"/>
+                        <xsd:element name="premiseCode" nillable="true" type="bons:PremiseCode"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="accountHasDepositOwingResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="depositExists" nillable="true" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="accountHasDepositOwingFault1_serviceFault" nillable="true" type="bons2:ServiceFault"/>
+            <xsd:element name="getUnappliedPaymentTotalAmount">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons:PremiseCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getUnappliedPaymentTotalAmountResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="totalAmount" nillable="true" type="xsd:double"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getUnappliedPaymentTotalAmountFault1_serviceFault" nillable="true" type="bons2:ServiceFault"/>
+            <xsd:element name="getAccountNumbersByCustomer">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons:CustomerCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getAccountNumbersByCustomerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumbers" nillable="true" type="bons:AccountNumbersDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getAccountNumbersByCustomerFault1_serviceFault" nillable="true" type="bons2:ServiceFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getAccountInfoRequestMsg">
+    <wsdl:part element="tns:getAccountInfo" name="getAccountInfoParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountInfoResponseMsg">
+    <wsdl:part element="tns:getAccountInfoResponse" name="getAccountInfoResult"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountInfo_accountNotFoundMsg">
+    <wsdl:part element="tns:getAccountInfo_accountNotFound" name="accountNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountInfo_serviceFaultMsg">
+    <wsdl:part element="tns:getAccountInfo_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountNumbersByPhoneRequestMsg">
+    <wsdl:part element="tns:getAccountNumbersByPhone" name="getAccountNumbersByPhoneParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountNumbersByPhoneResponseMsg">
+    <wsdl:part element="tns:getAccountNumbersByPhoneResponse" name="getAccountNumbersByPhoneResult"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountNumbersByPhone_accountNotFoundMsg">
+    <wsdl:part element="tns:getAccountNumbersByPhone_accountNotFound" name="accountNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountNumberByPodIdRequestMsg">
+    <wsdl:part element="tns:getAccountNumberByPodId" name="getAccountNumberByPodIdParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountNumberByPodIdResponseMsg">
+    <wsdl:part element="tns:getAccountNumberByPodIdResponse" name="getAccountNumberByPodIdResult"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountNumberByPodId_accountNotFoundMsg">
+    <wsdl:part element="tns:getAccountNumberByPodId_accountNotFound" name="accountNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountNumbersByPhone_serviceFaultMsg">
+    <wsdl:part element="tns:getAccountNumbersByPhone_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountNumberByPodId_serviceFaultMsg">
+    <wsdl:part element="tns:getAccountNumberByPodId_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getDepositRequestMsg">
+    <wsdl:part element="tns:getDeposit" name="getDepositParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getDepositResponseMsg">
+    <wsdl:part element="tns:getDepositResponse" name="getDepositResult"/>
+  </wsdl:message>
+    <wsdl:message name="getDeposit_accountNotFoundMsg">
+    <wsdl:part element="tns:getDeposit_accountNotFound" name="accountNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getDeposit_serviceFaultMsg">
+    <wsdl:part element="tns:getDeposit_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getPastDueBalanceRequestMsg">
+    <wsdl:part element="tns:getPastDueBalance" name="getPastDueBalanceParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getPastDueBalanceResponseMsg">
+    <wsdl:part element="tns:getPastDueBalanceResponse" name="getPastDueBalanceResult"/>
+  </wsdl:message>
+    <wsdl:message name="getPastDueBalance_accountNotFoundMsg">
+    <wsdl:part element="tns:getPastDueBalance_accountNotFound" name="accountNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getPastDueBalance_serviceFaultMsg">
+    <wsdl:part element="tns:getPastDueBalance_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getCurrentBalanceDueRequestMsg">
+    <wsdl:part element="tns:getCurrentBalanceDue" name="getCurrentBalanceDueParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getCurrentBalanceDueResponseMsg">
+    <wsdl:part element="tns:getCurrentBalanceDueResponse" name="getCurrentBalanceDueResult"/>
+  </wsdl:message>
+    <wsdl:message name="getCurrentBalanceDue_accountNotFoundMsg">
+    <wsdl:part element="tns:getCurrentBalanceDue_accountNotFound" name="accountNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getCurrentBalanceDue_serviceFaultMsg">
+    <wsdl:part element="tns:getCurrentBalanceDue_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountBalanceRequestMsg">
+    <wsdl:part element="tns:getAccountBalance" name="getAccountBalanceParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountBalanceResponseMsg">
+    <wsdl:part element="tns:getAccountBalanceResponse" name="getAccountBalanceResult"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountBalance_serviceFaultMsg">
+    <wsdl:part element="tns:getAccountBalance_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="isActiveTpaRequestMsg">
+    <wsdl:part element="tns:isActiveTpa" name="isActiveTpaParameters"/>
+  </wsdl:message>
+    <wsdl:message name="isActiveTpaResponseMsg">
+    <wsdl:part element="tns:isActiveTpaResponse" name="isActiveTpaResult"/>
+  </wsdl:message>
+    <wsdl:message name="isActiveTpa_serviceFaultMsg">
+    <wsdl:part element="tns:isActiveTpa_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getMultiBalanceRequestMsg">
+    <wsdl:part element="tns:getMultiBalance" name="getMultiBalanceParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getMultiBalanceResponseMsg">
+    <wsdl:part element="tns:getMultiBalanceResponse" name="getMultiBalanceResult"/>
+  </wsdl:message>
+    <wsdl:message name="getMultiBalance_accountNotFound1Msg">
+    <wsdl:part element="tns:getMultiBalance_accountNotFound1" name="accountNotFound1"/>
+  </wsdl:message>
+    <wsdl:message name="getMultiBalance_serviceFaultMsg">
+    <wsdl:part element="tns:getMultiBalance_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getBillingPlanRequestMsg">
+    <wsdl:part element="tns:getBillingPlan" name="getBillingPlanParameters1"/>
+  </wsdl:message>
+    <wsdl:message name="getBillingPlanResponseMsg">
+    <wsdl:part element="tns:getBillingPlanResponse" name="getBillingPlanResult1"/>
+  </wsdl:message>
+    <wsdl:message name="getBillingPlan_recordNotFoundFaultMsg">
+    <wsdl:part element="tns:getBillingPlan_recordNotFoundFault" name="recordNotFoundFault1"/>
+  </wsdl:message>
+    <wsdl:message name="getBillingPlan_accountNotFoundFaultMsg">
+    <wsdl:part element="tns:getBillingPlan_accountNotFoundFault" name="accountNotFoundFault1"/>
+  </wsdl:message>
+    <wsdl:message name="getBillingPlan_serviceFaultMsg">
+    <wsdl:part element="tns:getBillingPlan_serviceFault" name="serviceFault1"/>
+  </wsdl:message>
+    <wsdl:message name="accountHasDepositOwingRequestMsg">
+    <wsdl:part element="tns:accountHasDepositOwing" name="accountHasDepositOwingParameters"/>
+  </wsdl:message>
+    <wsdl:message name="accountHasDepositOwingResponseMsg">
+    <wsdl:part element="tns:accountHasDepositOwingResponse" name="accountHasDepositOwingResult"/>
+  </wsdl:message>
+    <wsdl:message name="accountHasDepositOwing_serviceFaultMsg">
+    <wsdl:part element="tns:accountHasDepositOwingFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getUnappliedPaymentTotalAmountRequestMsg">
+    <wsdl:part element="tns:getUnappliedPaymentTotalAmount" name="getUnappliedPaymentTotalAmountParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getUnappliedPaymentTotalAmountResponseMsg">
+    <wsdl:part element="tns:getUnappliedPaymentTotalAmountResponse" name="getUnappliedPaymentTotalAmountResult"/>
+  </wsdl:message>
+    <wsdl:message name="getUnappliedPaymentTotalAmount_serviceFaultMsg">
+    <wsdl:part element="tns:getUnappliedPaymentTotalAmountFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountNumbersByCustomerRequestMsg">
+    <wsdl:part element="tns:getAccountNumbersByCustomer" name="getAccountNumbersByCustomerParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountNumbersByCustomerResponseMsg">
+    <wsdl:part element="tns:getAccountNumbersByCustomerResponse" name="getAccountNumbersByCustomerResult"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountNumbersByCustomer_serviceFaultMsg">
+    <wsdl:part element="tns:getAccountNumbersByCustomerFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisAccount">
+    <wsdl:operation name="getAccountInfo">
+            <wsdl:input message="tns:getAccountInfoRequestMsg" name="getAccountInfoRequest"/>
+            <wsdl:output message="tns:getAccountInfoResponseMsg" name="getAccountInfoResponse"/>
+      <wsdl:fault message="tns:getAccountInfo_accountNotFoundMsg" name="accountNotFound"/>
+      <wsdl:fault message="tns:getAccountInfo_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getAccountNumbersByPhone">
+      <wsdl:input message="tns:getAccountNumbersByPhoneRequestMsg" name="getAccountNumbersByPhoneRequest"/>
+      <wsdl:output message="tns:getAccountNumbersByPhoneResponseMsg" name="getAccountNumbersByPhoneResponse"/>
+            <wsdl:fault message="tns:getAccountNumbersByPhone_accountNotFoundMsg" name="accountNotFound"/>
+            <wsdl:fault message="tns:getAccountNumbersByPhone_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getAccountNumberByPodId">
+      <wsdl:input message="tns:getAccountNumberByPodIdRequestMsg" name="getAccountNumberByPodIdRequest"/>
+            <wsdl:output message="tns:getAccountNumberByPodIdResponseMsg" name="getAccountNumberByPodIdResponse"/>
+            <wsdl:fault message="tns:getAccountNumberByPodId_accountNotFoundMsg" name="accountNotFound"/>
+            <wsdl:fault message="tns:getAccountNumberByPodId_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getDeposit">
+      <wsdl:documentation>Returns the amount of customer deposit for the given account.</wsdl:documentation>
+      <wsdl:input message="tns:getDepositRequestMsg" name="getDepositRequest"/>
+      <wsdl:output message="tns:getDepositResponseMsg" name="getDepositResponse"/>
+      <wsdl:fault message="tns:getDeposit_accountNotFoundMsg" name="accountNotFound"/>
+      <wsdl:fault message="tns:getDeposit_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getPastDueBalance">
+      <wsdl:documentation>returns the account's past due balance amount (the value shown on the CSR form's "Past Due" field)</wsdl:documentation>
+      <wsdl:input message="tns:getPastDueBalanceRequestMsg" name="getPastDueBalanceRequest"/>
+      <wsdl:output message="tns:getPastDueBalanceResponseMsg" name="getPastDueBalanceResponse"/>
+      <wsdl:fault message="tns:getPastDueBalance_accountNotFoundMsg" name="accountNotFound"/>
+      <wsdl:fault message="tns:getPastDueBalance_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getCurrentBalanceDue">
+      <wsdl:documentation>returns the account's current balance due (the value shown on the CSR form's "Amount Due" field)</wsdl:documentation>
+      <wsdl:input message="tns:getCurrentBalanceDueRequestMsg" name="getCurrentBalanceDueRequest"/>
+      <wsdl:output message="tns:getCurrentBalanceDueResponseMsg" name="getCurrentBalanceDueResponse"/>
+      <wsdl:fault message="tns:getCurrentBalanceDue_accountNotFoundMsg" name="accountNotFound"/>
+      <wsdl:fault message="tns:getCurrentBalanceDue_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getAccountBalance">
+      <wsdl:documentation>returns the total account balance (the value shown on the CSR form's "Total Acct Bal" field)</wsdl:documentation>
+      <wsdl:input message="tns:getAccountBalanceRequestMsg" name="getAccountBalanceRequest"/>
+      <wsdl:output message="tns:getAccountBalanceResponseMsg" name="getAccountBalanceResponse"/>
+      <wsdl:fault message="tns:getAccountBalance_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="isActiveTpa">
+      <wsdl:documentation>Returns if an active TPA exists for this account</wsdl:documentation>
+      <wsdl:input message="tns:isActiveTpaRequestMsg" name="isActiveTpaRequest"/>
+      <wsdl:output message="tns:isActiveTpaResponseMsg" name="isActiveTpaResponse"/>
+      <wsdl:fault message="tns:isActiveTpa_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getMultiBalance">
+      <wsdl:documentation>returns the billing related data for an acccount in CIS including total balance, current balance due, past due, and if active TPA exists.</wsdl:documentation>
+      <wsdl:input message="tns:getMultiBalanceRequestMsg" name="getMultiBalanceRequest"/>
+      <wsdl:output message="tns:getMultiBalanceResponseMsg" name="getMultiBalanceResponse"/>
+      <wsdl:fault message="tns:getMultiBalance_accountNotFound1Msg" name="accountNotFound"/>
+      <wsdl:fault message="tns:getMultiBalance_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getBillingPlan">
+      <wsdl:input message="tns:getBillingPlanRequestMsg" name="getBillingPlanRequest"/>
+      <wsdl:output message="tns:getBillingPlanResponseMsg" name="getBillingPlanResponse"/>
+      <wsdl:fault message="tns:getBillingPlan_recordNotFoundFaultMsg" name="recordNotFoundFault"/>
+      <wsdl:fault message="tns:getBillingPlan_accountNotFoundFaultMsg" name="accountNotFoundFault"/>
+      <wsdl:fault message="tns:getBillingPlan_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="accountHasDepositOwing">
+            <wsdl:input message="tns:accountHasDepositOwingRequestMsg" name="accountHasDepositOwingRequest"/>
+            <wsdl:output message="tns:accountHasDepositOwingResponseMsg" name="accountHasDepositOwingResponse"/>
+      <wsdl:fault message="tns:accountHasDepositOwing_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getUnappliedPaymentTotalAmount">
+      <wsdl:input message="tns:getUnappliedPaymentTotalAmountRequestMsg" name="getUnappliedPaymentTotalAmountRequest"/>
+      <wsdl:output message="tns:getUnappliedPaymentTotalAmountResponseMsg" name="getUnappliedPaymentTotalAmountResponse"/>
+      <wsdl:fault message="tns:getUnappliedPaymentTotalAmount_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getAccountNumbersByCustomer">
+      <wsdl:input message="tns:getAccountNumbersByCustomerRequestMsg" name="getAccountNumbersByCustomerRequest"/>
+      <wsdl:output message="tns:getAccountNumbersByCustomerResponseMsg" name="getAccountNumbersByCustomerResponse"/>
+      <wsdl:fault message="tns:getAccountNumbersByCustomer_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

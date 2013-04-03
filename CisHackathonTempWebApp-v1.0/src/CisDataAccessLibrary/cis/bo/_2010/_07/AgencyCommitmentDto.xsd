@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="AgencyCommitmentDto">
+        <xsd:annotation>
+      <xsd:documentation>This represents the energy assistance commitment data in CIS.</xsd:documentation>
+    </xsd:annotation>
+        <xsd:sequence>
+      <xsd:element minOccurs="0" name="energyAssistanceCode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Energy assistance program code</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="expirationDate" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>Expiration date</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="amount" type="xsd:double">
+        <xsd:annotation>
+          <xsd:documentation>Dollar amount limit for the commitment</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="authorizationVoucher" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Authorization voucher number</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="commitmentDate" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>Date last changes were made</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

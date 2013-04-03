@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons1="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="SourceIdentifierDto.xsd"/>
+    <xsd:complexType name="ServiceOrderDto">
+        <xsd:annotation>
+      <xsd:documentation>BO for CIS service order stored procedure</xsd:documentation>
+    </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="serviceOrderId" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>Service order unique identifier</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="source" type="bons1:SourceIdentifierDto">
+        <xsd:annotation>
+          
+        
+        <xsd:documentation>Backend process name</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="statusCode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>STAT CODE: Service order status code.  (O)=Open, (X)=Cancelled,&#13;
+(E)=No Events Created.  Defaults to "O" (open) for new service orders.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="activityDate" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>ACTIVITY DATE: Date of last activity.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="requestedDate" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>REQUESTED DATE: Date customer requested for work to be done.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="moveInIndicator" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Move-In Default Indicator</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="orderType" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>SO TYPE CODE: Service order type code.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="orderTypeDescription" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>DESC: A description of the service order type code.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="contType" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Associates a group of data to a service order event to pass with service order each time that service order event is part of a service order when dispatched.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="contactName" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>CONTACT NAME: Contact Name</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="contactNumber" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>CONTACT_NUMBER: Contact Number</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="multipleOrdersExist" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Indicates that another open service order exists for premise</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+        </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

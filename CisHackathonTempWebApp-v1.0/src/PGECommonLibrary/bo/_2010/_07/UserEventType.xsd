@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:simpleType name="UserEventType">
+        <xsd:annotation>
+      <xsd:documentation>The type of user event that has occurred.</xsd:documentation>
+    </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Login Success"/>
+            <xsd:enumeration value="Login Failure"/>
+            <xsd:enumeration value="Lockout Due to Password Mismatch"/>
+            <xsd:enumeration value="Lockout Due to Phishing"/>
+            <xsd:enumeration value="Password Change"/>
+        </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

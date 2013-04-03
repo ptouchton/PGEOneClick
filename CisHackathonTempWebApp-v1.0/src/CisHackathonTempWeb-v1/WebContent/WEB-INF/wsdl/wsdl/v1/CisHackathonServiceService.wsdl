@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisHackathonServiceService" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns:bons0="http://www.pgn.com/v1/cis/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="CisHackathonService.wsdl" namespace="http://www.pgn.com/v1/cis/wsdl"/>
+  <wsdl:binding name="CisHackathonServiceBinding" type="bons0:CisHackathonService">
+
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  	<wsdl:operation name="insertOneClickPayment">
+
+  		<soap:operation soapAction="http://www.pgn.com/v1/cis/wsdl/insertOneClickPayment"/>
+  		<wsdl:input name="insertOneClickPaymentRequest">
+
+  			<soap:body use="literal"/>
+  		</wsdl:input>
+  		<wsdl:output name="insertOneClickPaymentResponse">
+
+  			<soap:body use="literal"/>
+  		</wsdl:output>
+  		<wsdl:fault name="serviceFault">
+
+  			<soap:fault name="serviceFault" use="literal"/>
+  		</wsdl:fault>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CisHackathonServiceService">
+    <wsdl:port binding="bons0:CisHackathonServiceBinding" name="CisHackathonServicePort">
+      <soap:address location="http://localhost:9080/CisHackathonTempWeb-v1/CisHackathonServiceService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

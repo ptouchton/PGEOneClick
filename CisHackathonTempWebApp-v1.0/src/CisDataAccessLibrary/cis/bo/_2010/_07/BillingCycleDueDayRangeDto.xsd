@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons1="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="BillingCycleDto.xsd"/>
+    <xsd:complexType name="BillingCycleDueDayRangeDto">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" name="billingCycle" type="bons1:BillingCycleDto">
+        <xsd:annotation>
+          <xsd:documentation>The CIS Billing Cycle</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="minDueDay" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>The earliest due day of the month that will occur for the billing cycle</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="maxDueDay" type="xsd:int">
+        <xsd:annotation>
+          <xsd:documentation>The last due day of the month that will occur for the billing cycle</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

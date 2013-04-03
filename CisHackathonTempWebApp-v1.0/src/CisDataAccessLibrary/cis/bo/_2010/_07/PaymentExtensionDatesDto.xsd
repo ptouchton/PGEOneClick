@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="PaymentExtensionDatesDto">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="NextBillDueDate"
+				type="xsd:dateTime">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="NextNoticeDueDate"
+				type="xsd:dateTime">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="DayBefore15DayNotice"
+				type="xsd:dateTime">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="CurrentNoticeDueDate"
+				type="xsd:dateTime">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

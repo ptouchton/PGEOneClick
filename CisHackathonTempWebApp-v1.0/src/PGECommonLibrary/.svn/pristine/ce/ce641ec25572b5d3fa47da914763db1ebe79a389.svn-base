@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd" xmlns:bons2="http://www.pgn.com/2010/07/common/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="Phones.xsd"/>
+    <xsd:include schemaLocation="Addresses.xsd"/>
+    <xsd:complexType name="Company">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="name" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="addresses" type="bons2:Addresses"/>
+      <xsd:element minOccurs="0" name="phones" type="bons2:Phones"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

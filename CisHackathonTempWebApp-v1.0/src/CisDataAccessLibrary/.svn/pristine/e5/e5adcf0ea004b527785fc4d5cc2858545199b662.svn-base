@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2013/01/cis/xsd"
+	xmlns:bons0="http://www.pgn.com/2013/01/cis/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:include schemaLocation="AccountDetailDto.xsd" />
+	<xsd:complexType name="AccountsDetailDto">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="accountDetail"
+				type="bons0:AccountDetailDto" maxOccurs="unbounded">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType> 
+</xsd:schema>

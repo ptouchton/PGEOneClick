@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="DelinquencyNoticeDto">
+		<xsd:annotation>
+      <xsd:documentation>Represents Delinquent Notice Detail data in CIS.</xsd:documentation>
+    </xsd:annotation>
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="typeCode"
+				type="xsd:string">
+				<xsd:annotation>
+          <xsd:documentation>Notice type code</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="dueDate"
+				type="xsd:dateTime">
+				<xsd:annotation>
+          <xsd:documentation>Notice due date</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="processDate"
+				type="xsd:dateTime">
+				<xsd:annotation>
+          <xsd:documentation>The date the delinquency process processed the notice</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="delinquentBalance"
+				type="xsd:double">
+				<xsd:annotation>
+          <xsd:documentation>Notice Delinquent Balance</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="delinquentTpaBalance"
+				type="xsd:double">
+				<xsd:annotation>
+          <xsd:documentation>Notice Delinquent Balance plus Total TPA Balance</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://www.pgn.com/2010/07/common/xsd">
+	<xsd:include schemaLocation="EmailAddress.xsd"></xsd:include>
+	<xsd:complexType name="EmailAddresses">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="emailAddresses"
+				type="bons0:EmailAddress" maxOccurs="unbounded">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

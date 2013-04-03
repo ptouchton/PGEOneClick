@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisAddressExport1_CisAddressHttp_Service" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:this="http://www.pgn.com/v1/cis/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="CisAddress.wsdl" namespace="http://www.pgn.com/v1/cis/inf"/>
+    <wsdl:binding name="CisAddressServiceBinding" type="bons0:CisAddress">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getPremiseAddress">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getPremiseAddressRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPremiseAddressResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="addressNotFound">
+        <soap:fault name="addressNotFound" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMailingAddressByDate">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getMailingAddressByDateRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMailingAddressByDateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="addressNotFound">
+        <soap:fault name="addressNotFound" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMailingAddress">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getMailingAddressRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMailingAddressResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="addressNotFound">
+        <soap:fault name="addressNotFound" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMailingAndServiceAddresses">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getMailingAndServiceAddressesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMailingAndServiceAddressesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>     
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CisAddressService">
+    <wsdl:port binding="this:CisAddressServiceBinding" name="CisAddressServicePort">
+      <soap:address location="http://localhost:9081/CisAddressWeb-v1/CisAddressService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisPaymentExtension" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons2="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons3="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons4="http://www.pgn.com/2010/07/fault/xsd" xmlns:bons5="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons6="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons8="http://www.pgn.com/2010/07/cis/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons1="http://www.pgn.com/v1/cis/inf">
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PaymentExtensionDatesDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AccountNumberDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PaymentExtensionPlanCodesDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PaymentExtensionPlanCodesRequestDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/RecordNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/CustomerCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/NoteDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PremiseCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ServiceResponse.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PaymentExtensionDto.xsd"/>            
+            <xsd:element name="createPaymentExtension">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons2:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons3:PremiseCode"/>
+            <xsd:element name="paymentExtensionDto" nillable="true" type="bons0:PaymentExtensionDto"/>
+                        <xsd:element name="noteDto" nillable="true" type="bons8:NoteDto"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createPaymentExtensionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceResponse" nillable="true" type="bons5:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="createPaymentExtension_serviceFault" type="bons4:ServiceFault"/>
+            <xsd:element name="updatePaymentExtension">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons2:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons3:PremiseCode"/>
+            <xsd:element name="paymentExtensionDto" nillable="true" type="bons0:PaymentExtensionDto"/>
+            <xsd:element name="noteDto" nillable="true" type="bons8:NoteDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="updatePaymentExtensionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceResponse" nillable="true" type="bons5:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="updatePaymentExtension_recordNotFoundFaultserviceFault" type="bons4:RecordNotFoundFault"/>
+            <xsd:element name="getActivePaymentExtension">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons2:CustomerCode"/>
+                        <xsd:element name="premiseCode" nillable="true" type="bons3:PremiseCode"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getActivePaymentExtensionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="paymentExtensionDto" nillable="true" type="bons0:PaymentExtensionDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="updatePaymentExtension_serviceFault" type="bons4:ServiceFault"/>
+            <xsd:element name="getActivePaymentExtension_serviceFault" type="bons4:ServiceFault"/>
+            <xsd:element name="getPaymentExtensionPlanCodes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="paymentExtensionPlanCodesRequest" nillable="true" type="bons0:PaymentExtensionPlanCodesRequestDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getPaymentExtensionPlanCodesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="paymentExtensionPlanCodes" nillable="true" type="bons0:PaymentExtensionPlanCodesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getPaymentExtensionPlanCodesFault1_serviceFault" nillable="true" type="bons4:ServiceFault"/>
+            <xsd:element name="getConfirmationNumber">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getConfirmationNumberResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="confirmationNumber" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getConfirmationNumberFault1_serviceFault" nillable="true" type="bons4:ServiceFault"/>
+            <xsd:element name="getPaymentExtensionDates">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons0:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons0:PremiseCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getPaymentExtensionDatesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="paymentExtensionDates" nillable="true" type="bons0:PaymentExtensionDatesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getPaymentExtensionDatesFault1_serviceFault" nillable="true" type="bons4:ServiceFault"/>
+            <xsd:element name="wasExtensionKept">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons0:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons0:PremiseCode"/>
+            <xsd:element name="numberOfExtensions" nillable="true" type="xsd:int"/>
+            <xsd:element name="numberOfBusinessDays" nillable="true" type="xsd:int"/>
+            <xsd:element name="amount" nillable="true" type="xsd:double"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="wasExtensionKeptResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceResponse" nillable="true" type="bons0:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="wasExtensionKeptFault1_serviceFault" nillable="true" type="bons4:ServiceFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="createPaymentExtensionRequestMsg">
+    <wsdl:part element="bons0:createPaymentExtension" name="createPaymentExtensionParameters"/>
+  </wsdl:message>
+    <wsdl:message name="createPaymentExtensionResponseMsg">
+    <wsdl:part element="bons0:createPaymentExtensionResponse" name="createPaymentExtensionResult"/>
+  </wsdl:message>
+    <wsdl:message name="createPaymentExtension_serviceFaultMsg">
+    <wsdl:part element="bons0:createPaymentExtension_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="updatePaymentExtensionRequestMsg">
+    <wsdl:part element="bons0:updatePaymentExtension" name="updatePaymentExtensionParameters"/>
+  </wsdl:message>
+    <wsdl:message name="updatePaymentExtensionResponseMsg">
+    <wsdl:part element="bons0:updatePaymentExtensionResponse" name="updatePaymentExtensionResult"/>
+  </wsdl:message>
+    <wsdl:message name="updatePaymentExtension_recordNotFoundFaultserviceFaultMsg">
+    <wsdl:part element="bons0:updatePaymentExtension_recordNotFoundFaultserviceFault" name="recordNotFoundFaultserviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getActivePaymentExtensionRequestMsg">
+    <wsdl:part element="bons0:getActivePaymentExtension" name="getActivePaymentExtensionParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getActivePaymentExtensionResponseMsg">
+    <wsdl:part element="bons0:getActivePaymentExtensionResponse" name="getActivePaymentExtensionResult"/>
+  </wsdl:message>
+    <wsdl:message name="updatePaymentExtension_serviceFaultMsg">
+    <wsdl:part element="bons0:updatePaymentExtension_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getActivePaymentExtension_serviceFaultMsg">
+    <wsdl:part element="bons0:getActivePaymentExtension_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getPaymentExtensionPlanCodesRequestMsg">
+    <wsdl:part element="bons0:getPaymentExtensionPlanCodes" name="getPaymentExtensionPlanCodesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getPaymentExtensionPlanCodesResponseMsg">
+    <wsdl:part element="bons0:getPaymentExtensionPlanCodesResponse" name="getPaymentExtensionPlanCodesResult"/>
+  </wsdl:message>
+    <wsdl:message name="getPaymentExtensionPlanCodes_serviceFaultMsg">
+    <wsdl:part element="bons0:getPaymentExtensionPlanCodesFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getConfirmationNumberRequestMsg">
+    <wsdl:part element="bons0:getConfirmationNumber" name="getConfirmationNumberParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getConfirmationNumberResponseMsg">
+    <wsdl:part element="bons0:getConfirmationNumberResponse" name="getConfirmationNumberResult"/>
+  </wsdl:message>
+    <wsdl:message name="getConfirmationNumber_serviceFaultMsg">
+    <wsdl:part element="bons0:getConfirmationNumberFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getPaymentExtensionDatesRequestMsg">
+    <wsdl:part element="bons0:getPaymentExtensionDates" name="getPaymentExtensionDatesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getPaymentExtensionDatesResponseMsg">
+    <wsdl:part element="bons0:getPaymentExtensionDatesResponse" name="getPaymentExtensionDatesResult"/>
+  </wsdl:message>
+    <wsdl:message name="getPaymentExtensionDates_serviceFaultMsg">
+    <wsdl:part element="bons0:getPaymentExtensionDatesFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="wasExtensionKeptRequestMsg">
+    <wsdl:part element="bons0:wasExtensionKept" name="wasExtensionKeptParameters"/>
+  </wsdl:message>
+    <wsdl:message name="wasExtensionKeptResponseMsg">
+    <wsdl:part element="bons0:wasExtensionKeptResponse" name="wasExtensionKeptResult"/>
+  </wsdl:message>
+    <wsdl:message name="wasExtensionKept_serviceFaultMsg">
+    <wsdl:part element="bons0:wasExtensionKeptFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisPaymentExtension">
+    <wsdl:operation name="createPaymentExtension">
+            <wsdl:input message="bons0:createPaymentExtensionRequestMsg" name="createPaymentExtensionRequest"/>
+            <wsdl:output message="bons0:createPaymentExtensionResponseMsg" name="createPaymentExtensionResponse"/>
+            <wsdl:fault message="bons0:createPaymentExtension_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="updatePaymentExtension">
+      <wsdl:input message="bons0:updatePaymentExtensionRequestMsg" name="updatePaymentExtensionRequest"/>
+      <wsdl:output message="bons0:updatePaymentExtensionResponseMsg" name="updatePaymentExtensionResponse"/>
+      <wsdl:fault message="bons0:updatePaymentExtension_recordNotFoundFaultserviceFaultMsg" name="recordNotFoundFault"/>
+            <wsdl:fault message="bons0:updatePaymentExtension_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getActivePaymentExtension">
+            <wsdl:input message="bons0:getActivePaymentExtensionRequestMsg" name="getActivePaymentExtensionRequest"/>
+            <wsdl:output message="bons0:getActivePaymentExtensionResponseMsg" name="getActivePaymentExtensionResponse"/>
+            <wsdl:fault message="bons0:getActivePaymentExtension_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getPaymentExtensionPlanCodes">
+      <wsdl:input message="bons0:getPaymentExtensionPlanCodesRequestMsg" name="getPaymentExtensionPlanCodesRequest"/>
+      <wsdl:output message="bons0:getPaymentExtensionPlanCodesResponseMsg" name="getPaymentExtensionPlanCodesResponse"/>
+      <wsdl:fault message="bons0:getPaymentExtensionPlanCodes_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getConfirmationNumber">
+      <wsdl:input message="bons0:getConfirmationNumberRequestMsg" name="getConfirmationNumberRequest"/>
+      <wsdl:output message="bons0:getConfirmationNumberResponseMsg" name="getConfirmationNumberResponse"/>
+            <wsdl:fault message="bons0:getConfirmationNumber_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getPaymentExtensionDates">
+      <wsdl:input message="bons0:getPaymentExtensionDatesRequestMsg" name="getPaymentExtensionDatesRequest"/>
+      <wsdl:output message="bons0:getPaymentExtensionDatesResponseMsg" name="getPaymentExtensionDatesResponse"/>
+      <wsdl:fault message="bons0:getPaymentExtensionDates_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="wasExtensionKept">
+      <wsdl:input message="bons0:wasExtensionKeptRequestMsg" name="wasExtensionKeptRequest"/>
+      <wsdl:output message="bons0:wasExtensionKeptResponseMsg" name="wasExtensionKeptResponse"/>
+      <wsdl:fault message="bons0:wasExtensionKept_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,35 @@
+package com.pgn.v1.cis.dao;
+
+import java.sql.CallableStatement;
+
+import javax.sql.DataSource;
+
+import com.pgn._2010._07.fault.xsd.ServiceFault;
+import com.pgn.utils.dataaccess.PGEDataAccess;
+
+public class CisHackathonTempDao {
+
+	protected static final String CANCEL_LOANS = "{?=call PL_Move_Service_PKG.CancelLoans(?,?,?,?)}";
+	protected static final int CANCEL_LOANS_RESULT_OUT 					= 1;
+	protected static final int CANCEL_LOANS_CUST_CODE_IN 				= 2;
+	protected static final int CANCEL_LOANS_PREM_CODE_IN 				= 3;
+	protected static final int CANCEL_LOANS_ERROR_CODE_OUT 				= 4;
+	protected static final int CANCEL_LOANS_ERROR_MSG_OUT 				= 5;
+	
+	private static final String SERVICE_FAULT = ServiceFault.class.getSimpleName();
+	
+	private PGEDataAccess cisDataAccess = null;
+	private CallableStatement callable = null;
+	
+	public CisHackathonTempDao(DataSource cisDataSource) {
+		cisDataAccess = new PGEDataAccess(cisDataSource);	
+	}
+
+	//Used for testing, so that the dataAccess can be mocked
+	protected CisHackathonTempDao(PGEDataAccess dataAccess) {
+		cisDataAccess = dataAccess;
+	}
+	
+	
+	
+}

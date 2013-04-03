@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="BillingCycleDto">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" name="cycle" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="subCycle" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

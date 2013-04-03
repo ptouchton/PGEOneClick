@@ -1,0 +1,84 @@
+<project name="headlessBuild" default="doBuild" basedir="../">
+	
+		
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpath="${basedir}/lib/ant-contrib-0.6.jar" />
+    <target name="init" >
+    	<if>
+		<os family="unix"/>
+		<then>
+    		<workspacePreferenceSet 
+			PreferenceType="classpathVariable" 
+			Preferencename="WID_EXT" 
+			PreferenceValue="/IBM/WID7_WTE/runtimes/bi_v7/lib/ext/" />
+		</then>
+		<else>
+    		<workspacePreferenceSet 
+			PreferenceType="classpathVariable" 
+			Preferencename="WID_EXT" 
+			PreferenceValue="C:\IBM\WID7_WTE\runtimes\bi_v7\lib\ext" />
+		</else>
+		</if>
+	</target>
+	
+	<target name="doJarBuild"  depends="init" >
+		<antcall target="importAllProjects" inheritAll="true"/>
+		<antcall target="buildAllProjects" inheritAll="true"/> 
+		<antcall target="createJarsProjects" inheritAll="true"/> 
+	</target>
+	
+	<target name="doBuild"  depends="init" >
+		<antcall target="importAllProjects" inheritAll="true"/>
+		<antcall target="buildAllProjects" inheritAll="true"/>
+		<antcall target="exportEAR" inheritAll="true"/>
+	</target>
+	
+
+
+	<target name="exportJAR" >
+          <jar basedir="${src.dir}/${jar.projectname}"
+			destfile="${ear.location}/${jar.projectname}.jar"
+                        manifest="${src.dir}/${jar.projectname}/META-INF/MANIFEST.MF"
+                        />
+	</target>
+	
+	<target name="createJarsProjects">
+		<!--  component.list is passed in from the calling target -->
+		<foreach 	list="${component.list}"
+							delimiter=","
+							target="exportJAR"
+							param="jar.projectname" />
+	</target>
+
+	
+	<target name="importAllProjects" depends="init">
+		<!--  component.list is passed in from the calling target -->
+		<foreach 	list="${component.list}"
+							delimiter=","
+							target="_importProject"
+							param="project.name" />
+	</target>
+
+	<target name="_importProject">
+		<projectImport ProjectName="${project.name}" />
+	</target>
+
+	<target name="buildAllProjects" depends="init">
+		<foreach list="${component.list}"
+			delimiter=","
+			target="_buildProject"
+			param="project.name" />
+	</target>
+
+	<target name="_buildProject">
+		<projectBuild ProjectName="${project.name}"
+			failonerror="true"
+			DebugCompilation="true"
+			BuildType="full" />
+	</target>
+
+	<target name="exportEAR" depends="buildAllProjects">
+		<earExport EARProjectName="${ear.projectname}" EARExportFile="${ear.location}/${ear.projectname}.ear" Overwrite="true" />
+	</target>
+
+</project> 
+

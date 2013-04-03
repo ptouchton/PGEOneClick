@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:bo="http://www.pgn.com/2010/07/fault/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.pgn.com/2010/07/fault/xsd">
+  <xsd:annotation>
+    <xsd:appinfo source="wid.federated.schema"/>
+  </xsd:annotation>
+  <xsd:include schemaLocation="../bo/_2010/_07/EventNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/BillingNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/AccountNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/AddressNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/CustomerNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/ValidationFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/PaymentNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/BaseFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/TokenNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/MeterPersonNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/PodIdNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/MultipleAccountsFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/IpidNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/PhoneNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/InvoiceNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/NotesNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/ServiceOrderNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/ServiceTypeNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/BankAccountTokenNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/PaymentNotAcceptedFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/ValidationMessage.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/HistoryNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/MeterManNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/EnrollmentNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/AssociationNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/GeneralFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/ServiceFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/RecordNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/PremiseNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/MeterNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/ServiceNotFoundFault.xsd"/>
+  <xsd:include schemaLocation="../bo/_2010/_07/ValidationMessages.xsd"/>
+</xsd:schema>

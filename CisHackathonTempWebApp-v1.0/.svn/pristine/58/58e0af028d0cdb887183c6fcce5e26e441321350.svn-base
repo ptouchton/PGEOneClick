@@ -1,0 +1,41 @@
+#Application name or list of applications that are comma seperated
+#appNames=CSvcAccountWebApp-v1.0,CisAccountWebApp-v1.0
+appNames=CisHackathonTempWebApp-v1.0
+
+#Target cluster which will host these apps
+appDeployTarget=AppCluster
+#appDeployTarget=WSCluster
+ 
+#Location of the EAR file that needs to be deployed.
+earLocation=/IBM/cruise/builds/build/CisHackathonTempWebApp-v1.0/export
+
+#backup location to export the currently deployed ear file. Timestamp will be appended to the EAR file.
+#Verify that this folder exists prior to executing the Update script.
+backUpEARLocation=/IBM/cruise/builds/build/CisHackathonTempWebApp-v1.0/export
+
+#list of email recipients to be notified once this application is deployed. The email will contain the deployment log. Developers can check if the deployment succeeded
+#emailList=websphereplatform@pgn.com
+emailList=paul.willworth@pgn.com
+
+#Option to force stop business process templates and delete instances :stopProcessTemplateAndDeleteInstancesForced
+#if no key/value is specified "false" is assumed and process tempates are stopped. Use forceStop only if the existing instances have problems which prevent application updates
+forceStop=false
+
+#provide auth alias for resources. Specify the value only if an auth alias is needed. If no value is specified, default auth alias will be used..
+#example
+#jms/gridAqConnectionFactory=dmgrNode/grid/e99was
+#sca/resource/import/PGEEventLog_CF=SCA_Auth_Alias
+
+#provide auth alias for BindJndiForEJBMessageBinding. Specify the value only if an auth alias is needed. If no value is specified, default auth alias will be used.
+#example
+#jms/DistPodSoapJmsServiceAS=SCA_Auth_Alias
+#jms/sib/as/cei/PGEEvents=SCA_Auth_Alias
+
+#provide host and port overrides for ONLY Data Power SCA webservice imports
+#BLD.EnergyAssistanceProcess.CSvcAccountImport=localhost:8088
+#BLD.EnergyAssistanceProcess.CSvcBillingImport=localhost:8088
+#BLD.EnergyAssistanceProcess.CSvcDelinquencyImport=localhost:8088
+#BLD.EnergyAssistanceProcess.CSvcElectricServiceImport=localhost:8088
+#BLD.EnergyAssistanceProcess.CSvcEnergyAssistanceServiceImport=localhost:8088
+#BLD.EnergyAssistanceProcess.CSvcNoteImport=localhost:8088
+#BLD.EnergyAssistanceProcess.CSvcServiceOrderImport=localhost:8088

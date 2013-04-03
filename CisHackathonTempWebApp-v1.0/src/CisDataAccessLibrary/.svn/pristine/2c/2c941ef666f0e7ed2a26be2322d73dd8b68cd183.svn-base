@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="ScheduledBillDatesDto">
+        <xsd:annotation>
+      <xsd:documentation>Future scheduled Bill, Read, and Due dates from CIS Date Base table</xsd:documentation>
+    </xsd:annotation>
+        <xsd:sequence>
+      <xsd:element minOccurs="1" name="billDate" type="xsd:dateTime"/>
+      <xsd:element minOccurs="1" name="readDate" type="xsd:dateTime"/>
+      <xsd:element minOccurs="1" name="dueDate" type="xsd:dateTime"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

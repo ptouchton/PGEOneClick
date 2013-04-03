@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="AccountBillingDto">
+        <xsd:annotation>
+      <xsd:documentation>Billing related data for an acccount in CIS including total balance, current balance due, past due, and if active TPA exists.</xsd:documentation>
+    </xsd:annotation>
+        <xsd:sequence>
+      <xsd:element minOccurs="0" name="totalAccountBalance" type="xsd:double">
+        <xsd:annotation>
+          <xsd:documentation>the sum of ((AR balance + AR credit Balance - unapplied Payments) + loan payoff amount + budget variance)&#13;
+&#13;
+--- same value shown on the CSR form's "Total Acct Bal" field</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="currentBalanceDue" type="xsd:double">
+        <xsd:annotation>
+          <xsd:documentation>the sum of (AR balance + AR credit Balance - unapplied Payments)&#13;
+&#13;
+--- same value shown on the CSR form's "Amount Due" field</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="pastDueBalance" type="xsd:double">
+        <xsd:annotation>
+          <xsd:documentation>the sum of all Aged Accounts Receivables&#13;
+&#13;
+--- same value shown on the CSR form's "Past Due" field</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="isActiveTpa" type="xsd:boolean">
+        <xsd:annotation>
+          <xsd:documentation>indicates if an active TPA exist for the account</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

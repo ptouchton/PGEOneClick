@@ -1,0 +1,9 @@
+#Tue Mar 12 15:19:59 PDT 2013
+__DEFAULT__=true
+com.ibm.etools.ui.support.search.engine.WPSForum.master=true
+com.ibm.etools.ui.support.search.engine.WIDForum.master=true
+org.eclipse.sdk.Eclipse.master=false
+org.eclipse.help.ui.localSearch.master=true
+com.ibm.developerWorks.master=true
+com.ibm.etools.ui.support.search.engine.WIDTechNotes.master=true
+com.ibm.websphere.infocenter.master=false

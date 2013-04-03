@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisService" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://service.wsdl.cis.pgn.com" xmlns:bons2="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons3="http://www.pgn.com/2010/07/fault/xsd" xmlns:bons4="http://www.pgn.com/2012/04/cis/xsd" xmlns:bons5="http://www.pgn.com/2010/12/cis/xsd" xmlns:bons6="http://www.pgn.com/2013/01/cis/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons1="http://www.pgn.com/v1/cis/inf" xmlns:bons12="http://www.pgn.com/2010/07/cis/xsd">
+            <xsd:import namespace="http://www.pgn.com/2013/01/cis/xsd" schemaLocation="../../cis/bo/_2013/_01/MoveHistoriesDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2012/04/cis/xsd" schemaLocation="../../cis/bo/_2012/_04/ServiceHistoriesDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/12/cis/xsd" schemaLocation="../../cis/bo/_2010/_12/ServicesDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/12/cis/xsd" schemaLocation="../../cis/bo/_2010/_12/MeterDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ServiceResponse.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/RecordNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ValidationFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ReadingInstructionsDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ServicesDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/DisconnectedServicesDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ImplementationInfo.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/CustomerCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PremiseCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ServiceDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ServiceHistoriesDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PodId.xsd"/>           
+             <xsd:element name="getServices">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons:PremiseCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getServicesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="services" nillable="true" type="bons:ServicesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getServices_serviceNotFound" type="bons3:ServiceNotFoundFault"/>
+            <xsd:element name="getServices_serviceFault" type="bons3:ServiceFault"/>
+            <xsd:element name="getServiceHistories">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons:PremiseCode"/>
+                        <xsd:element name="beginningDate" nillable="true" type="xsd:date"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getServiceHistoriesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceHistories" nillable="true" type="bons:ServiceHistoriesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getServiceHistories_serviceNotFound" type="bons3:ServiceNotFoundFault"/>
+            <xsd:element name="getServiceHistories_serviceFault" type="bons3:ServiceFault"/>
+            <xsd:element name="getServiceByPodId">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="podId" nillable="true" type="bons:PodId"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getServiceByPodIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="service" nillable="true" type="bons:ServiceDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getServiceByPodId_serviceNotFound" type="bons3:ServiceNotFoundFault"/>
+            <xsd:element name="getServiceByPodId_serviceFault" type="bons3:ServiceFault"/>
+            <xsd:element name="getDisconnectedServices">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons:PremiseCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getDisconnectedServicesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="disconnectedServices" nillable="true" type="bons:DisconnectedServicesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getDisconnectedServices_serviceNotFound" type="bons3:ServiceNotFoundFault"/>
+            <xsd:element name="getDisconnectedServices_serviceFault" type="bons3:ServiceFault"/>
+            <xsd:element name="getCutOutServices">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons:PremiseCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getCutOutServicesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="disconnectedServices" nillable="true" type="bons:DisconnectedServicesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getCutOutServices_serviceNotFound" type="bons3:ServiceNotFoundFault"/>
+            <xsd:element name="getCutOutServices_serviceFault" type="bons3:ServiceFault"/>
+            <xsd:element name="getResidentialServices">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons:PremiseCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getResidentialServicesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="services" nillable="true" type="bons:ServicesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getResidentialServices_serviceNotFound" type="bons3:ServiceNotFoundFault"/>
+            <xsd:element name="getResidentialServices_serviceFault" type="bons3:ServiceFault"/>
+            <xsd:element name="isNetMeter">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="premiseCode" nillable="true" type="bons:PremiseCode"/>
+            <xsd:element name="serviceNumber" nillable="true" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="isNetMeterResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="isNetMeterFlag" nillable="true" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="isNetMeter_serviceFault" type="bons3:ServiceFault"/>
+            <xsd:element name="createService">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceIn" nillable="true" type="bons:ServiceDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="createServiceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceOut" nillable="true" type="bons:ServiceDto"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="createService_serviceFault" type="bons3:ServiceFault"/>
+            <xsd:element name="createService_validationFault" type="bons3:ValidationFault"/>
+            <xsd:element name="IsTimeOfUse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="premiseCode" nillable="true" type="bons:PremiseCode"/>
+            <xsd:element name="serviceNumber" nillable="true" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="IsTimeOfUseResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="isTimeOfUseFlag" nillable="true" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="IsTimeOfUseFault1_serviceFault" nillable="true" type="bons3:ServiceFault"/>
+            <xsd:element name="getReadingInstructions">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="premiseCode" nillable="true" type="xsd:string"/>
+            <xsd:element name="serviceNumber" nillable="true" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getReadingInstructionsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="readingInstructions" nillable="true" type="bons:ReadingInstructionsDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getReadingInstructions_recordNotFound" type="bons3:RecordNotFoundFault"/>
+            <xsd:element name="getReadingInstructions_serviceFault" type="bons3:ServiceFault"/>
+            <xsd:element name="updateService">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="service" nillable="true" type="bons:ServiceDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="updateServiceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceResponse" nillable="true" type="bons:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="updateServiceFault1_serviceFault" nillable="true" type="bons3:ServiceFault"/>
+            <xsd:element name="attachMeterToService">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="service" nillable="true" type="bons:ServiceDto"/>
+                        <xsd:element name="meter" nillable="true" type="bons5:MeterDto"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="attachMeterToServiceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceResponse" nillable="true" type="bons:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="attachMeterToServiceFault1_serviceFault" nillable="true" type="bons3:ServiceFault"/>
+            <xsd:element name="hasPendingRenewableEnrollment">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons:PremiseCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="hasPendingRenewableEnrollmentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="pendingEnrollmentExists" nillable="true" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="hasPendingRenewableEnrollmentFault1_serviceFault" nillable="true" type="bons3:ServiceFault"/>
+            <xsd:element name="getServiceHistoryByService">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="premiseCode" nillable="true" type="bons:PremiseCode"/>
+            <xsd:element name="serviceNumber" nillable="true" type="xsd:int"/>
+            <xsd:element name="fromDate" nillable="true" type="xsd:dateTime"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getServiceHistoryByServiceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceHistories" nillable="true" type="bons4:ServiceHistoriesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getServiceHistoryByService_serviceFault" nillable="true" type="bons3:ServiceFault"/>
+            <xsd:element name="getElectricServicesByCategory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons:PremiseCode"/>
+                        <xsd:element name="masterCategory" nillable="true" type="xsd:string">
+              <xsd:annotation>
+                <xsd:documentation>The masterCategory is any valid  Banner MasterRule value.  The rule should represent a list of srat codes.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getElectricServicesByCategoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="servicesDto" nillable="true" type="bons5:ServicesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getElectricServicesByCategoryFault1_serviceFault" nillable="true" type="bons3:ServiceFault"/>
+            <xsd:element name="getElectricServicesByCategoryFault2_serviceNotFound" nillable="true" type="bons3:ServiceNotFoundFault"/>
+            <xsd:element name="getMoveHistory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="premiseCode" nillable="true" type="bons:PremiseCode"/>
+            <xsd:element name="serviceNumber" nillable="true" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getMoveHistoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="moveHistories" nillable="true" type="bons6:MoveHistoriesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getMoveHistoryFault1_serviceFault" nillable="true" type="bons3:ServiceFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getServicesRequestMsg">
+    <wsdl:part element="tns:getServices" name="getServicesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getServicesResponseMsg">
+    <wsdl:part element="tns:getServicesResponse" name="getServicesResult"/>
+  </wsdl:message>
+    <wsdl:message name="getServices_serviceNotFoundMsg">
+    <wsdl:part element="tns:getServices_serviceNotFound" name="serviceNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getServices_serviceFaultMsg">
+    <wsdl:part element="tns:getServices_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceHistoriesRequestMsg">
+    <wsdl:part element="tns:getServiceHistories" name="getServiceHistoriesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceHistoriesResponseMsg">
+    <wsdl:part element="tns:getServiceHistoriesResponse" name="getServiceHistoriesResult"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceHistories_serviceNotFoundMsg">
+    <wsdl:part element="tns:getServiceHistories_serviceNotFound" name="serviceNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceHistories_serviceFaultMsg">
+    <wsdl:part element="tns:getServiceHistories_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceByPodIdRequestMsg">
+    <wsdl:part element="tns:getServiceByPodId" name="getServiceByPodIdParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceByPodIdResponseMsg">
+    <wsdl:part element="tns:getServiceByPodIdResponse" name="getServiceByPodIdResult"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceByPodId_serviceNotFoundMsg">
+    <wsdl:part element="tns:getServiceByPodId_serviceNotFound" name="serviceNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceByPodId_serviceFaultMsg">
+    <wsdl:part element="tns:getServiceByPodId_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getDisconnectedServicesRequestMsg">
+    <wsdl:part element="tns:getDisconnectedServices" name="getDisconnectedServicesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getDisconnectedServicesResponseMsg">
+    <wsdl:part element="tns:getDisconnectedServicesResponse" name="getDisconnectedServicesResult"/>
+  </wsdl:message>
+    <wsdl:message name="getDisconnectedServices_serviceNotFoundMsg">
+    <wsdl:part element="tns:getDisconnectedServices_serviceNotFound" name="serviceNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getDisconnectedServices_serviceFaultMsg">
+    <wsdl:part element="tns:getDisconnectedServices_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getCutOutServicesRequestMsg">
+    <wsdl:part element="tns:getCutOutServices" name="getCutOutServicesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getCutOutServicesResponseMsg">
+    <wsdl:part element="tns:getCutOutServicesResponse" name="getCutOutServicesResult"/>
+  </wsdl:message>
+    <wsdl:message name="getCutOutServices_serviceNotFoundMsg">
+    <wsdl:part element="tns:getCutOutServices_serviceNotFound" name="serviceNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getCutOutServices_serviceFaultMsg">
+    <wsdl:part element="tns:getCutOutServices_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getResidentialServicesRequestMsg">
+    <wsdl:part element="tns:getResidentialServices" name="getResidentialServicesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getResidentialServicesResponseMsg">
+    <wsdl:part element="tns:getResidentialServicesResponse" name="getResidentialServicesResult"/>
+  </wsdl:message>
+    <wsdl:message name="getResidentialServices_serviceNotFoundMsg">
+    <wsdl:part element="tns:getResidentialServices_serviceNotFound" name="serviceNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getResidentialServices_serviceFaultMsg">
+    <wsdl:part element="tns:getResidentialServices_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="isNetMeterRequestMsg">
+    <wsdl:part element="tns:isNetMeter" name="isNetMeterParameters"/>
+  </wsdl:message>
+    <wsdl:message name="isNetMeterResponseMsg">
+    <wsdl:part element="tns:isNetMeterResponse" name="isNetMeterResult"/>
+  </wsdl:message>
+    <wsdl:message name="isNetMeter_serviceFaultMsg">
+    <wsdl:part element="tns:isNetMeter_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="createServiceRequestMsg">
+    <wsdl:part element="tns:createService" name="createServiceParameters"/>
+  </wsdl:message>
+    <wsdl:message name="createServiceResponseMsg">
+    <wsdl:part element="tns:createServiceResponse" name="createServiceResult"/>
+  </wsdl:message>
+    <wsdl:message name="createService_serviceFaultMsg">
+    <wsdl:part element="tns:createService_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="createService_validationFaultMsg">
+    <wsdl:part element="tns:createService_validationFault" name="validationFault"/>
+  </wsdl:message>
+    <wsdl:message name="IsTimeOfUseRequestMsg">
+    <wsdl:part element="tns:IsTimeOfUse" name="IsTimeOfUseParameters"/>
+  </wsdl:message>
+    <wsdl:message name="IsTimeOfUseResponseMsg">
+    <wsdl:part element="tns:IsTimeOfUseResponse" name="IsTimeOfUseResult"/>
+  </wsdl:message>
+    <wsdl:message name="IsTimeOfUse_serviceFaultMsg">
+    <wsdl:part element="tns:IsTimeOfUseFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getReadingInstructionsRequestMsg">
+    <wsdl:part element="tns:getReadingInstructions" name="getReadingInstructionsParameters1"/>
+  </wsdl:message>
+    <wsdl:message name="getReadingInstructionsResponseMsg">
+    <wsdl:part element="tns:getReadingInstructionsResponse" name="getReadingInstructionsResult1"/>
+  </wsdl:message>
+    <wsdl:message name="getReadingInstructions_recordNotFoundMsg">
+    <wsdl:part element="tns:getReadingInstructions_recordNotFound" name="recordNotFound1"/>
+  </wsdl:message>
+    <wsdl:message name="getReadingInstructions_serviceFaultMsg">
+    <wsdl:part element="tns:getReadingInstructions_serviceFault" name="serviceFault1"/>
+  </wsdl:message>
+    <wsdl:message name="updateServiceRequestMsg">
+    <wsdl:part element="tns:updateService" name="updateServiceParameters"/>
+  </wsdl:message>
+    <wsdl:message name="updateServiceResponseMsg">
+    <wsdl:part element="tns:updateServiceResponse" name="updateServiceResult"/>
+  </wsdl:message>
+    <wsdl:message name="updateService_serviceFaultMsg">
+    <wsdl:part element="tns:updateServiceFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="attachMeterToServiceRequestMsg">
+    <wsdl:part element="tns:attachMeterToService" name="attachMeterToServiceParameters"/>
+  </wsdl:message>
+    <wsdl:message name="attachMeterToServiceResponseMsg">
+    <wsdl:part element="tns:attachMeterToServiceResponse" name="attachMeterToServiceResult"/>
+  </wsdl:message>
+    <wsdl:message name="attachMeterToService_serviceFaultMsg">
+    <wsdl:part element="tns:attachMeterToServiceFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="hasPendingRenewableEnrollmentRequestMsg">
+    <wsdl:part element="tns:hasPendingRenewableEnrollment" name="hasPendingRenewableEnrollmentParameters"/>
+  </wsdl:message>
+    <wsdl:message name="hasPendingRenewableEnrollmentResponseMsg">
+    <wsdl:part element="tns:hasPendingRenewableEnrollmentResponse" name="hasPendingRenewableEnrollmentResult"/>
+  </wsdl:message>
+    <wsdl:message name="hasPendingRenewableEnrollment_serviceFaultMsg">
+    <wsdl:part element="tns:hasPendingRenewableEnrollmentFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceHistoryByServiceRequestMsg">
+    <wsdl:part element="tns:getServiceHistoryByService" name="getServiceHistoryByServiceParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceHistoryByServiceResponseMsg">
+    <wsdl:part element="tns:getServiceHistoryByServiceResponse" name="getServiceHistoryByServiceResult"/>
+  </wsdl:message>
+    <wsdl:message name="getServiceHistoryByService_serviceFault">
+    <wsdl:part element="tns:getServiceHistoryByService_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getElectricServicesByCategoryRequestMsg">
+    <wsdl:part element="tns:getElectricServicesByCategory" name="getElectricServicesByCategoryParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getElectricServicesByCategoryResponseMsg">
+    <wsdl:part element="tns:getElectricServicesByCategoryResponse" name="getElectricServicesByCategoryResult"/>
+  </wsdl:message>
+    <wsdl:message name="getElectricServicesByCategory_serviceFaultMsg">
+    <wsdl:part element="tns:getElectricServicesByCategoryFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getElectricServicesByCategory_serviceNotFoundMsg">
+    <wsdl:part element="tns:getElectricServicesByCategoryFault2_serviceNotFound" name="serviceNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getMoveHistoryRequestMsg">
+    <wsdl:part element="tns:getMoveHistory" name="getMoveHistoryParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getMoveHistoryResponseMsg">
+    <wsdl:part element="tns:getMoveHistoryResponse" name="getMoveHistoryResult"/>
+  </wsdl:message>
+    <wsdl:message name="getMoveHistory_serviceFaultMsg">
+    <wsdl:part element="tns:getMoveHistoryFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisService">
+    <wsdl:operation name="getServices">
+      <wsdl:input message="tns:getServicesRequestMsg" name="getServicesRequest"/>
+      <wsdl:output message="tns:getServicesResponseMsg" name="getServicesResponse"/>
+            <wsdl:fault message="tns:getServices_serviceNotFoundMsg" name="serviceNotFound"/>
+            <wsdl:fault message="tns:getServices_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getServiceHistories">
+            <wsdl:input message="tns:getServiceHistoriesRequestMsg" name="getServiceHistoriesRequest"/>
+            <wsdl:output message="tns:getServiceHistoriesResponseMsg" name="getServiceHistoriesResponse"/>
+      <wsdl:fault message="tns:getServiceHistories_serviceNotFoundMsg" name="serviceNotFound"/>
+      <wsdl:fault message="tns:getServiceHistories_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getServiceByPodId">
+      <wsdl:input message="tns:getServiceByPodIdRequestMsg" name="getServiceByPodIdRequest"/>
+      <wsdl:output message="tns:getServiceByPodIdResponseMsg" name="getServiceByPodIdResponse"/>
+      <wsdl:fault message="tns:getServiceByPodId_serviceNotFoundMsg" name="serviceNotFound"/>
+      <wsdl:fault message="tns:getServiceByPodId_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getDisconnectedServices">
+      <wsdl:documentation>The getDisconnectedServices() should be retired eventually. Use getCutOutServices() once 2303 goes life.</wsdl:documentation>
+      <wsdl:input message="tns:getDisconnectedServicesRequestMsg" name="getDisconnectedServicesRequest"/>
+      <wsdl:output message="tns:getDisconnectedServicesResponseMsg" name="getDisconnectedServicesResponse"/>
+      <wsdl:fault message="tns:getDisconnectedServices_serviceNotFoundMsg" name="serviceNotFound"/>
+      <wsdl:fault message="tns:getDisconnectedServices_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getCutOutServices">
+      <wsdl:documentation>This operation retrieves the disconnected services for 2303. The getDisconnectedServices() should be retired eventually.</wsdl:documentation>
+      <wsdl:input message="tns:getCutOutServicesRequestMsg" name="getCutOutServicesRequest"/>
+      <wsdl:output message="tns:getCutOutServicesResponseMsg" name="getCutOutServicesResponse"/>
+      <wsdl:fault message="tns:getCutOutServices_serviceNotFoundMsg" name="serviceNotFound"/>
+      <wsdl:fault message="tns:getCutOutServices_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getResidentialServices">
+      <wsdl:documentation>This operation retrieves the residential services for the customer code/premise code</wsdl:documentation>
+      <wsdl:input message="tns:getResidentialServicesRequestMsg" name="getResidentialServicesRequest"/>
+      <wsdl:output message="tns:getResidentialServicesResponseMsg" name="getResidentialServicesResponse"/>
+      <wsdl:fault message="tns:getResidentialServices_serviceNotFoundMsg" name="serviceNotFound"/>
+      <wsdl:fault message="tns:getResidentialServices_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="isNetMeter">
+      <wsdl:input message="tns:isNetMeterRequestMsg" name="isNetMeterRequest"/>
+      <wsdl:output message="tns:isNetMeterResponseMsg" name="isNetMeterResponse"/>
+            <wsdl:fault message="tns:isNetMeter_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="createService">
+      <wsdl:input message="tns:createServiceRequestMsg" name="createServiceRequest"/>
+            <wsdl:output message="tns:createServiceResponseMsg" name="createServiceResponse"/>
+            <wsdl:fault message="tns:createService_serviceFaultMsg" name="serviceFault"/>
+            <wsdl:fault message="tns:createService_validationFaultMsg" name="validationFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="IsTimeOfUse">
+      <wsdl:input message="tns:IsTimeOfUseRequestMsg" name="IsTimeOfUseRequest"/>
+      <wsdl:output message="tns:IsTimeOfUseResponseMsg" name="IsTimeOfUseResponse"/>
+      <wsdl:fault message="tns:IsTimeOfUse_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getReadingInstructions">
+      <wsdl:input message="tns:getReadingInstructionsRequestMsg" name="getReadingInstructionsRequest"/>
+      <wsdl:output message="tns:getReadingInstructionsResponseMsg" name="getReadingInstructionsResponse"/>
+      <wsdl:fault message="tns:getReadingInstructions_recordNotFoundMsg" name="recordNotFound"/>
+      <wsdl:fault message="tns:getReadingInstructions_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="updateService">
+      <wsdl:documentation>Currently this operation only updates the install date of a service.</wsdl:documentation>
+      <wsdl:input message="tns:updateServiceRequestMsg" name="updateServiceRequest"/>
+      <wsdl:output message="tns:updateServiceResponseMsg" name="updateServiceResponse"/>
+      <wsdl:fault message="tns:updateService_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="attachMeterToService">
+            <wsdl:input message="tns:attachMeterToServiceRequestMsg" name="attachMeterToServiceRequest"/>
+            <wsdl:output message="tns:attachMeterToServiceResponseMsg" name="attachMeterToServiceResponse"/>
+            <wsdl:fault message="tns:attachMeterToService_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="hasPendingRenewableEnrollment">
+      <wsdl:input message="tns:hasPendingRenewableEnrollmentRequestMsg" name="hasPendingRenewableEnrollmentRequest"/>
+      <wsdl:output message="tns:hasPendingRenewableEnrollmentResponseMsg" name="hasPendingRenewableEnrollmentResponse"/>
+      <wsdl:fault message="tns:hasPendingRenewableEnrollment_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getServiceHistoryByService">
+      <wsdl:input message="tns:getServiceHistoryByServiceRequestMsg" name="getServiceHistoryByServiceRequest"/>
+      <wsdl:output message="tns:getServiceHistoryByServiceResponseMsg" name="getServiceHistoryByServiceResponse"/>
+      <wsdl:fault message="tns:getServiceHistoryByService_serviceFault" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getElectricServicesByCategory">
+      <wsdl:documentation>Will return a list of services for an account that has an srat code in the list of values based on a valid  Banner MasterRule value. </wsdl:documentation>
+            <wsdl:input message="tns:getElectricServicesByCategoryRequestMsg" name="getElectricServicesByCategoryRequest"/>
+            <wsdl:output message="tns:getElectricServicesByCategoryResponseMsg" name="getElectricServicesByCategoryResponse"/>
+      <wsdl:fault message="tns:getElectricServicesByCategory_serviceFaultMsg" name="serviceFault"/>
+      <wsdl:fault message="tns:getElectricServicesByCategory_serviceNotFoundMsg" name="serviceNotFound"/>
+    </wsdl:operation>
+        <wsdl:operation name="getMoveHistory">
+      <wsdl:input message="tns:getMoveHistoryRequestMsg" name="getMoveHistoryRequest"/>
+      <wsdl:output message="tns:getMoveHistoryResponseMsg" name="getMoveHistoryResponse"/>
+            <wsdl:fault message="tns:getMoveHistory_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

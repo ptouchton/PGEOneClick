@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2012/04/cis/xsd"
+	xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd"
+		schemaLocation="../../_2010/_07/SourceIdentifierDto.xsd" />
+	<xsd:complexType name="NoteDto">
+		<xsd:annotation>
+      <xsd:documentation>CIS Note</xsd:documentation>
+    </xsd:annotation>
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="noteType"
+				type="xsd:string">
+				<xsd:annotation>
+          <xsd:documentation>Type of the note. The suggested values are HH, PQ,  METR, PREM, CUST, AMI</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="text" type="xsd:string">
+				<xsd:annotation>
+          <xsd:documentation>The text to add for the note. The maximum permitted characters is 240.</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="serviceNumber"
+				type="xsd:string">
+				<xsd:annotation>
+          <xsd:documentation>Service Number to pass along with the note. This is a optional parameter</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="source"
+				type="bons0:SourceIdentifierDto">
+				<xsd:annotation>
+          
+        <xsd:documentation>Source identifier. For the Source type,the possible values are &#13;
+W (Web)&#13;
+P (Portal)</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="activityDate"
+				type="xsd:dateTime">
+				<xsd:annotation>
+          <xsd:documentation>Activity date</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="id" type="xsd:int"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

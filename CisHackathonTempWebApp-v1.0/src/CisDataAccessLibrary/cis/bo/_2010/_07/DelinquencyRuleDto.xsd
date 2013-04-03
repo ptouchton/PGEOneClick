@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="DelinquencyRuleDto">
+        <xsd:annotation>
+      <xsd:documentation>Represents Delinquency rules in CIS.</xsd:documentation>
+    </xsd:annotation>
+        <xsd:sequence>
+      <xsd:element minOccurs="0" name="ruleCode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The delinquent rule code</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="serviceOrderTypeCode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Code to identify the type of service order</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="stepDescription" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The description of the step to be performed in the delinquency process</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="minimumAmount" type="xsd:double">
+        <xsd:annotation>
+          <xsd:documentation>Minimum amount of balance required for a delinquent assessment</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

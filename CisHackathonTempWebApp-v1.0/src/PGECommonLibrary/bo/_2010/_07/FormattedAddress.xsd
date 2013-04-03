@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="FormattedAddress">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="addressLine1" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Street address, PO Box, company name, in care of</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="addressLine2" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Apartment, suite, unit, building, floor, etc.  If addressLine is used as company name or c/o, it may contain a street address or PO box number</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="city" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>City or township</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="stateOrProvince" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>State, providence or region</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="postalCode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="countryCode" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="attentionLine" type="xsd:string"/>
+        </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

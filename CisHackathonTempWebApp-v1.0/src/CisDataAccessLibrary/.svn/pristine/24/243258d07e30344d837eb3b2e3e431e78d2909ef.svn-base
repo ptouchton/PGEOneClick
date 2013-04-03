@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="CheckDigit.xsd"/>
+	<xsd:complexType name="AccountDto">
+		<xsd:annotation>
+      <xsd:documentation>A CIS account</xsd:documentation>
+    </xsd:annotation>
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="checkDigit" type="bons0:CheckDigit">
+				<xsd:annotation>
+          <xsd:documentation>checkDigit based on customer code and premise code</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="billingMethod" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="dba" type="xsd:string">
+				<xsd:annotation>
+          <xsd:documentation>Doing Business As name</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="draftStatus" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="status" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="coapplicantCode" type="xsd:int"/>
+			<xsd:element minOccurs="0" name="medicalCertificate" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="password" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="establishedDate" type="xsd:dateTime">
+				<xsd:annotation>
+          <xsd:documentation>The date the account was established.</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="authorizedName" type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

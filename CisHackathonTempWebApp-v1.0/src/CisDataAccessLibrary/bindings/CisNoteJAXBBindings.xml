@@ -1,0 +1,44 @@
+<jaxws:bindings
+	wsdlLocation="file:../wsdl/v1/CisNote.wsdl"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
+	
+	<!-- customize the generated fault class names -->
+	
+	<!-- createNotes -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisNote']/wsdl:operation[@name='createNotes']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+		
+	<!-- createNotesByPremise -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisNote']/wsdl:operation[@name='createNotesByPremise']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getNotes -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisNote']/wsdl:operation[@name='getNotes']/wsdl:fault[@name='notesNotFound']">
+		<jaxws:class name="NotesNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisNote']/wsdl:operation[@name='getNotes']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getNotesByPremise -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisNote']/wsdl:operation[@name='getNotesByPremise']/wsdl:fault[@name='notesNotFound']">
+		<jaxws:class name="NotesNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisNote']/wsdl:operation[@name='getNotesByPremise']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+	<!-- getTodaysNotes -->
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisNote']/wsdl:operation[@name='getTodaysNotes']/wsdl:fault[@name='notesNotFound']">
+		<jaxws:class name="NotesNotFoundMsg"/>
+	</jaxws:bindings>
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='CisNote']/wsdl:operation[@name='getTodaysNotes']/wsdl:fault[@name='serviceFault']">
+		<jaxws:class name="ServiceFaultMsg"/>
+	</jaxws:bindings>
+	
+</jaxws:bindings>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons2="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="PremiseCode.xsd"/>
+    <xsd:include schemaLocation="CustomerCode.xsd"/>
+    <xsd:complexType name="AccountNumberDto">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="customerCode" type="bons2:CustomerCode"/>
+      <xsd:element minOccurs="0" name="premiseCode" type="bons2:PremiseCode"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

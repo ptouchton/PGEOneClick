@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="ServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="result" type="xsd:boolean"/>
+            <xsd:element minOccurs="0" name="referenceId" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="failureCode" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="failureDescription" type="xsd:string"/>
+        </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

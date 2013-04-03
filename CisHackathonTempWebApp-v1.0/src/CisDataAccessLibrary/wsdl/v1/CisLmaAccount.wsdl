@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisLmaAccount" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons2="http://www.pgn.com/2013/01/cis/xsd" xmlns:bons3="http://www.pgn.com/2010/07/fault/xsd" xmlns:tns="http://www.pgn.com/v1/cis/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns:bons0="http://www.pgn.com/v1/cis/wsdl">
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2013/01/cis/xsd" schemaLocation="../../cis/bo/_2013/_01/AccountsDetailDto.xsd"/>
+      <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/AccountNumbersDto.xsd"/>
+      <xsd:element name="getAccounts">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountNumbers" nillable="true" type="bons1:AccountNumbersDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getAccountsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accounts" nillable="true" type="bons2:AccountsDetailDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="serviceFault" nillable="true" type="bons3:ServiceFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getAccountsRequestMsg">
+    <wsdl:part element="tns:getAccounts" name="getAccountsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getAccountsResponseMsg">
+    <wsdl:part element="tns:getAccountsResponse" name="getAccountsResult"/>
+  </wsdl:message>
+    <wsdl:message name="getAccounts_serviceFaultMsg">
+    <wsdl:part element="tns:serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisLmaAccount">
+    <wsdl:operation name="getAccounts">
+      <wsdl:input message="tns:getAccountsRequestMsg" name="getAccountsRequest"/>
+      <wsdl:output message="tns:getAccountsResponseMsg" name="getAccountsResponse"/>
+            <wsdl:fault message="tns:getAccounts_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

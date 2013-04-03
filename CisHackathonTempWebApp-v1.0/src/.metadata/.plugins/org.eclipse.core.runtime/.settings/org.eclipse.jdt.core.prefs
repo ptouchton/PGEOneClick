@@ -1,0 +1,23 @@
+#Wed Mar 13 15:08:13 PDT 2013
+org.eclipse.jdt.core.classpathVariable.WID_EXT=C\:/IBM/WID7_WTE/runtimes/bi_v7/lib/ext
+org.eclipse.jdt.core.classpathVariable.WAS_V61_IMPL_FACTORY_PROP=C\:/IBM/SDPShared/plugins/com.ibm.websphere.v61_6.1.200.v20090109_1429/implfactory.jar
+org.eclipse.jdt.core.compiler.compliance=1.6
+org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
+org.eclipse.jdt.core.classpathVariable.WCM_PLUGINDIR=C\:/IBM/SDPShared/plugins/com.ibm.etools.portlet.personalization_7.5.50.v20091028-2315/
+org.eclipse.jdt.core.classpathVariable.JUNIT_HOME=C\:/IBM/SDPShared/plugins/org.junit_3.8.2.v20080602-1318
+eclipse.preferences.version=1
+org.eclipse.jdt.core.classpathVariable.ECLIPSE_HOME=C\:/IBM/WID7
+org.eclipse.jdt.core.classpathVariable.SQLJ_JAR=C\:/IBM/SDPShared/plugins/com.ibm.datatools.sqlj.translator_2.1.0.v20091026_1945/sqlj.zip
+org.eclipse.jdt.core.classpathVariable.JPA_WEB_DEV=C\:/IBM/SDPShared/plugins/com.ibm.etools.webtools.customtag.lib_7.0.500.v20090727-1830/jars/jpa/web-jpa-dev.jar
+org.eclipse.jdt.core.classpathVariable.WAS_V6_IMPL_FACTORY_PROP=C\:/IBM/SDPShared/plugins/com.ibm.websphere.v6_6.0.200.v20080707_1609/implfactory.jar
+org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
+org.eclipse.jdt.core.classpathVariable.JRE_SRC=C\:/IBM/WID7/jdk/src.zip
+org.eclipse.jdt.core.classpathVariable.WAS_V7_IMPL_FACTORY_PROP=C\:/IBM/SDPShared/plugins/com.ibm.websphere.v7_7.0.1.v20090422_1423/implfactory.jar
+org.eclipse.jdt.core.classpathVariable.ASPECTJRT_LIB=C\:/IBM/SDPShared/plugins/plugins/org.aspectj.runtime_1.6.6.20090930185500/aspectjrt.jar
+org.eclipse.jdt.core.classpathVariable.JRE_LIB=C\:/IBM/WID7/jdk/jre/lib/rt.jar
+org.eclipse.jdt.core.compiler.problem.assertIdentifier=error
+org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
+org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
+org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.6
+org.eclipse.jdt.core.classpathVariable.PZN_PLUGINDIR=C\:/IBM/SDPShared/plugins/com.ibm.etools.portlet.personalization_7.5.50.v20091028-2315/
+org.eclipse.jdt.core.compiler.source=1.6

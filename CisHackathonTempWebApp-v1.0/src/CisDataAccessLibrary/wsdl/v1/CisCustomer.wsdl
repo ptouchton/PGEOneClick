@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisCustomerService" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons2="http://www.pgn.com/2010/07/fault/xsd" xmlns:bons3="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons4="http://www.pgn.com/2012/10/cis/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons1="http://www.pgn.com/v1/cis/inf" xmlns:bons11="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons7="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons9="http://www.pgn.com/2010/07/cis/xsd">
+            <xsd:import namespace="http://www.pgn.com/2012/10/cis/xsd" schemaLocation="../../cis/bo/_2012/_10/DefaultCustomerDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2012/10/cis/xsd" schemaLocation="../../cis/bo/_2012/_10/DefaultCustomerDtos.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/CustomerCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/NameDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/AccountNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/PhoneNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/CustomerNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/CustomerDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PhonesDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PhoneDto.xsd"/>
+                        
+            <xsd:element name="getCustomer">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCustomerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customer" nillable="true" type="bons0:CustomerDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getServicePhone">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="xsd:int"/>
+            <xsd:element name="premiseCode" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getServicePhoneResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="phone" nillable="true" type="bons0:PhoneDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getPhones">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="xsd:int"/>
+            <xsd:element name="premiseCode" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getPhonesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="phones" nillable="true" type="bons0:PhonesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getPhonesByCustomer">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getPhonesByCustomerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="phones" nillable="true" type="bons0:PhonesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getCustomerName">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getCustomerNameResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="name" nillable="true" type="bons0:NameDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getCustomerName_customerNotFound" type="bons2:CustomerNotFoundFault"/>
+            <xsd:element name="getCustomer_customerNotFound" type="bons2:CustomerNotFoundFault"/>
+            <xsd:element name="getCustomer_serviceFault" type="bons2:ServiceFault"/>
+            <xsd:element name="getServicePhone_phoneNotFound" type="bons2:PhoneNotFoundFault"/>
+            <xsd:element name="getServicePhone_serviceFault" type="bons2:ServiceFault"/>
+            <xsd:element name="getPhones_accountNotFound" type="bons2:AccountNotFoundFault"/>
+            <xsd:element name="getPhones_phoneNotFound" type="bons2:PhoneNotFoundFault"/>
+            <xsd:element name="getPhones_serviceFault" type="bons2:ServiceFault"/>
+            <xsd:element name="getPhonesByCustomer_phoneNotFound" type="bons2:PhoneNotFoundFault"/>
+            <xsd:element name="getPhonesByCustomer_serviceFault" type="bons2:ServiceFault"/>
+            <xsd:element name="getCustomerName_serviceFault" type="bons2:ServiceFault"/>
+            <xsd:element name="customerHasBadDebt">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons0:CustomerCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="customerHasBadDebtResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="hasBadDebt" nillable="true" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="customerHasBadDebtFault1_serviceFault" nillable="true" type="bons2:ServiceFault"/>
+            <xsd:element name="getDefaultCusomer">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getDefaultCusomerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customer" nillable="true" type="bons4:DefaultCustomerDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getDefaultCusomerFault1_customerNotFound" nillable="true" type="bons2:CustomerNotFoundFault"/>
+            <xsd:element name="getDefaultCusomerFault2_serviceFault" nillable="true" type="bons2:ServiceFault"/>
+            <xsd:element name="findDefaultCustomersByName">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="name" nillable="true" type="bons0:NameDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="findDefaultCustomersByNameResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="defaultCustomers" nillable="true" type="bons4:DefaultCustomerDtos"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="findDefaultCustomersByNameFault1_customerNotFound" nillable="true" type="bons2:CustomerNotFoundFault"/>
+            <xsd:element name="findDefaultCustomersByNameFault2_serviceFault" nillable="true" type="bons2:ServiceFault"/>
+            <xsd:element name="findDefaultCustomersByPartialCode">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="partialCustomerCode" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="findDefaultCustomersByPartialCodeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="defaultCustomers" nillable="true" type="bons4:DefaultCustomerDtos"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="findDefaultCustomersByPartialCodeFault1_customerNotFound" nillable="true" type="bons2:CustomerNotFoundFault"/>
+            <xsd:element name="findDefaultCustomersByPartialCodeFault2_serviceFault" nillable="true" type="bons2:ServiceFault"/>
+            <xsd:element name="findDefaultCustomersByCodeAndName">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="partialCustomerCode" nillable="true" type="xsd:string"/>
+            <xsd:element name="name" nillable="true" type="bons0:NameDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="findDefaultCustomersByCodeAndNameResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="defaultCustomers" nillable="true" type="bons4:DefaultCustomerDtos"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="findDefaultCustomersByCodeAndNameFault1_customerNotFound" nillable="true" type="bons2:CustomerNotFoundFault"/>
+            <xsd:element name="findDefaultCustomersByCodeAndNameFault2_serviceFault" nillable="true" type="bons2:ServiceFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getCustomerRequestMsg">
+    <wsdl:part element="bons0:getCustomer" name="getCustomerParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getCustomerResponseMsg">
+    <wsdl:part element="bons0:getCustomerResponse" name="getCustomerResult"/>
+  </wsdl:message>
+    <wsdl:message name="getServicePhoneRequestMsg">
+    <wsdl:part element="bons0:getServicePhone" name="getServicePhoneParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getServicePhoneResponseMsg">
+    <wsdl:part element="bons0:getServicePhoneResponse" name="getServicePhoneResult"/>
+  </wsdl:message>
+    <wsdl:message name="getPhonesRequestMsg">
+    <wsdl:part element="bons0:getPhones" name="getPhonesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getPhonesResponseMsg">
+    <wsdl:part element="bons0:getPhonesResponse" name="getPhonesResult"/>
+  </wsdl:message>
+    <wsdl:message name="getPhonesByCustomerRequestMsg">
+    <wsdl:part element="bons0:getPhonesByCustomer" name="getPhonesByCustomerParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getPhonesByCustomerResponseMsg">
+    <wsdl:part element="bons0:getPhonesByCustomerResponse" name="getPhonesByCustomerResult"/>
+  </wsdl:message>
+    <wsdl:message name="getCustomerNameRequestMsg">
+    <wsdl:part element="bons0:getCustomerName" name="getCustomerNameParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getCustomerNameResponseMsg">
+    <wsdl:part element="bons0:getCustomerNameResponse" name="getCustomerNameResult"/>
+  </wsdl:message>
+    <wsdl:message name="getCustomerName_customerNotFoundMsg">
+    <wsdl:part element="bons0:getCustomerName_customerNotFound" name="customerNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getCustomer_customerNotFoundMsg">
+    <wsdl:part element="bons0:getCustomer_customerNotFound" name="customerNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getCustomer_serviceFaultMsg">
+    <wsdl:part element="bons0:getCustomer_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getServicePhone_phoneNotFoundMsg">
+    <wsdl:part element="bons0:getServicePhone_phoneNotFound" name="phoneNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getServicePhone_serviceFaultMsg">
+    <wsdl:part element="bons0:getServicePhone_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getPhones_accountNotFoundMsg">
+    <wsdl:part element="bons0:getPhones_accountNotFound" name="accountNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getPhones_phoneNotFoundMsg">
+    <wsdl:part element="bons0:getPhones_phoneNotFound" name="phoneNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getPhones_serviceFaultMsg">
+    <wsdl:part element="bons0:getPhones_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getPhonesByCustomer_phoneNotFoundMsg">
+    <wsdl:part element="bons0:getPhonesByCustomer_phoneNotFound" name="phoneNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getPhonesByCustomer_serviceFaultMsg">
+    <wsdl:part element="bons0:getPhonesByCustomer_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getCustomerName_serviceFaultMsg">
+    <wsdl:part element="bons0:getCustomerName_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="customerHasBadDebtRequestMsg">
+    <wsdl:part element="bons0:customerHasBadDebt" name="customerHasBadDebtParameters"/>
+  </wsdl:message>
+    <wsdl:message name="customerHasBadDebtResponseMsg">
+    <wsdl:part element="bons0:customerHasBadDebtResponse" name="customerHasBadDebtResult"/>
+  </wsdl:message>
+    <wsdl:message name="customerHasBadDebt_serviceFaultMsg">
+    <wsdl:part element="bons0:customerHasBadDebtFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getDefaultCusomerRequestMsg">
+    <wsdl:part element="bons0:getDefaultCusomer" name="getDefaultCusomerParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getDefaultCusomerResponseMsg">
+    <wsdl:part element="bons0:getDefaultCusomerResponse" name="getDefaultCusomerResult"/>
+  </wsdl:message>
+    <wsdl:message name="getDefaultCusomer_customerNotFoundMsg">
+    <wsdl:part element="bons0:getDefaultCusomerFault1_customerNotFound" name="customerNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getDefaultCusomer_serviceFaultMsg">
+    <wsdl:part element="bons0:getDefaultCusomerFault2_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="findDefaultCustomersByNameRequestMsg">
+    <wsdl:part element="bons0:findDefaultCustomersByName" name="findDefaultCustomersByNameParameters"/>
+  </wsdl:message>
+    <wsdl:message name="findDefaultCustomersByNameResponseMsg">
+    <wsdl:part element="bons0:findDefaultCustomersByNameResponse" name="findDefaultCustomersByNameResult"/>
+  </wsdl:message>
+    <wsdl:message name="findDefaultCustomersByName_customerNotFoundMsg">
+    <wsdl:part element="bons0:findDefaultCustomersByNameFault1_customerNotFound" name="customerNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="findDefaultCustomersByName_serviceFaultMsg">
+    <wsdl:part element="bons0:findDefaultCustomersByNameFault2_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="findDefaultCustomersByPartialCodeRequestMsg">
+    <wsdl:part element="bons0:findDefaultCustomersByPartialCode" name="findDefaultCustomersByPartialCodeParameters"/>
+  </wsdl:message>
+    <wsdl:message name="findDefaultCustomersByPartialCodeResponseMsg">
+    <wsdl:part element="bons0:findDefaultCustomersByPartialCodeResponse" name="findDefaultCustomersByPartialCodeResult"/>
+  </wsdl:message>
+    <wsdl:message name="findDefaultCustomersByPartialCode_customerNotFoundMsg">
+    <wsdl:part element="bons0:findDefaultCustomersByPartialCodeFault1_customerNotFound" name="customerNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="findDefaultCustomersByPartialCode_serviceFaultMsg">
+    <wsdl:part element="bons0:findDefaultCustomersByPartialCodeFault2_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="findDefaultCustomersByCodeAndNameRequestMsg">
+    <wsdl:part element="bons0:findDefaultCustomersByCodeAndName" name="findDefaultCustomersByCodeAndNameParameters"/>
+  </wsdl:message>
+    <wsdl:message name="findDefaultCustomersByCodeAndNameResponseMsg">
+    <wsdl:part element="bons0:findDefaultCustomersByCodeAndNameResponse" name="findDefaultCustomersByCodeAndNameResult"/>
+  </wsdl:message>
+    <wsdl:message name="findDefaultCustomersByCodeAndName_customerNotFoundMsg">
+    <wsdl:part element="bons0:findDefaultCustomersByCodeAndNameFault1_customerNotFound" name="customerNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="findDefaultCustomersByCodeAndName_serviceFaultMsg">
+    <wsdl:part element="bons0:findDefaultCustomersByCodeAndNameFault2_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisCustomer">
+    <wsdl:operation name="getCustomer">
+      <wsdl:input message="bons0:getCustomerRequestMsg" name="getCustomerRequest"/>
+      <wsdl:output message="bons0:getCustomerResponseMsg" name="getCustomerResponse"/>
+            <wsdl:fault message="bons0:getCustomer_customerNotFoundMsg" name="customerNotFound"/>
+            <wsdl:fault message="bons0:getCustomer_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getServicePhone">
+      <wsdl:input message="bons0:getServicePhoneRequestMsg" name="getServicePhoneRequest"/>
+      <wsdl:output message="bons0:getServicePhoneResponseMsg" name="getServicePhoneResponse"/>
+      <wsdl:fault message="bons0:getServicePhone_phoneNotFoundMsg" name="phoneNotFound"/>
+      <wsdl:fault message="bons0:getServicePhone_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getPhones">
+      <wsdl:input message="bons0:getPhonesRequestMsg" name="getPhonesRequest"/>
+      <wsdl:output message="bons0:getPhonesResponseMsg" name="getPhonesResponse"/>
+      <wsdl:fault message="bons0:getPhones_accountNotFoundMsg" name="accountNotFound"/>
+      <wsdl:fault message="bons0:getPhones_phoneNotFoundMsg" name="phoneNotFound"/>
+      <wsdl:fault message="bons0:getPhones_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getPhonesByCustomer">
+      <wsdl:input message="bons0:getPhonesByCustomerRequestMsg" name="getPhonesByCustomerRequest"/>
+      <wsdl:output message="bons0:getPhonesByCustomerResponseMsg" name="getPhonesByCustomerResponse"/>
+      <wsdl:fault message="bons0:getPhonesByCustomer_phoneNotFoundMsg" name="phoneNotFound"/>
+      <wsdl:fault message="bons0:getPhonesByCustomer_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getCustomerName">
+      <wsdl:input message="bons0:getCustomerNameRequestMsg" name="getCustomerNameRequest"/>
+      <wsdl:output message="bons0:getCustomerNameResponseMsg" name="getCustomerNameResponse"/>
+      <wsdl:fault message="bons0:getCustomerName_customerNotFoundMsg" name="customerNotFound"/>
+      <wsdl:fault message="bons0:getCustomerName_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="customerHasBadDebt">
+      <wsdl:input message="bons0:customerHasBadDebtRequestMsg" name="customerHasBadDebtRequest"/>
+      <wsdl:output message="bons0:customerHasBadDebtResponseMsg" name="customerHasBadDebtResponse"/>
+      <wsdl:fault message="bons0:customerHasBadDebt_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getDefaultCusomer">
+      <wsdl:input message="bons0:getDefaultCusomerRequestMsg" name="getDefaultCusomerRequest"/>
+      <wsdl:output message="bons0:getDefaultCusomerResponseMsg" name="getDefaultCusomerResponse"/>
+      <wsdl:fault message="bons0:getDefaultCusomer_customerNotFoundMsg" name="customerNotFound"/>
+      <wsdl:fault message="bons0:getDefaultCusomer_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="findDefaultCustomersByName">
+      <wsdl:input message="bons0:findDefaultCustomersByNameRequestMsg" name="findDefaultCustomersByNameRequest"/>
+      <wsdl:output message="bons0:findDefaultCustomersByNameResponseMsg" name="findDefaultCustomersByNameResponse"/>
+      <wsdl:fault message="bons0:findDefaultCustomersByName_customerNotFoundMsg" name="customerNotFound"/>
+      <wsdl:fault message="bons0:findDefaultCustomersByName_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="findDefaultCustomersByPartialCode">
+      <wsdl:input message="bons0:findDefaultCustomersByPartialCodeRequestMsg" name="findDefaultCustomersByPartialCodeRequest"/>
+      <wsdl:output message="bons0:findDefaultCustomersByPartialCodeResponseMsg" name="findDefaultCustomersByPartialCodeResponse"/>
+      <wsdl:fault message="bons0:findDefaultCustomersByPartialCode_customerNotFoundMsg" name="customerNotFound"/>
+      <wsdl:fault message="bons0:findDefaultCustomersByPartialCode_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="findDefaultCustomersByCodeAndName">
+      <wsdl:input message="bons0:findDefaultCustomersByCodeAndNameRequestMsg" name="findDefaultCustomersByCodeAndNameRequest"/>
+      <wsdl:output message="bons0:findDefaultCustomersByCodeAndNameResponseMsg" name="findDefaultCustomersByCodeAndNameResponse"/>
+      <wsdl:fault message="bons0:findDefaultCustomersByCodeAndName_customerNotFoundMsg" name="customerNotFound"/>
+      <wsdl:fault message="bons0:findDefaultCustomersByCodeAndName_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

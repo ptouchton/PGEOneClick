@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisNoteService" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons2="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons3="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons4="http://www.pgn.com/2012/04/cis/xsd" xmlns:bons5="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons8="http://www.pgn.com/2010/07/cis/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:Q1="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons1="http://www.pgn.com/2010/07/fault/xsd" xmlns:bons9="http://www.pgn.com/2010/07/cis/xsd">
+            <xsd:import namespace="http://www.pgn.com/2012/04/cis/xsd" schemaLocation="../../cis/bo/_2012/_04/NotesDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/NotesNotFoundFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/CustomerCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PremiseCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ServiceResponse.xsd"/>            
+            <xsd:element name="createNotes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="Q1:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="Q1:PremiseCode"/>
+            <xsd:element name="notes" nillable="true" type="bons4:NotesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createNotesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="Q1:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getNotes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="Q1:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="Q1:PremiseCode"/>
+                        <xsd:element name="noteType" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getNotesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="notes" nillable="true" type="bons4:NotesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getNotes_notesNotFound" type="bons1:NotesNotFoundFault"/>
+      <xsd:element name="getNotes_serviceFault" type="bons1:ServiceFault"/>
+            <xsd:element name="getNotesByPremise">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="premiseCode" nillable="true" type="Q1:PremiseCode"/>
+                        <xsd:element name="noteType" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getNotesByPremiseResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="notes" nillable="true" type="bons4:NotesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getNotesByPremise_notesNotFound" type="bons1:NotesNotFoundFault"/>
+            <xsd:element name="getNotesByPremise_serviceFault" type="bons1:ServiceFault"/>
+            <xsd:element name="createNotes_serviceFault" type="bons1:ServiceFault"/>
+            <xsd:element name="createNotesByPremise">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="premiseCode" nillable="true" type="Q1:PremiseCode"/>
+            <xsd:element name="notes" nillable="true" type="bons4:NotesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="createNotesByPremiseResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="Q1:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="createNotesByPremise_serviceFault" type="bons1:ServiceFault"/>
+            <xsd:element name="getTodaysNotes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="Q1:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="Q1:PremiseCode"/>
+            <xsd:element name="noteType" nillable="true" type="xsd:string"/>
+            <xsd:element name="noteDate" nillable="true" type="xsd:date"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getTodaysNotesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="notes" nillable="true" type="bons4:NotesDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="getTodaysNotes_notesNotFound" type="bons1:NotesNotFoundFault"/>
+            <xsd:element name="getTodaysNotes_serviceFault" type="bons1:ServiceFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="createNotesRequestMsg">
+    <wsdl:part element="bons0:createNotes" name="createNotesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="createNotesResponseMsg">
+    <wsdl:part element="bons0:createNotesResponse" name="createNotesResult"/>
+  </wsdl:message>
+    <wsdl:message name="getNotesRequestMsg">
+    <wsdl:part element="bons0:getNotes" name="getNotesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getNotesResponseMsg">
+    <wsdl:part element="bons0:getNotesResponse" name="getNotesResult"/>
+  </wsdl:message>
+    <wsdl:message name="getNotes_notesNotFoundMsg">
+    <wsdl:part element="bons0:getNotes_notesNotFound" name="notesNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getNotes_serviceFaultMsg">
+    <wsdl:part element="bons0:getNotes_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getNotesByPremiseRequestMsg">
+    <wsdl:part element="bons0:getNotesByPremise" name="getNotesByPremiseParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getNotesByPremiseResponseMsg">
+    <wsdl:part element="bons0:getNotesByPremiseResponse" name="getNotesByPremiseResult"/>
+  </wsdl:message>
+    <wsdl:message name="getNotesByPremise_notesNotFoundMsg">
+    <wsdl:part element="bons0:getNotesByPremise_notesNotFound" name="notesNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getNotesByPremise_serviceFaultMsg">
+    <wsdl:part element="bons0:getNotesByPremise_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="createNotes_serviceFaultMsg">
+    <wsdl:part element="bons0:createNotes_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="createNotesByPremiseRequestMsg">
+    <wsdl:part element="bons0:createNotesByPremise" name="createNotesByPremiseParameters"/>
+  </wsdl:message>
+    <wsdl:message name="createNotesByPremiseResponseMsg">
+    <wsdl:part element="bons0:createNotesByPremiseResponse" name="createNotesByPremiseResult"/>
+  </wsdl:message>
+    <wsdl:message name="createNotesByPremise_serviceFaultMsg">
+    <wsdl:part element="bons0:createNotesByPremise_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="getTodaysNotesRequestMsg">
+    <wsdl:part element="bons0:getTodaysNotes" name="getTodaysNotesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getTodaysNotesResponseMsg">
+    <wsdl:part element="bons0:getTodaysNotesResponse" name="getTodaysNotesResult"/>
+  </wsdl:message>
+    <wsdl:message name="getTodaysNotes_notesNotFoundMsg">
+    <wsdl:part element="bons0:getTodaysNotes_notesNotFound" name="notesNotFound"/>
+  </wsdl:message>
+    <wsdl:message name="getTodaysNotes_serviceFaultMsg">
+    <wsdl:part element="bons0:getTodaysNotes_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisNote">
+    <wsdl:operation name="createNotes">
+      <wsdl:input message="bons0:createNotesRequestMsg" name="createNotesRequest"/>
+      <wsdl:output message="bons0:createNotesResponseMsg" name="createNotesResponse"/>
+            <wsdl:fault message="bons0:createNotes_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="createNotesByPremise">
+      <wsdl:input message="bons0:createNotesByPremiseRequestMsg" name="createNotesByPremiseRequest"/>
+      <wsdl:output message="bons0:createNotesByPremiseResponseMsg" name="createNotesByPremiseResponse"/>
+      <wsdl:fault message="bons0:createNotesByPremise_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getNotes">
+            <wsdl:input message="bons0:getNotesRequestMsg" name="getNotesRequest"/>
+            <wsdl:output message="bons0:getNotesResponseMsg" name="getNotesResponse"/>
+            <wsdl:fault message="bons0:getNotes_notesNotFoundMsg" name="notesNotFound"/>
+            <wsdl:fault message="bons0:getNotes_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getNotesByPremise">
+            <wsdl:input message="bons0:getNotesByPremiseRequestMsg" name="getNotesByPremiseRequest"/>
+            <wsdl:output message="bons0:getNotesByPremiseResponseMsg" name="getNotesByPremiseResponse"/>
+      <wsdl:fault message="bons0:getNotesByPremise_notesNotFoundMsg" name="notesNotFound"/>
+      <wsdl:fault message="bons0:getNotesByPremise_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="getTodaysNotes">
+      <wsdl:documentation>Return all CIS notes for requested customer code and premise code by either note date or note type, or both.</wsdl:documentation>
+      <wsdl:input message="bons0:getTodaysNotesRequestMsg" name="getTodaysNotesRequest"/>
+      <wsdl:output message="bons0:getTodaysNotesResponseMsg" name="getTodaysNotesResponse"/>
+      <wsdl:fault message="bons0:getTodaysNotes_notesNotFoundMsg" name="notesNotFound"/>
+      <wsdl:fault message="bons0:getTodaysNotes_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

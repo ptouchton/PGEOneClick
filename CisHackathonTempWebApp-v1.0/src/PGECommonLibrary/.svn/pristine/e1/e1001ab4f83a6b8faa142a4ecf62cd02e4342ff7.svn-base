@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2012/04/common/xsd"
+	xmlns:bons0="http://www.pgn.com/2010/07/common/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:import namespace="http://www.pgn.com/2010/07/common/xsd"
+		schemaLocation="../../_2010/_07/NoteType.xsd" />
+	<xsd:complexType name="Note">
+		<xsd:annotation>
+			<xsd:documentation>Note is used to retrieve or get note from the
+				CIS</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="noteType"
+				type="bons0:NoteType">
+				<xsd:annotation>
+					<xsd:documentation>The note type.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="text" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>The text of the note.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="id" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="activityDate"
+				type="xsd:dateTime">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

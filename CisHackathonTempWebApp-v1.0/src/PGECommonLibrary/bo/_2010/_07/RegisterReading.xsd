@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd" xmlns:bons0="http://www.pgn.com/2010/07/common/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="RegisterReading">
+        <xsd:sequence>
+      <xsd:element minOccurs="0" name="readingValue" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="readingQuality">
+        <xsd:annotation>
+          <xsd:documentation>Suggested Values:  ESTIMATED, ACTUAL</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="readingSourceCode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="localReadingDate" type="xsd:dateTime"/>
+      <xsd:element minOccurs="0" name="utcReadingDate" type="xsd:dateTime"/>
+    </xsd:sequence>
+        
+            
+    </xsd:complexType>
+</xsd:schema>

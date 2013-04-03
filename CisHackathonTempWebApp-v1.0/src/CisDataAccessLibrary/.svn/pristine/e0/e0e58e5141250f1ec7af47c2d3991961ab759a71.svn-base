@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="PaymentDto">
+		<xsd:annotation>
+      
+    <xsd:documentation>The PaymentDto is used to get payment data from CIS, it will not be used for submitting payments.&#13;
+</xsd:documentation>
+    </xsd:annotation>
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="paymentDate"
+				type="xsd:dateTime">
+				<xsd:annotation>
+          <xsd:documentation>Date that the payment was made</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="amount"
+				type="xsd:double">
+				<xsd:annotation>
+          <xsd:documentation>Amount of the Payment</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="paymentType"
+				type="xsd:string">
+				<xsd:annotation>
+          
+        <xsd:documentation>The payment type from banner (e.g. C=Checking, A=American Express one time)</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="description"
+				type="xsd:string">
+				<xsd:annotation>
+          <xsd:documentation>The banner payment description</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="agencyPayment"
+				type="xsd:boolean">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

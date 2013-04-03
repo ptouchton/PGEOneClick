@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2012/10/cis/xsd" xmlns:bons0="http://www.pgn.com/2012/10/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:include schemaLocation="DefaultCustomerDto.xsd"/>
+	<xsd:complexType name="DefaultCustomerDtos">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="defaultCustomer" type="bons0:DefaultCustomerDto">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

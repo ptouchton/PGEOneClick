@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisServiceOrderProcessing" targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons2="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons4="http://www.pgn.com/2010/07/cis/xsd" xmlns:tns="http://www.pgn.com/v1/cis/inf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.pgn.com/v1/cis/inf" xmlns:bons0="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons1="http://www.pgn.com/v1/cis/inf" xmlns:bons3="http://www.pgn.com/2010/07/fault/xsd">
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/SourceIdentifierDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd" schemaLocation="../../bo/_2010/_07/ServiceFault.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/PremiseCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/CustomerCode.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ServiceOrderRequestDto.xsd"/>
+            <xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd" schemaLocation="../../cis/bo/_2010/_07/ServiceResponse.xsd"/>           
+            <xsd:element name="updateStopServiceOrder">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceOrderId" nillable="true" type="xsd:int"/>
+            <xsd:element name="serviceOrderRequest" nillable="true" type="bons2:ServiceOrderRequestDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateStopServiceOrderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons4:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelServiceOrder">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceOrderId" nillable="true" type="xsd:int"/>
+            <xsd:element name="serviceOrderRequest" nillable="true" type="bons2:ServiceOrderRequestDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelServiceOrderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons4:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="updateStopServiceOrder_serviceFault" type="bons3:ServiceFault"/>
+            <xsd:element name="cancelServiceOrder_serviceFault" type="bons3:ServiceFault"/>
+            <xsd:element name="createStopServiceOrder">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceOrderRequest" nillable="true" type="bons2:ServiceOrderRequestDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="createStopServiceOrderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons4:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="createStopServiceOrder_serviceFault" type="bons3:ServiceFault"/>
+            <xsd:element name="updateCloseAuthorization">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerCode" nillable="true" type="bons0:CustomerCode"/>
+            <xsd:element name="premiseCode" nillable="true" type="bons0:PremiseCode"/>
+            <xsd:element name="authorization" nillable="true" type="bons0:SourceIdentifierDto"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="updateCloseAuthorizationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="respopnse" nillable="true" type="bons0:ServiceResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="updateCloseAuthorizationFault1_serviceFault" nillable="true" type="bons3:ServiceFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="updateStopServiceOrderRequestMsg">
+    <wsdl:part element="bons0:updateStopServiceOrder" name="updateStopServiceOrderParameters"/>
+  </wsdl:message>
+    <wsdl:message name="updateStopServiceOrderResponseMsg">
+    <wsdl:part element="bons0:updateStopServiceOrderResponse" name="updateStopServiceOrderResult"/>
+  </wsdl:message>
+    <wsdl:message name="cancelServiceOrderRequestMsg">
+    <wsdl:part element="bons0:cancelServiceOrder" name="cancelServiceOrderParameters"/>
+  </wsdl:message>
+    <wsdl:message name="cancelServiceOrderResponseMsg">
+    <wsdl:part element="bons0:cancelServiceOrderResponse" name="cancelServiceOrderResult"/>
+  </wsdl:message>
+    <wsdl:message name="updateStopServiceOrder_serviceFaultMsg">
+    <wsdl:part element="bons0:updateStopServiceOrder_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="cancelServiceOrder_serviceFaultMsg">
+    <wsdl:part element="bons0:cancelServiceOrder_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="createStopServiceOrderRequestMsg">
+    <wsdl:part element="bons0:createStopServiceOrder" name="createStopServiceOrderParameters"/>
+  </wsdl:message>
+    <wsdl:message name="createStopServiceOrderResponseMsg">
+    <wsdl:part element="bons0:createStopServiceOrderResponse" name="createStopServiceOrderResult"/>
+  </wsdl:message>
+    <wsdl:message name="createStopServiceOrder_serviceFaultMsg">
+    <wsdl:part element="bons0:createStopServiceOrder_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:message name="updateCloseAuthorizationRequestMsg">
+    <wsdl:part element="bons0:updateCloseAuthorization" name="updateCloseAuthorizationParameters"/>
+  </wsdl:message>
+    <wsdl:message name="updateCloseAuthorizationResponseMsg">
+    <wsdl:part element="bons0:updateCloseAuthorizationResponse" name="updateCloseAuthorizationResult"/>
+  </wsdl:message>
+    <wsdl:message name="updateCloseAuthorization_serviceFaultMsg">
+    <wsdl:part element="bons0:updateCloseAuthorizationFault1_serviceFault" name="serviceFault"/>
+  </wsdl:message>
+    <wsdl:portType name="CisStopService">
+        <wsdl:operation name="createStopServiceOrder">
+      <wsdl:input message="bons0:createStopServiceOrderRequestMsg" name="createStopServiceOrderRequest"/>
+      <wsdl:output message="bons0:createStopServiceOrderResponseMsg" name="createStopServiceOrderResponse"/>
+      <wsdl:fault message="bons0:createStopServiceOrder_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="updateStopServiceOrder">
+      <wsdl:input message="bons0:updateStopServiceOrderRequestMsg" name="updateStopServiceOrderRequest"/>
+      <wsdl:output message="bons0:updateStopServiceOrderResponseMsg" name="updateStopServiceOrderResponse"/>
+            <wsdl:fault message="bons0:updateStopServiceOrder_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="cancelServiceOrder">
+      <wsdl:input message="bons0:cancelServiceOrderRequestMsg" name="cancelServiceOrderRequest"/>
+      <wsdl:output message="bons0:cancelServiceOrderResponseMsg" name="cancelServiceOrderResponse"/>
+            <wsdl:fault message="bons0:cancelServiceOrder_serviceFaultMsg" name="serviceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateCloseAuthorization">
+      <wsdl:input message="bons0:updateCloseAuthorizationRequestMsg" name="updateCloseAuthorizationRequest"/>
+      <wsdl:output message="bons0:updateCloseAuthorizationResponseMsg" name="updateCloseAuthorizationResponse"/>
+      <wsdl:fault message="bons0:updateCloseAuthorization_serviceFaultMsg" name="serviceFault"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

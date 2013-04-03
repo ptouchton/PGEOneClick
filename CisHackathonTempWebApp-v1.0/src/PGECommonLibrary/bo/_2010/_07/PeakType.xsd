@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:simpleType name="PeakType">
+		<xsd:restriction base="xsd:string">
+            <xsd:enumeration value="ON_PEAK"/>
+            <xsd:enumeration value="OFF_PEAK"/>
+            <xsd:enumeration value="MID_PEAK"/>
+            <xsd:enumeration value="TOTAL"/>
+        </xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

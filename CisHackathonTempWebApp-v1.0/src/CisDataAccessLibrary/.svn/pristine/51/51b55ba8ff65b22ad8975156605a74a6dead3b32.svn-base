@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/cis/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="AddressDto">
+    <xsd:sequence>
+            <xsd:element minOccurs="0" name="addressType" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="streetNumber" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="preDirection" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="streetName" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="suffix" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="postDirection" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="unitType" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="unit" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="city" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="state" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="zipCode" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="countryCode" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="streetLine1" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="streetLine2" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="streetLine3" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="addressLine1" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="addressLine2" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="addressLine3" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="addressLine4" type="xsd:string"/>
+        </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

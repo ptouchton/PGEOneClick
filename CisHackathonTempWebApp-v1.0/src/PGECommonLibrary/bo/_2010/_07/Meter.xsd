@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd" xmlns:bons0="http://www.pgn.com/2010/07/common/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="PodId.xsd"/>
+    <xsd:include schemaLocation="Register.xsd"/>
+    <xsd:include schemaLocation="Registers.xsd"/>
+    <xsd:complexType name="Meter">
+    <xsd:sequence>
+            <xsd:element minOccurs="0" name="podId" type="bons0:PodId"/>
+            <xsd:element minOccurs="0" name="mfgCode">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:length value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="serialNumber">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+            <xsd:element minOccurs="0" name="configCode">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:length value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="0" name="registers" type="bons0:Registers"/>
+        </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

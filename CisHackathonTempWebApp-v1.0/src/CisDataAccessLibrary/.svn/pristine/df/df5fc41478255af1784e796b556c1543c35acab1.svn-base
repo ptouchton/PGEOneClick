@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CisServiceOrderEvent"
+	targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns:bons1="http://www.pgn.com/2012/04/cis/xsd"
+	xmlns:bons2="http://www.pgn.com/2010/07/cis/xsd" xmlns:bons3="http://www.pgn.com/2010/07/fault/xsd"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.pgn.com/v1/cis/wsdl"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://www.pgn.com/v1/cis/wsdl">
+			<xsd:import namespace="http://www.pgn.com/2012/04/cis/xsd"
+				schemaLocation="../../cis/bo/_2012/_04/ServiceOrderStatusDto.xsd" />
+			<xsd:import namespace="http://www.pgn.com/2010/07/fault/xsd"
+				schemaLocation="../../bo/_2010/_07/ServiceFault.xsd" />
+			<xsd:import namespace="http://www.pgn.com/2010/07/cis/xsd"
+				schemaLocation="../../cis/bo/_2010/_07/ServiceResponse.xsd" />
+			<xsd:import namespace="http://www.pgn.com/2012/04/cis/xsd"
+				schemaLocation="../../cis/bo/_2012/_04/ServiceOrderCompleteDto.xsd" />
+			<xsd:element name="postServiceOrderComplete">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="serviceOrderComplete" type="bons1:ServiceOrderCompleteDto" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="postServiceOrderCompleteResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="response" type="bons2:ServiceResponse" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="postServiceOrderCompleteFault1_serviceFault"
+				nillable="true" type="bons3:ServiceFault" />
+			<xsd:element name="postWorkOrderStatus">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="serviceOrderStatus" nillable="true"
+							type="bons1:ServiceOrderStatusDto" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="postWorkOrderStatusResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="response" nillable="true"
+							type="bons2:ServiceResponse" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="postWorkOrderStatusFault1_serviceFault"
+				nillable="true" type="bons3:ServiceFault" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="postServiceOrderCompleteRequest">
+		<wsdl:part element="tns:postServiceOrderComplete" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="postServiceOrderCompleteResponse">
+		<wsdl:part element="tns:postServiceOrderCompleteResponse"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="postServiceOrderComplete_serviceFaultMsg">
+		<wsdl:part element="tns:postServiceOrderCompleteFault1_serviceFault"
+			name="serviceFault" />
+	</wsdl:message>
+	<wsdl:message name="postWorkOrderStatusRequestMsg">
+		<wsdl:part element="tns:postWorkOrderStatus" name="postWorkOrderStatusParameters" />
+	</wsdl:message>
+	<wsdl:message name="postWorkOrderStatusResponseMsg">
+		<wsdl:part element="tns:postWorkOrderStatusResponse" name="postWorkOrderStatusResult" />
+	</wsdl:message>
+	<wsdl:message name="postWorkOrderStatus_serviceFaultMsg">
+		<wsdl:part element="tns:postWorkOrderStatusFault1_serviceFault"
+			name="serviceFault" />
+	</wsdl:message>
+	<wsdl:portType name="CisServiceOrderEventPort">
+		<wsdl:operation name="postServiceOrderComplete">
+			<wsdl:input message="tns:postServiceOrderCompleteRequest" name="postServiceOrderCompleteRequest"/>
+			<wsdl:output message="tns:postServiceOrderCompleteResponse" name="postServiceOrderCompleteResponse"/>
+			<wsdl:fault message="tns:postServiceOrderComplete_serviceFaultMsg"
+				name="serviceFault" />
+		</wsdl:operation>
+		<wsdl:operation name="postWorkOrderStatus">
+			<wsdl:input message="tns:postWorkOrderStatusRequestMsg"
+				name="postWorkOrderStatusRequest" />
+			<wsdl:output message="tns:postWorkOrderStatusResponseMsg"
+				name="postWorkOrderStatusResponse" />
+			<wsdl:fault message="tns:postWorkOrderStatus_serviceFaultMsg"
+				name="serviceFault" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="CisServiceOrderEventBinding" type="tns:CisServiceOrderEventPort">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="postServiceOrderComplete">
+			<soap:operation soapAction="" />
+			<wsdl:input name="postServiceOrderCompleteRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="postServiceOrderCompleteResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="serviceFault">
+				<soap:fault name="serviceFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="postWorkOrderStatus">
+			<soap:operation soapAction="" />
+			<wsdl:input name="postWorkOrderStatusRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="postWorkOrderStatusResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="serviceFault">
+				<soap:fault name="serviceFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="CisServiceOrderEventService">
+		<wsdl:port binding="tns:CisServiceOrderEventBinding" name="CisServiceOrderEventPort">
+			<soap:address
+				location="http://localhost:9081/CisServiceOrderEventWeb-v1/CisSericeOrderEventService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

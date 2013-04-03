@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="Cis_CisPremiseHttp_Service" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:bons0="http://www.pgn.com/v1/cis/inf" xmlns:bons1="http://www.pgn.com/v1/cis/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:import location="CisPremise.wsdl" namespace="http://www.pgn.com/v1/cis/inf"/>
+    <wsdl:binding name="CisPremiseBinding" type="bons0:CisPremise">
+
+    	<soap:binding style="document"
+    		transport="http://schemas.xmlsoap.org/soap/http" />
+    	<wsdl:operation name="getPremiseInfo">
+
+    		<soap:operation
+    			soapAction="http://www.pgn.com/v1/cis/wsdl/getPremiseInfo" />
+    		<wsdl:input name="getPremiseInfoRequest">
+
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output name="getPremiseInfoResponse">
+
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    		<wsdl:fault name="premiseNotFound">
+
+    			<soap:fault use="literal" name="premiseNotFound" />
+    		</wsdl:fault>
+    		<wsdl:fault name="serviceFault">
+
+    			<soap:fault use="literal" name="serviceFault" />
+    		</wsdl:fault>
+    	</wsdl:operation>
+    	<wsdl:operation name="createPremise">
+
+    		<soap:operation
+    			soapAction="http://www.pgn.com/v1/cis/wsdl/createPremise" />
+    		<wsdl:input name="createPremiseRequest">
+
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output name="createPremiseResponse">
+
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    		<wsdl:fault name="serviceFault">
+
+    			<soap:fault use="literal" name="serviceFault" />
+    		</wsdl:fault>
+    		<wsdl:fault name="validationFault">
+
+    			<soap:fault use="literal" name="validationFault" />
+    		</wsdl:fault>
+    	</wsdl:operation>
+    	<wsdl:operation name="getAllPremisesByAddress">
+    		<soap:operation
+    			soapAction="http://www.pgn.com/v1/cis/wsdl/getAllPremisesByAddress" />
+    			soapAction="http://www.pgn.com/v1/cis/wsdl/getAllPremisesByAddress" />
+    		<wsdl:input name="getAllPremisesByAddressRequest">
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output name="getAllPremisesByAddressResponse">
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    		<wsdl:fault name="serviceFault">
+    			<soap:fault use="literal" name="serviceFault" />
+    		</wsdl:fault>
+    	</wsdl:operation>
+    	
+    	<wsdl:operation name="getDefaultCustomerPremises">
+
+    		<soap:operation
+    			soapAction="http://www.pgn.com/v1/cis/wsdl/getDefaultCustomerPremises" />
+    		<wsdl:input name="getDefaultCustomerPremisesRequest">
+
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output name="getDefaultCustomerPremisesResponse">
+
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    		<wsdl:fault name="serviceFault">
+
+    			<soap:fault use="literal" name="serviceFault" />
+    		</wsdl:fault>
+    	</wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CisPremiseService">
+    <wsdl:port binding="bons1:CisPremiseBinding" name="CisPremiseServicePort">
+      <soap:address location="http://localhost:9081/CisPremiseWeb-v1/CisPremiseService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.pgn.com/2010/07/common/xsd"
+	xmlns:bons1="http://www.pgn.com/2010/07/common/xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="Phone">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="phoneType"
+				type="xsd:string">
+				<xsd:annotation>
+          
+        <xsd:documentation>Phone Type&#13;
+Suggested Values:  PRIMARY, CELL, ALTERNATE or WORK</xsd:documentation>
+        </xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="countryCode">
+				<xsd:annotation>
+          <xsd:documentation>Country code</xsd:documentation>
+        </xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern value="\d*" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="areaCode">
+				<xsd:annotation>
+          <xsd:documentation>Area code</xsd:documentation>
+        </xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern value="\d*" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="localExchange">
+				<xsd:annotation>
+          <xsd:documentation>local Exchange number</xsd:documentation>
+        </xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern value="\d*" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="localNumber">
+				<xsd:annotation>
+          <xsd:documentation>local number</xsd:documentation>
+        </xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern value="\d*" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="extension">
+				<xsd:annotation>
+          <xsd:documentation>Phone extension</xsd:documentation>
+        </xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

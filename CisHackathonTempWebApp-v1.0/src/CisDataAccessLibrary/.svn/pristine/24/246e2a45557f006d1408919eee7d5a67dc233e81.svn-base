@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CisLmaAccountService" targetNamespace="http://www.pgn.com/v1/cis/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://www.pgn.com/v1/cis/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="CisLmaAccount.wsdl" namespace="http://www.pgn.com/v1/cis/wsdl"/>
+  <wsdl:binding name="CisLmaAccountServiceBinding" type="this:CisLmaAccount">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getAccounts">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getAccountsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAccountsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="serviceFault">
+        <soap:fault name="serviceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CisLmaAccountService">
+    <wsdl:port binding="this:CisLmaAccountServiceBinding" name="CisLmaAccountServicePort">
+      <soap:address location="http://localhost:9080/testWeb/sca/CisLmaAccountExport2"/>
+    </wsdl:port> 
+  </wsdl:service>
+</wsdl:definitions>
